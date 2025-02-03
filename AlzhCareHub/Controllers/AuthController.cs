@@ -18,21 +18,17 @@
         {
             try
             {
-                var auth = await FirebaseAuthHelper.RegisterUser(email, password);
+                var auth = await FirebaseAuthHelper.RegisterUser(email, password, role);
 
                 if (auth != null)
                 {
-                    // Save the role after registration in the session
-                    HttpContext.Session.SetString("UserRole", role);
-                    HttpContext.Session.SetString("UserEmail", email);
-
-                    TempData["Success"] = "Registration Successful! Please check your email for the verification link.";
+                    TempData["Success"] = "Registration successful!";
                     return RedirectToAction("Login");
                 }
             }
             catch (InvalidOperationException ex)
             {
-                TempData["Error"] = ex.Message; // Handle custom exception (invalid email, email exists)
+                TempData["Error"] = ex.Message;
             }
             catch (Exception ex)
             {
@@ -41,12 +37,13 @@
 
             return View();
         }
-        // Get a login page
+
         public ActionResult Login()
         {
             return View();
         }
-        // Perform a login operation in this by getting the role 
+
+        // Login Action (without email verification)
         [HttpPost]
         public async Task<ActionResult> Login(string email, string password)
         {
@@ -56,68 +53,38 @@
 
                 if (auth != null)
                 {
-                    // Get the role stored in the session
-                    var userRole = HttpContext.Session.GetString("UserRole");
+                    var userRole = await FirebaseAuthHelper.GetUserRole(auth.User.LocalId);
 
-                    // Redirect based on the user's role
+                    HttpContext.Session.SetString("UserRole", userRole);
+                    HttpContext.Session.SetString("UserEmail", email);
+
                     if (userRole == "Caregiver")
                     {
-                        return RedirectToAction("CaregiverDashboard"); // Caregiver-specific dashboard
+                        return RedirectToAction("CaregiverDashboard");
                     }
                     else if (userRole == "Volunteer")
                     {
-                        return RedirectToAction("VolunteerDashboard"); // Volunteer-specific dashboard
+                        return RedirectToAction("VolunteerDashboard");
                     }
                     else
                     {
-                        return RedirectToAction("Dashboard"); // Default dashboard or error view
+                        return RedirectToAction("Dashboard");
                     }
                 }
-                else
-                {
-                    TempData["Error"] = "Login failed. Please try again.";
-                    return View();
-                }
-            }
-            catch (FirebaseAuthException ex)
-            {
-                if (ex.Reason == AuthErrorReason.WrongPassword)
-                {
-                    TempData["Error"] = "Invalid password. Please try again.";
-                }
-                else if (ex.Reason == AuthErrorReason.UnknownEmailAddress)
-                {
-                    TempData["Error"] = "Email not found. Please register first.";
-                }
-                else if (ex.Reason == AuthErrorReason.InvalidEmailAddress)
-                {
-                    TempData["Error"] = "Invalid email format. Please enter a valid email.";
-                }
-                else if (ex.Reason == AuthErrorReason.UserDisabled)
-                {
-                    TempData["Error"] = "This account has been disabled. Contact support.";
-                }
-                else
-                {
-                    TempData["Error"] = "Login failed. Please check your credentials.";
-                }
-                return View();
             }
             catch (Exception ex)
             {
-                TempData["Error"] = "An unexpected error occurred: " + ex.Message;
-                return View();
+                TempData["Error"] = "Login failed: " + ex.Message;
             }
+
+            return View();
         }
 
-
-        // Forgot password page
         public ActionResult ForgotPassword()
         {
             return View();
         }
 
-        // Handle password reset
         [HttpPost]
         public async Task<ActionResult> ForgotPassword(string email)
         {
@@ -133,7 +100,7 @@
                 return View();
             }
         }
-        // Logout feature redirect to login page
+
         public ActionResult Logout()
         {
             HttpContext.Session.Clear();
@@ -149,7 +116,7 @@
             }
 
             ViewBag.UserEmail = userEmail;
-            return View(); // Caregiver-specific dashboard view
+            return View();
         }
 
         public ActionResult VolunteerDashboard()
@@ -161,7 +128,7 @@
             }
 
             ViewBag.UserEmail = userEmail;
-            return View(); // Volunteer-specific dashboard view
+            return View();
         }
     }
 }

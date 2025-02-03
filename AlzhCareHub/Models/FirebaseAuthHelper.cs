@@ -1,42 +1,71 @@
 ﻿namespace AlzhCareHub.Models
 {
     using Firebase.Auth;
+    using Firebase.Database;
+    using Firebase.Database.Query;
     using System.Threading.Tasks;
     using System;
 
     public class FirebaseAuthHelper
     {
-        private static string ApiKey = "AIzaSyD35i9-6Uw14gLu0WMoO_9Hm2qgX51qyR0";
+        private static string ApiKey = "AIzaSyCWeoUTihsySNUteX_FWBu9mDMXJY57yUs";
+        private static string DatabaseUrl = "https://alzheimercarehubsystem-a42e6-default-rtdb.firebaseio.com/";
         private static FirebaseAuthProvider authProvider = new FirebaseAuthProvider(new FirebaseConfig(ApiKey));
+        private static FirebaseClient firebaseClient = new FirebaseClient(DatabaseUrl);
 
-        public static async Task<FirebaseAuthLink> RegisterUser(string email, string password)
+        // Register User (without email verification)
+        public static async Task<FirebaseAuthLink> RegisterUser(string email, string password, string role)
         {
             try
             {
-                // Register the user
                 var authLink = await authProvider.CreateUserWithEmailAndPasswordAsync(email, password);
 
-                // You will send the verification email from Firebase Admin or Cloud Functions here
+                // Save user role in Firebase Database
+                await firebaseClient
+                    .Child("Users")
+                    .Child(authLink.User.LocalId)
+                    .PutAsync(new { Email = email, Role = role });
+
                 return authLink;
             }
             catch (FirebaseAuthException ex)
             {
-                // Handle errors
+                if (ex.Reason == AuthErrorReason.EmailExists)
+                {
+                    throw new InvalidOperationException("This email is already registered. Please log in or use another email.");
+                }
                 throw new Exception("Error creating user: " + ex.Message);
             }
         }
 
+        // Login User (no email verification)
         public static async Task<FirebaseAuthLink> LoginUser(string email, string password)
         {
-            return await authProvider.SignInWithEmailAndPasswordAsync(email, password);
+            try
+            {
+                // Direct login without checking email verification
+                var authLink = await authProvider.SignInWithEmailAndPasswordAsync(email, password);
+
+                return authLink;
+            }
+            catch (FirebaseAuthException ex)
+            {
+                throw new Exception("Login failed: " + ex.Message);
+            }
         }
 
-        public static async Task<string> GetUserRole(string email)
+        // Get User Role from Firebase Database
+        public static async Task<string> GetUserRole(string userId)
         {
-            return "Caregiver"; // Placeholder, replace with your actual role logic
+            var user = await firebaseClient
+                .Child("Users")
+                .Child(userId)
+                .OnceSingleAsync<dynamic>();
+
+            return user?.Role ?? "Unknown"; // Default to "Unknown" if role not found
         }
 
-        // Password reset logic
+        // Reset Password
         public static async Task<string> ResetPassword(string email)
         {
             try
