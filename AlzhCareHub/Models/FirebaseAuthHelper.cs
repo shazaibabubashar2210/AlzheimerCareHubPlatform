@@ -37,23 +37,23 @@
                 throw new Exception("Error creating user: " + ex.Message);
             }
         }
-
-        // Login User (no email verification)
+        // Login User 
         public static async Task<FirebaseAuthLink> LoginUser(string email, string password)
         {
             try
             {
-                // Direct login without checking email verification
                 var authLink = await authProvider.SignInWithEmailAndPasswordAsync(email, password);
-
                 return authLink;
             }
             catch (FirebaseAuthException ex)
             {
+                if (ex.Reason == AuthErrorReason.InvalidEmailAddress || ex.Reason == AuthErrorReason.WrongPassword)
+                {
+                    throw new InvalidOperationException("Invalid username or password. Please try again.");
+                }
                 throw new Exception("Login failed: " + ex.Message);
             }
         }
-
         // Get User Role from Firebase Database
         public static async Task<string> GetUserRole(string userId)
         {

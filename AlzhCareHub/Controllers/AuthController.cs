@@ -72,9 +72,13 @@
                     }
                 }
             }
+            catch (InvalidOperationException ex)
+            {
+                TempData["Error"] = ex.Message; // Displaying user-friendly error message
+            }
             catch (Exception ex)
             {
-                TempData["Error"] = "Login failed: " + ex.Message;
+                TempData["Error"] = "Invalid User Name And Password Plz try again.";
             }
 
             return View();
