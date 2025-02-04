@@ -22,7 +22,7 @@
 
                 if (auth != null)
                 {
-                    TempData["Success"] = "Registration successful!";
+                    TempData["Success"] = "Registration successful! Please check your email to verify your account.";
                     return RedirectToAction("Login");
                 }
             }
@@ -43,7 +43,7 @@
             return View();
         }
 
-        // Login Action (without email verification)
+        // Login Action with Email Verification Check
         [HttpPost]
         public async Task<ActionResult> Login(string email, string password)
         {
@@ -78,7 +78,7 @@
             }
             catch (Exception ex)
             {
-                TempData["Error"] = "Invalid User Name And Password Plz try again.";
+                TempData["Error"] = "Invalid User Name And Password. Please try again.";
             }
 
             return View();

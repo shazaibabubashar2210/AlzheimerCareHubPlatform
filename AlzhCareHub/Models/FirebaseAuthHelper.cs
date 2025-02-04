@@ -13,18 +13,21 @@
         private static FirebaseAuthProvider authProvider = new FirebaseAuthProvider(new FirebaseConfig(ApiKey));
         private static FirebaseClient firebaseClient = new FirebaseClient(DatabaseUrl);
 
-        // Register User (without email verification)
+        // Register User with Email Verification
         public static async Task<FirebaseAuthLink> RegisterUser(string email, string password, string role)
         {
             try
             {
                 var authLink = await authProvider.CreateUserWithEmailAndPasswordAsync(email, password);
 
+                // Send email verification
+                await authProvider.SendEmailVerificationAsync(authLink.FirebaseToken);
+
                 // Save user role in Firebase Database
                 await firebaseClient
                     .Child("Users")
                     .Child(authLink.User.LocalId)
-                    .PutAsync(new { Email = email, Role = role });
+                    .PutAsync(new { Email = email, Role = role, EmailVerified = false });
 
                 return authLink;
             }
@@ -37,12 +40,21 @@
                 throw new Exception("Error creating user: " + ex.Message);
             }
         }
-        // Login User 
+
+        // Login User with Email Verification Check
         public static async Task<FirebaseAuthLink> LoginUser(string email, string password)
         {
             try
             {
                 var authLink = await authProvider.SignInWithEmailAndPasswordAsync(email, password);
+
+                // Check if email is verified
+                var user = await authProvider.GetUserAsync(authLink.FirebaseToken);
+                if (!user.IsEmailVerified)
+                {
+                    throw new InvalidOperationException("Please verify your email address before logging in.");
+                }
+
                 return authLink;
             }
             catch (FirebaseAuthException ex)
@@ -54,6 +66,7 @@
                 throw new Exception("Login failed: " + ex.Message);
             }
         }
+
         // Get User Role from Firebase Database
         public static async Task<string> GetUserRole(string userId)
         {
