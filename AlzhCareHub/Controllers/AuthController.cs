@@ -43,12 +43,19 @@
             return View();
         }
 
-        // Login Action with Email Verification Check
         [HttpPost]
         public async Task<ActionResult> Login(string email, string password)
         {
             try
             {
+                // Check if the user is trying to log in as admin
+                if (email == "admin@gmail.com" && password == "admin")
+                {
+                    HttpContext.Session.SetString("UserRole", "Admin");
+                    HttpContext.Session.SetString("UserEmail", "admin@alzhcarehub.com");
+                    return RedirectToAction("AdminDashboard");
+                }
+
                 var auth = await FirebaseAuthHelper.LoginUser(email, password);
 
                 if (auth != null)
@@ -66,6 +73,10 @@
                     {
                         return RedirectToAction("VolunteerDashboard");
                     }
+                    else if (userRole == "Admin")
+                    {
+                        return RedirectToAction("AdminDashboard");
+                    }
                     else
                     {
                         return RedirectToAction("Dashboard");
@@ -81,6 +92,18 @@
                 TempData["Error"] = "Invalid User Name And Password. Please try again.";
             }
 
+            return View();
+        }
+
+        public ActionResult AdminDashboard()
+        {
+            var userEmail = HttpContext.Session.GetString("UserEmail");
+            if (string.IsNullOrEmpty(userEmail))
+            {
+                return RedirectToAction("Login");
+            }
+
+            ViewBag.UserEmail = userEmail;
             return View();
         }
 

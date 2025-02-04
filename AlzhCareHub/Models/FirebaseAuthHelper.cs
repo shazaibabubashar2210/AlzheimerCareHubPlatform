@@ -66,7 +66,15 @@
                 throw new Exception("Login failed: " + ex.Message);
             }
         }
+        public static async Task<bool> IsAdmin(string userId)
+        {
+            var user = await firebaseClient
+                .Child("Users")
+                .Child(userId)
+                .OnceSingleAsync<dynamic>();
 
+            return user?.Role == "Admin";
+        }
         // Get User Role from Firebase Database
         public static async Task<string> GetUserRole(string userId)
         {
