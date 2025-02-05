@@ -62,3 +62,10 @@
         font-size: 1rem;
         padding: 0.7rem 1.5rem;
     }
+
+
+/*    Doctor section Styling*/
+.doctor-section {
+    border-radius: 25px;
+}
+
