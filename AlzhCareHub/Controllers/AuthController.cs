@@ -49,7 +49,7 @@
             try
             {
                 // Check if the user is trying to log in as admin
-                if (email == "admin@gmail.com" && password == "admin")
+                if (email == "admin@gmail.com" && password == "admin123@")
                 {
                     HttpContext.Session.SetString("UserRole", "Admin");
                     HttpContext.Session.SetString("UserEmail", "admin@alzhcarehub.com");
