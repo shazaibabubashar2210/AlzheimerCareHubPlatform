@@ -1,0 +1,34 @@
+﻿@{
+    Layout = "_AboutUs";
+}
+@{
+    var userEmail = Context.Session.GetString("UserEmail");
+}
+
+@if (string.IsNullOrEmpty(userEmail))
+{
+    <script type="text/javascript">
+        alert("Please log in to access this page.");
+        window.location.href = "/Auth/Caregiverdashboard";  
+    </script>
+}
+else
+{
+    <!-- Hero Section (only visible to authenticated users) -->
+    <div class="container-fluid my-5">
+        <div class="row hero">
+            <div class="col-lg-5 ps-lg-5 ps-lg-0">
+                <img src="~/images/HeroSectionImage.png" alt="Virtual Healthcare" class="img-fluid">
+            </div>
+            <div class="col-lg-5 ms-lg-5 ps-lg-5">
+                <p style="color: #5e78f9; font-size: 25px">About Us</p>
+                <h1 class="display-5 fw-bold"> We are serving to Alzheimer patients</h1>
+                <p class="text-muted" style="font-size:17px">
+                    At AlzhCare we are committed to helping people affected by Alzheimer's disease. Our goal is to raise awareness, offer support, and help find better treatments. Alzheimer's disease affects memory, thinking, and daily activities, and we understand how difficult it can be for those living with it and their families.
+                    We provide a caring space where people with Alzheimer's, their caregivers, and healthcare professionals can get help and information.
+                </p>
+                <a href="#" class="btn btn-primary btn-lg helpbtn">Get Help</a>
+            </div>
+        </div>
+    </div>
+}

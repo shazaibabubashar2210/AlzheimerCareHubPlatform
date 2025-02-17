@@ -40,7 +40,6 @@
                 throw new Exception("Error creating user: " + ex.Message);
             }
         }
-
         // Login User with Email Verification Check
         public static async Task<FirebaseAuthLink> LoginUser(string email, string password)
         {
@@ -48,11 +47,14 @@
             {
                 var authLink = await authProvider.SignInWithEmailAndPasswordAsync(email, password);
 
-                // Check if email is verified
-                var user = await authProvider.GetUserAsync(authLink.FirebaseToken);
-                if (!user.IsEmailVerified)
+                // Force refresh user data
+                await Task.Delay(1000); // Small delay to allow Firebase to update
+                var freshAuth = await authProvider.GetUserAsync(authLink.FirebaseToken);
+
+                // Now check email verification status
+                if (!freshAuth.IsEmailVerified)
                 {
-                    throw new InvalidOperationException("Please verify your email address before logging in.");
+                    throw new InvalidOperationException("Your email is not verified. Please check your inbox and verify your email before logging in.");
                 }
 
                 return authLink;
@@ -66,6 +68,7 @@
                 throw new Exception("Login failed: " + ex.Message);
             }
         }
+
         public static async Task<bool> IsAdmin(string userId)
         {
             var user = await firebaseClient

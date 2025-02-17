@@ -14,10 +14,12 @@
         }
 
         [HttpPost]
-        public async Task<ActionResult> Register(string email, string password, string role)
+        public async Task<ActionResult> Register(string email, string password)
         {
             try
             {
+                string role = "Caregiver"; // Automatically assigning Caregiver role
+
                 var auth = await FirebaseAuthHelper.RegisterUser(email, password, role);
 
                 if (auth != null)
@@ -60,6 +62,7 @@
 
                 if (auth != null)
                 {
+
                     var userRole = await FirebaseAuthHelper.GetUserRole(auth.User.LocalId);
 
                     HttpContext.Session.SetString("UserRole", userRole);
@@ -68,10 +71,6 @@
                     if (userRole == "Caregiver")
                     {
                         return RedirectToAction("CaregiverDashboard");
-                    }
-                    else if (userRole == "Volunteer")
-                    {
-                        return RedirectToAction("VolunteerDashboard");
                     }
                     else if (userRole == "Admin")
                     {
@@ -85,15 +84,16 @@
             }
             catch (InvalidOperationException ex)
             {
-                TempData["Error"] = ex.Message; // Displaying user-friendly error message
+                TempData["Error"] = ex.Message;
             }
             catch (Exception ex)
             {
-                TempData["Error"] = "Invalid User Name And Password. Please try again.";
+                TempData["Error"] = "Invalid Username or Password. Please try again.";
             }
 
             return View();
         }
+
 
         public ActionResult AdminDashboard()
         {
@@ -130,31 +130,14 @@
 
         public ActionResult Logout()
         {
+            HttpContext.Session.Remove("UserEmail");
+            HttpContext.Session.Remove("UserRole");
             HttpContext.Session.Clear();
-            return RedirectToAction("Login");
+            return RedirectToAction("CaregiverDashboard");
         }
 
         public ActionResult CaregiverDashboard()
         {
-            var userEmail = HttpContext.Session.GetString("UserEmail");
-            if (string.IsNullOrEmpty(userEmail))
-            {
-                return RedirectToAction("Login");
-            }
-
-            ViewBag.UserEmail = userEmail;
-            return View();
-        }
-
-        public ActionResult VolunteerDashboard()
-        {
-            var userEmail = HttpContext.Session.GetString("UserEmail");
-            if (string.IsNullOrEmpty(userEmail))
-            {
-                return RedirectToAction("Login");
-            }
-
-            ViewBag.UserEmail = userEmail;
             return View();
         }
     }

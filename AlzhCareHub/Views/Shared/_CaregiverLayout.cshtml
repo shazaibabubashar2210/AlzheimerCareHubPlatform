@@ -58,7 +58,7 @@
                 <ul class="navbar-nav ms-auto">
                     <!-- Pushes items to the right -->
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Home</a>
+                        <a class="nav-link active" asp-controller="Auth" asp-action="CaregiverDashboard">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Find a Doctor</a>
@@ -67,14 +67,28 @@
                         <a class="nav-link" href="#">Educational Resources</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About Us</a>
+                        <a class="nav-link" asp-controller="AboutUs" asp-action="Index">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Donate</a>
+                        <a class="nav-link" asp-controller="Donation" asp-action="Donate">Donate</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link me-5" asp-area="" asp-controller="Auth" asp-action="Logout">Logout</a>
+                        <a class="nav-link" asp-controller="Volunteer" asp-action="Volunteer">Volunteer</a>
                     </li>
+                    @{
+                        var userEmail = Context.Session.GetString("UserEmail");
+                    }
+
+                    @if (!string.IsNullOrEmpty(userEmail))
+                    {
+                        <a class="nav-link me-5" asp-controller="Auth" asp-action="Logout">Logout</a>
+                    }
+                    else
+                    {
+                        <a class="nav-link me-5" asp-controller="Auth" asp-action="Login">Login</a>
+                    }
+
+
                 </ul>
             </div>
         </div>
@@ -89,7 +103,7 @@
                 <div class="col-md-4 col-lg-3">
                     <div class="footer-icon" style="color: #70a7f5">A</div>
                     <h5>AlzhCare</h5>
-                    <p style="color: #c3dffa;">AlzhCare Hub A platform where there is a release of burden from Caregivers to their Old People for take care.</p>
+                    <p style="color: #c3dffa; font-weight: bold;">AlzhCare Hub A platform where there is a release of burden from Caregivers to their Old People for take care.</p>
                 </div>
 
                 <div class="col-md-2 col-lg-2 footer-section">
