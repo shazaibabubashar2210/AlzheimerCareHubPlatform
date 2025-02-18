@@ -1,0 +1,104 @@
+﻿@{
+    Layout = "";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remainder And Alerts</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+      
+        .container {
+            max-width: 800px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+
+        .priority-label {
+            font-weight: 500;
+            margin-right: 10px;
+        }
+
+        .btn-orange {
+            background-color: blue;
+            color: white;
+            border: 2px solid blue;
+            padding: 10px 25px;
+        }
+
+            .btn-orange:hover {
+                background-color: transparent;
+                color: black;
+                border: 2px solid blue;
+            }
+    </style>
+</head>
+<body class="bg-light">
+
+    <div class="container">
+        <div class="d-flex justify-content-between">
+            <h5 class="text-primary">Add New Task</h5>
+            <a class="text-decoration-none" asp-controller="Auth" asp-action="Caregiverdashboard">Go Back</a>
+        </div>
+
+        <form>
+            <!-- Title Input -->
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="title" placeholder="Enter title">
+            </div>
+
+            <!-- Date Input -->
+            <div class="mb-3">
+                <label for="date" class="form-label">Date</label>
+                <input type="date" class="form-control" id="date">
+            </div>
+
+            <!-- Priority Selection -->
+            <div class="mb-3">
+                <label class="form-label">Priority</label>
+                <div class="d-flex align-items-center">
+                    <input type="radio" class="btn-check" name="priority" id="extreme" autocomplete="off">
+                    <label class="btn btn-outline-primary priority-label" for="extreme">Extreme</label>
+
+                    <input type="radio" class="btn-check" name="priority" id="moderate" autocomplete="off">
+                    <label class="btn btn-outline-primary priority-label" for="moderate">Moderate</label>
+
+                    <input type="radio" class="btn-check" name="priority" id="low" autocomplete="off">
+                    <label class="btn btn-outline-primary priority-label" for="low">Low</label>
+                </div>
+            </div>
+
+            <!-- Task Description and Image Upload -->
+            <div class="row">
+                <div class="col-md-7">
+                    <label for="description" class="form-label">Task Description</label>
+                    <textarea class="form-control" id="description" rows="5" placeholder="Start writing here..."></textarea>
+                </div>
+                <div class="col-md-5">
+                    <label for="image" class="form-label">Upload Image</label>
+                    <div class="border rounded text-center p-4 bg-light">
+                        <i class="fa-solid fa-upload mb-2"></i>
+                        <p class="small">Drag & Drop files here <br> or</p>
+                        <input type="file" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="mt-4">
+                <button type="submit" class="btn btn-orange">Done</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

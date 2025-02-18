@@ -1,0 +1,105 @@
+﻿@{
+    Layout = "";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .contact-card {
+            background-color: #3b82f6;
+            color: white;
+            padding: 30px;
+            border-radius: 10px 0 0 10px; /* Rounded left only */
+            height: 100%;
+        }
+
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 0 10px 10px 0; /* Rounded right only */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            height: 100%;
+        }
+
+        .btn-primary {
+            background-color: #3b82f6;
+            border: none;
+        }
+
+            .btn-primary:hover {
+                background-color: #2563eb;
+            }
+    </style>
+</head>
+<body class="bg-light">
+
+    <div class="container mt-3">
+        <h2 class="text-center fw-bold">Contact Us</h2>
+        <p class="text-center text-muted">Any question or remarks? Just write us a message!</p>
+
+        <div class="row g-0 d-flex">
+            <!-- Removed space between columns -->
+            <!-- Left Contact Information Card -->
+            <div class="col-lg-4 d-flex">
+                <div class="contact-card w-100" style="height: 80vh;">
+                    <!-- Ensures full width -->
+                    <h4>Contact Information</h4>
+                    <p>Say something!</p>
+                    <p><i class="bi bi-telephone"></i> +923035165423</p>
+                    <p><i class="bi bi-envelope"></i> alzhcare@gmail.com</p>
+                    <p><i class="bi bi-geo-alt"></i> 143-B, Block B Phase 2 PCSIR Phase II, Lahore</p>
+                    <div class="d-flex">
+                        <i class="bi bi-instagram me-3"></i>
+                        <i class="bi bi-twitter me-3"></i>
+                        <i class="bi bi-messenger"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Contact Form -->
+            <div class="col-lg-8 d-flex">
+                <div class="form-container w-100" style="height: 80vh;">
+                    <!-- Ensures full width -->
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="firstName" class="form-label">First Name</label>
+                                <input type="text" class="form-control" id="firstName" placeholder="F-Name">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="lastName" class="form-label">Last Name</label>
+                                <input type="text" class="form-control" id="lastName" placeholder="L-Name">
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="example@gmail.com">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="phoneNumber" class="form-label">Phone Number</label>
+                            <input type="text" class="form-control" id="phoneNumber" placeholder="+92035165423">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" rows="4" placeholder="Write your message..."></textarea>
+                            <button type="submit" class="btn btn-primary mt-3">Send Message</button>
+                            <a asp-controller="AboutUs" asp-action="Index" class="btn btn-outline-primary mt-3 ms-5" style="width: 20%;">Cancel</a>
+                        </div>
+                       
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
