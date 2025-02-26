@@ -1,0 +1,29 @@
+﻿@model AlzhCareHub.Models.FeedbackModel
+
+@{
+    Layout = "_Donation";
+}
+
+<h2 class="text-primary mb-4">Submit Your Feedback</h2>
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success">@ViewBag.Message</div>
+    <a class="btn btn-primary" asp-controller="FeedBack" asp-action="Responses">Go To view our response</a>
+}
+
+<div class="card shadow-lg p-4 bg-white">
+    <form asp-action="Submit" method="post">
+        <div class="mb-3">
+            <label for="UserEmail" class="form-label fw-bold">Email Address</label>
+            <input type="email" name="UserEmail" class="form-control" placeholder="Enter your email" required />
+        </div>
+
+        <div class="mb-3">
+            <label for="Message" class="form-label fw-bold">Your Message</label>
+            <textarea name="Message" class="form-control" rows="4" placeholder="Write your feedback..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary px-4 py-2 shadow">Submit Feedback</button>
+    </form>
+</div>
