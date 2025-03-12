@@ -180,7 +180,13 @@
     <div class="support-content">
         <h2>@AlzhCareHub.StringResources.Resource.JoinHead</h2>
         <p>@AlzhCareHub.StringResources.Resource.JoinPara</p>
-        <a asp-controller="AboutUs" asp-action="Index" class="btn btn-outline-primary helpbtn">@AlzhCareHub.StringResources.Resource.LM</a>
+        @if(userEmail==null)
+        {
+            <a href="javascript:void(0);" onclick="showLoginAlert();" class="btn btn-outline-primary helpbtn">@AlzhCareHub.StringResources.Resource.LM</a>
+        }
+        else{
+            <a asp-controller="AboutUs" asp-action="Index" class="btn btn-outline-primary helpbtn">@AlzhCareHub.StringResources.Resource.LM</a>
+        }
     </div>
     
 </div>
@@ -190,7 +196,14 @@
     <div class="support-content">
         <h2>@AlzhCareHub.StringResources.Resource.DonateHead</h2>
         <p>@AlzhCareHub.StringResources.Resource.DonatePara </p>
-        <a asp-controller="Donation" asp-action="Donate" class="btn btn-outline-primary helpbtn">@AlzhCareHub.StringResources.Resource.Donate</a>
+        @if(userEmail==null)
+        {
+            <a href="javascript:void(0);" onclick="showLoginAlert();" class="btn btn-outline-primary helpbtn">@AlzhCareHub.StringResources.Resource.Donate</a>
+        }
+        else{
+            <a asp-controller="Donation" asp-action="Donate" class="btn btn-outline-primary helpbtn">@AlzhCareHub.StringResources.Resource.Donate</a>
+        }
+
     </div>
     <div>
         <img src="~/images/Donate.png" alt="Supporting Alzheimer's Patients" >

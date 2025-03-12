@@ -37,18 +37,6 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
     options.SupportedUICultures = supportedCultures;
 });
 
-// 🔹 Configure authentication (Google & Cookie)
-builder.Services.AddAuthentication(options =>
-{
-    options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = GoogleDefaults.AuthenticationScheme;
-})
-.AddCookie()
-.AddGoogle(googleOptions =>
-{
-    googleOptions.ClientId = builder.Configuration["Google:ClientId"] ?? throw new Exception("Google ClientId is missing in appsettings.json");
-    googleOptions.ClientSecret = builder.Configuration["Google:ClientSecret"] ?? throw new Exception("Google ClientSecret is missing in appsettings.json");
-});
 builder.WebHost.UseUrls("http://0.0.0.0:8080");
 builder.Services.AddHttpContextAccessor();
 

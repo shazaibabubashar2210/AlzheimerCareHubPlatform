@@ -54,6 +54,9 @@
 
     </style>
 </head>
+@{
+    var userEmail = Context.Session.GetString("UserEmail");
+}
 <body>
     <nav class="navbar navbar-expand-lg" style="color: #ffffff">
         <div class="container-fluid">
@@ -69,16 +72,43 @@
                             @AlzhCareHub.StringResources.Resource.Home
                         </a>
                     </li>
+                    @if(userEmail==null)
+                    {
+                        <li class="nav-item">
+                            <a href="javascript:void(0);" class="nav-link" onclick="showError()">@AlzhCareHub.StringResources.Resource.FindDoctor</a>
+                        </li>
+                    }
+                    else{
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">@AlzhCareHub.StringResources.Resource.FindDoctor</a>
+                        </li>
+                    }
+
+                    @if(userEmail==null)
+                    {
+                        <li class="nav-item">
+                            <a href="javascript:void(0);" class="nav-link" onclick="showError()">@AlzhCareHub.StringResources.Resource.EducationalResources</a>
+                        </li>
+                    }
+                    else{
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">@AlzhCareHub.StringResources.Resource.EducationalResources</a>
+                        </li>
+                    }
+
                     <li class="nav-item">
-                        <a class="nav-link" href="#">@AlzhCareHub.StringResources.Resource.FindDoctor</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">@AlzhCareHub.StringResources.Resource.EducationalResources</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="AboutUs" asp-action="Index">
-                            @AlzhCareHub.StringResources.Resource.AboutUs_
-                        </a>
+                        @if (userEmail == null)
+                        {
+                            <a href="javascript:void(0);" class="nav-link" onclick="showError()">
+                                @AlzhCareHub.StringResources.Resource.AboutUs_
+                            </a>
+                        }
+                        else
+                        {
+                            <a asp-controller="AboutUs" asp-action="Index" class="nav-link">
+                                @AlzhCareHub.StringResources.Resource.AboutUs_
+                            </a>
+                        }
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" asp-controller="Volunteer" asp-action="Volunteer">
@@ -86,9 +116,7 @@
                         </a>
                     </li>
 
-                    @{
-                        var userEmail = Context.Session.GetString("UserEmail");
-                    }
+                  
 
                     @if (!string.IsNullOrEmpty(userEmail))
                     {
@@ -168,6 +196,11 @@
         </div>
     </footer>
 
+    <script>
+        function showError(){
+            alert("Please login to access this page");
+        }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
