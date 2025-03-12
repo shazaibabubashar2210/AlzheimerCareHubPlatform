@@ -1,0 +1,55 @@
+﻿@model List<AlzhCareHub.Models.FeedbackModel>
+
+<h2 class="text-primary mb-4">Review Feedback</h2>
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+}
+
+<table class="table table-bordered shadow-lg">
+    <thead class="table-primary">
+        <tr>
+            <th>Email</th>
+            <th>Message</th>
+            <th>Response</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var feedback in Model)
+        {
+            <tr>
+                <td>@feedback.UserEmail</td>
+                <td>@feedback.Message</td>
+                <td>
+                    @if (!string.IsNullOrEmpty(feedback.Response))
+                    {
+                        <p class="text-success fw-bold">@feedback.Response</p> <!-- Shows Admin Response -->
+                    }
+                    else
+                    {
+                        <p class="text-muted">No response yet</p>
+                    }
+                </td>
+                <td>
+                    @if (string.IsNullOrEmpty(feedback.Response))
+                    {
+                        <form asp-action="Respond" method="post">
+                            <input type="hidden" name="id" value="@feedback.Id" />
+                            <input type="text" name="responseMessage" class="form-control" placeholder="Enter response" required />
+                            <button type="submit" class="btn btn-primary mt-2">Respond</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <form asp-action="DeleteResponse" method="post">
+                            <input type="hidden" name="id" value="@feedback.Id" />
+                            <button type="submit" class="btn btn-danger">Delete Response</button>
+                        </form>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

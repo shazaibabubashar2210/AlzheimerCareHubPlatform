@@ -1,0 +1,32 @@
+# Base image
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+USER $APP_UID
+WORKDIR /app
+EXPOSE 8080
+EXPOSE 8081
+
+# Build stage
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+ARG BUILD_CONFIGURATION=Release
+WORKDIR /src
+
+# Copy project files
+COPY AlzhCareHub.csproj ./
+RUN ls -R /src  # Debugging step to verify file structure
+RUN dotnet restore "AlzhCareHub.csproj"
+
+# Copy the rest of the application
+COPY . .
+
+# Build the application
+RUN dotnet build "AlzhCareHub.csproj" -c Release -o /app/build
+
+# Publish stage
+FROM build AS publish
+RUN dotnet publish "AlzhCareHub.csproj" -c Release -o /app/publish /p:UseAppHost=false
+
+# Final runtime stage
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "AlzhCareHub.dll"]

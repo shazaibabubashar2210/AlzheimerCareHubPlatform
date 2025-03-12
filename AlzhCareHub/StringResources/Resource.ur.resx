@@ -1,0 +1,323 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutUs " xml:space="preserve">
+    <value>ہمارے بارے میں</value>
+  </data>
+  <data name="AlzhCare" xml:space="preserve">
+    <value>الزکئیر</value>
+  </data>
+  <data name="WebSiteFooterText" xml:space="preserve">
+    <value>الزکئیر ہب – ایک ایسا پلیٹ فارم جہاں دیکھ بھال کرنے والوں کا بوجھ کم ہو جاتا ہے اور وہ اپنے بزرگوں کی بہتر دیکھ بھال کر سکتے ہیں۔</value>
+  </data>
+  <data name="EducationalResources" xml:space="preserve">
+    <value> تعلیمی وسائل</value>
+  </data>
+  <data name="FindDoctor" xml:space="preserve">
+    <value>ڈاکٹر تلاش کریں</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>ہوم</value>
+  </data>
+  <data name="Login " xml:space="preserve">
+    <value> لاگ ان</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>لاگ آؤٹ</value>
+  </data>
+  <data name="Volunteer" xml:space="preserve">
+    <value>رضاکار</value>
+  </data>
+  <data name="Testimonials" xml:space="preserve">
+    <value>تعریفی آراء</value>
+  </data>
+  <data name="AppsAndGames" xml:space="preserve">
+    <value>ایپس اور گیمز</value>
+  </data>
+  <data name="Region" xml:space="preserve">
+    <value>علاقہ</value>
+  </data>
+  <data name="Lahore" xml:space="preserve">
+    <value>لاہور</value>
+  </data>
+  <data name="Karachi" xml:space="preserve">
+    <value>کراچی</value>
+  </data>
+  <data name="Islamabad" xml:space="preserve">
+    <value>اسلام آباد</value>
+  </data>
+  <data name="Mulla Wala" xml:space="preserve">
+    <value>مُلا والا</value>
+  </data>
+  <data name="HelpCenter" xml:space="preserve">
+    <value>مدد مرکز</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>مدد</value>
+  </data>
+  <data name="ContactSupport" xml:space="preserve">
+    <value>رابطہ معاونت</value>
+  </data>
+  <data name="Instructions" xml:space="preserve">
+    <value>ہدایات</value>
+  </data>
+  <data name="Works" xml:space="preserve">
+    <value>یہ کیسے کام کرتا ہے</value>
+  </data>
+  <data name="Rigths" xml:space="preserve">
+    <value>© الزش کیئر ہب۔ جملہ حقوق محفوظ ہیں۔</value>
+  </data>
+  <data name="HeroText" xml:space="preserve">
+    <value>آپ کے لیے ورچوئل صحت کی دیکھ بھال</value>
+  </data>
+  <data name="HeroPara" xml:space="preserve">
+    <value>الزائمر اور ڈیمنشیا کے ساتھ کوئی ہدایت نامہ نہیں آتا، لیکن مدد کے لیے وسائل دستیاب ہیں۔</value>
+  </data>
+  <data name="GetHelp" xml:space="preserve">
+    <value>مدد حاصل کریں</value>
+  </data>
+  <data name="Services" xml:space="preserve">
+    <value>ہماری خدمات</value>
+  </data>
+  <data name="ServicesPara" xml:space="preserve">
+    <value> ہم الزائمر کے مریضوں کے نگرانوں کو جامع مدد فراہم کرنے کے لیے پرعزم ہیں۔ ہمارا پلیٹ فارم دیکھ بھال کو آسان، مؤثر اور مؤثر بنانے کے لیے مختلف خدمات پیش کرتا ہے۔ یہاں وہ خدمات ہیں جو ہم فراہم کرتے ہیں:</value>
+  </data>
+  <data name="Remainder" xml:space="preserve">
+    <value>یاد دہانی اور الرٹس</value>
+  </data>
+  <data name="RemainderPara" xml:space="preserve">
+    <value>ہزاروں ماہرین، جنرل ڈاکٹروں اور معتبر اسپتالوں میں سے اپنے ڈاکٹر کا انتخاب کریں</value>
+  </data>
+  <data name="TrainingResources" xml:space="preserve">
+    <value>تربیتی وسائل</value>
+  </data>
+  <data name="tp" xml:space="preserve">
+    <value>ہماری موبائل ایپلیکیشن کے ذریعے اپنی دوائیں خریدیں اور آسان ترسیل کے نظام سے فائدہ اٹھائیں۔</value>
+  </data>
+  <data name="gp" xml:space="preserve">
+    <value>ہمارے معتمد ڈاکٹروں سے مفت مشاورت حاصل کریں اور بہترین تجاویز پائیں۔</value>
+  </data>
+  <data name="dap" xml:space="preserve">
+    <value>ڈاکٹر سے ملاقات</value>
+  </data>
+  <data name="dappara" xml:space="preserve">
+    <value>ہمارے قابل اعتماد ڈاکٹروں سے مفت مشاورت حاصل کریں اور بہترین تجاویز پائیں۔</value>
+  </data>
+  <data name="feedback" xml:space="preserve">
+    <value>اپنی رائے دیں</value>
+  </data>
+  <data name="feedpara" xml:space="preserve">
+    <value>آپ اپنے یا اپنے خاندان کے لیے 24/7 فوری طبی دیکھ بھال حاصل کر سکتے ہیں۔</value>
+  </data>
+  <data name="faq" xml:space="preserve">
+    <value>عمومی سوالات</value>
+  </data>
+  <data name="fp" xml:space="preserve">
+    <value>الزائمر کی بیماری کا سراغ لگائیں اور اس کے بارے میں پڑھیں: یہ کیا ہے اور کیسے شروع ہوئی۔</value>
+  </data>
+  <data name="JoinHead" xml:space="preserve">
+    <value>الزائمر کے مریضوں کی مدد میں ہمارا ساتھ دیں۔</value>
+  </data>
+  <data name="JoinPara" xml:space="preserve">
+    <value>ہماری رضاکار ٹیم میں شامل ہوں اور الزائمر کے مریضوں کی زندگیوں کو بہتر بنائیں۔ آپ کی مدد ایک گہرا فرق پیدا کر سکتی ہے۔</value>
+  </data>
+  <data name="DonateHead" xml:space="preserve">
+    <value>الزائمر سپورٹ کے لیے عطیہ کریں</value>
+  </data>
+  <data name="DonatePara" xml:space="preserve">
+    <value>آپ کی سخاوت الزائمر کے مریضوں کے لیے اہم تحقیق اور معاونت کو ممکن بناتی ہے۔ آج ہی عطیہ کریں اور حل کا حصہ بنیں۔</value>
+  </data>
+  <data name="LM" xml:space="preserve">
+    <value>مزید جانیں</value>
+  </data>
+  <data name="Donate" xml:space="preserve">
+    <value>عطیہ کریں</value>
+  </data>
+  <data name="AHead" xml:space="preserve">
+    <value>ہمارا تازہ ترین مضمون ملاحظہ کریں</value>
+  </data>
+  <data name="arhead1" xml:space="preserve">
+    <value>الزائمر کی بیماری کیا ہے؟</value>
+  </data>
+  <data name="a1para" xml:space="preserve">
+    <value>الزائمر کی بیماری ایک جسمانی بیماری ہے جو دماغ کو متاثر کرتی ہے، جس کی وجہ سے یادداشت کمزور ہو جاتی ہے اور سوچنے، مسئلے حل کرنے اور بات چیت کرنے میں دشواری ہوتی ہے۔ اگر آپ مزید جاننا چاہتے ہیں تو اسے ڈاؤن لوڈ کریں۔</value>
+  </data>
+  <data name="adownload" xml:space="preserve">
+    <value>ڈاؤن لوڈ کریں</value>
+  </data>
+  <data name="a2head" xml:space="preserve">
+    <value>الزائمر کے مریض کی دیکھ بھال کرتے وقت 6 اہم باتیں</value>
+  </data>
+  <data name="a2para" xml:space="preserve">
+    <value>الزائمر کے مریض کی دیکھ بھال کرتے وقت 6 اہم چیزیں مددگار ثابت ہوتی ہیں۔ اگر آپ مزید سیکھنا چاہتے ہیں تو پی ڈی ایف ڈاؤن لوڈ کریں۔</value>
+  </data>
+  <data name="a3head" xml:space="preserve">
+    <value>ڈیمینشیا کے بارے میں معلومات حاصل کریں۔</value>
+  </data>
+  <data name="a3para" xml:space="preserve">
+    <value>ڈیمینشیا کیا ہے؟ اس سے پیدا ہونے والے مسائل کیا ہیں؟ اگر آپ ان تمام باتوں کے بارے میں جاننا چاہتے ہیں تو "مزید پڑھی پر کلک کریں۔</value>
+  </data>
+  <data name="a3btn" xml:space="preserve">
+    <value>مزید پڑھیں →</value>
+  </data>
+  <data name="AboutUsHeroHead" xml:space="preserve">
+    <value>ہم الزائمر کے مریضوں کی خدمت کر رہے ہیں</value>
+  </data>
+  <data name="AboutUsHeroPara" xml:space="preserve">
+    <value>ہم الزھ کیئر میں الزائمر کی بیماری سے متاثرہ افراد کی مدد کرنے کے لیے پرعزم ہیں۔ ہمارا مقصد آگاہی بڑھانا، مدد فراہم کرنا اور بہتر علاج تلاش کرنے میں معاونت کرنا ہے۔ الزائمر کی بیماری یادداشت، سوچنے کی صلاحیت اور روزمرہ کی سرگرمیوں کو متاثر کرتی ہے، اور ہم سمجھتے ہیں کہ یہ بیماری مریضوں اور ان کے خاندانوں کے لیے کتنی مشکل ہو سکتی ہے۔
+ہم ایک ہمدردانہ پلیٹ فارم فراہم کرتے ہیں جہاں الزائمر کے مریض، ان کے تیماردار اور طبی ماہرین مدد اور معلومات حاصل کر سکتے ہیں۔</value>
+  </data>
+  <data name="AboutUsVideoHead" xml:space="preserve">
+    <value>کیا آپ الزائمر کی بیماری کے بارے میں جاننا چاہتے ہیں؟ یہ ویڈیو دیکھیں۔</value>
+  </data>
+  <data name="LoginHead" xml:space="preserve">
+    <value>الزکیر ہب میں خوش آمدید۔  </value>
+  </data>
+  <data name="LoginPara" xml:space="preserve">
+    <value>الزائمر کے مریضوں اور دیکھ بھال کرنے والوں کے لیے نگہداشت اور معاونت فراہم کرنا</value>
+  </data>
+  <data name="Create account" xml:space="preserve">
+    <value>اکاؤنٹ بنائیں</value>
+  </data>
+  <data name="Reset Password" xml:space="preserve">
+    <value>پاس ورڈ ری سیٹ کریں</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>اپنا ای میل درج کریں</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>اپنا پاس ورڈ درج کریں
+</value>
+  </data>
+  <data name="CreateAccount" xml:space="preserve">
+    <value>اکاؤنٹ بنائیں</value>
+  </data>
+  <data name="RegisterText" xml:space="preserve">
+    <value>الزکئیر ہب میں بحیثیت نگہداشت فراہم کنندہ شامل ہوں</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>رجسٹر کریں</value>
+  </data>
+  <data name="AlreadyAccount" xml:space="preserve">
+    <value>کیا آپ کے پاس پہلے سے اکاؤنٹ موجود ہے؟</value>
+  </data>
+  <data name="LoginHere" xml:space="preserve">
+    <value>یہاں لاگ ان کریں</value>
+  </data>
+</root>

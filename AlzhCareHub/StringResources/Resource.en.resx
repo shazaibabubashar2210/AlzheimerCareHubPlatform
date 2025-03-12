@@ -1,0 +1,323 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutUs " xml:space="preserve">
+    <value>About Us </value>
+  </data>
+  <data name="AlzhCare" xml:space="preserve">
+    <value>AlzhCare</value>
+  </data>
+  <data name="WebSiteFooterText" xml:space="preserve">
+    <value>AlzhCare Hub A platform where there is a release of burden from Caregivers to their Old People for take care.</value>
+  </data>
+  <data name="EducationalResources" xml:space="preserve">
+    <value>Educational Resources</value>
+  </data>
+  <data name="FindDoctor" xml:space="preserve">
+    <value>Find A Doctor</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="Login " xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="Volunteer" xml:space="preserve">
+    <value>Volunteer</value>
+  </data>
+  <data name="Testimonials" xml:space="preserve">
+    <value>Testimonials</value>
+  </data>
+  <data name="AppsAndGames" xml:space="preserve">
+    <value>Apps And Games</value>
+  </data>
+  <data name="Region" xml:space="preserve">
+    <value>Region</value>
+  </data>
+  <data name="Lahore" xml:space="preserve">
+    <value>Lahore</value>
+  </data>
+  <data name="Karachi" xml:space="preserve">
+    <value>Karachi</value>
+  </data>
+  <data name="Islamabad" xml:space="preserve">
+    <value>Islamabad</value>
+  </data>
+  <data name="Mulla Wala" xml:space="preserve">
+    <value>Mulla Wala</value>
+  </data>
+  <data name="HelpCenter" xml:space="preserve">
+    <value>Help Center</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="ContactSupport" xml:space="preserve">
+    <value>Contact Support</value>
+  </data>
+  <data name="Instructions" xml:space="preserve">
+    <value>Instructions</value>
+  </data>
+  <data name="Works" xml:space="preserve">
+    <value>How it works</value>
+  </data>
+  <data name="Rigths" xml:space="preserve">
+    <value>© AlzhCare Hub. All rights reserved</value>
+  </data>
+  <data name="HeroText" xml:space="preserve">
+    <value>Virtual healthcare for you</value>
+  </data>
+  <data name="HeroPara" xml:space="preserve">
+    <value> Alzheimer's and dementia don't come with an instruction manual, but there are resources available to help you.</value>
+  </data>
+  <data name="GetHelp" xml:space="preserve">
+    <value>Get Help</value>
+  </data>
+  <data name="Services" xml:space="preserve">
+    <value>Our Services</value>
+  </data>
+  <data name="ServicesPara" xml:space="preserve">
+    <value>At AlzhCare, we are committed to providing comprehensive support to caregivers of Alzheimer’s patients. Our
+platform offers a variety of services to make caregiving easier, more effective, and engaging. Here’s what we offer: </value>
+  </data>
+  <data name="Remainder" xml:space="preserve">
+    <value>Remainder And Alerts</value>
+  </data>
+  <data name="RemainderPara" xml:space="preserve">
+    <value>Choose your doctor from thousands of specialist, general, and trusted hospitals.</value>
+  </data>
+  <data name="TrainingResources" xml:space="preserve">
+    <value>Training Resources</value>
+  </data>
+  <data name="tp" xml:space="preserve">
+    <value>Buy your medicines with our mobile application with a simple delivery system</value>
+  </data>
+  <data name="gp" xml:space="preserve">
+    <value>Free consultation with our trusted doctors and get the best recommendations</value>
+  </data>
+  <data name="dap" xml:space="preserve">
+    <value>Doctor Appointment</value>
+  </data>
+  <data name="dappara" xml:space="preserve">
+    <value>Free consultation with our trusted doctors and get the best recommendations</value>
+  </data>
+  <data name="feedback" xml:space="preserve">
+    <value>FeedBack</value>
+  </data>
+  <data name="feedpara" xml:space="preserve">
+    <value>You can get 24/7 urgent care for yourself or your family</value>
+  </data>
+  <data name="faq" xml:space="preserve">
+    <value>FAQ</value>
+  </data>
+  <data name="fp" xml:space="preserve">
+    <value>Track and read about Alzheimer’s disease: what it is and how it started.</value>
+  </data>
+  <data name="JoinHead" xml:space="preserve">
+    <value>Join Us in Supporting Alzheimer's Patients </value>
+  </data>
+  <data name="JoinPara" xml:space="preserve">
+    <value> Join our volunteer team and enrich the lives of Alzheimer's patients. Your support can make a profound difference.</value>
+  </data>
+  <data name="DonateHead" xml:space="preserve">
+    <value>Donate to Alzheimer's Support </value>
+  </data>
+  <data name="DonatePara" xml:space="preserve">
+    <value>Your generosity fuels vital research and support for Alzheimer's patients. Give today and be a part of the solution.</value>
+  </data>
+  <data name="LM" xml:space="preserve">
+    <value>Learn more</value>
+  </data>
+  <data name="Donate" xml:space="preserve">
+    <value>Donate</value>
+  </data>
+  <data name="AHead" xml:space="preserve">
+    <value>Check out our latest article</value>
+  </data>
+  <data name="arhead1" xml:space="preserve">
+    <value>What is Alzheimer’s Disease?</value>
+  </data>
+  <data name="a1para" xml:space="preserve">
+    <value>Alzheimer’s disease is a physical disease that affects the brain, causing memory loss and difficulties with thinking, problem-solving, and communication. if you want to know more than download this</value>
+  </data>
+  <data name="adownload" xml:space="preserve">
+    <value>Click Download </value>
+  </data>
+  <data name="a2head" xml:space="preserve">
+    <value>6 Things when caring someone who dealing with alzheimer. </value>
+  </data>
+  <data name="a2para" xml:space="preserve">
+    <value>There are 6 main things which are usefull when you are caring someone dealing with Alzheimer disease if you want to learn more then download the pdf </value>
+  </data>
+  <data name="a3head" xml:space="preserve">
+    <value>Knowladge about demensia </value>
+  </data>
+  <data name="a3para" xml:space="preserve">
+    <value>What is demensia what are the problems all these things if you want to know click on read more</value>
+  </data>
+  <data name="a3btn" xml:space="preserve">
+    <value>Read more →</value>
+  </data>
+  <data name="AboutUsHeroHead" xml:space="preserve">
+    <value>We are serving to Alzheimer patients</value>
+  </data>
+  <data name="AboutUsHeroPara" xml:space="preserve">
+    <value>  At AlzhCare we are committed to helping people affected by Alzheimer's disease. Our goal is to raise awareness, offer support, and help find better treatments. Alzheimer's disease affects memory, thinking, and daily activities, and we understand how difficult it can be for those living with it and their families.
+   We provide a caring space where people with Alzheimer's, their caregivers, and healthcare professionals can get help and information.</value>
+  </data>
+  <data name="AboutUsVideoHead" xml:space="preserve">
+    <value>Want to know About Alzheimer Disease? Watch this video</value>
+  </data>
+  <data name="LoginHead" xml:space="preserve">
+    <value>Welcome to AlzhCareHub</value>
+  </data>
+  <data name="LoginPara" xml:space="preserve">
+    <value>Providing care and support for Alzheimer’s patients and caregivers</value>
+  </data>
+  <data name="Create account" xml:space="preserve">
+    <value>Create account</value>
+  </data>
+  <data name="Reset Password" xml:space="preserve">
+    <value>Reset Password</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Enter your email</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Enter your password</value>
+  </data>
+  <data name="CreateAccount" xml:space="preserve">
+    <value>Create an Account</value>
+  </data>
+  <data name="RegisterText" xml:space="preserve">
+    <value>Join AlzhCareHub as a Caregiver</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="AlreadyAccount" xml:space="preserve">
+    <value>Already have an account?</value>
+  </data>
+  <data name="LoginHere" xml:space="preserve">
+    <value>Login here</value>
+  </data>
+</root>

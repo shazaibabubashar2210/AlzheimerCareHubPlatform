@@ -1,0 +1,275 @@
+﻿@{
+    Layout = "_CaregiverLayout";
+}
+
+<!-- Caregiver-specific content -->
+<head>
+    <link href="~/css/caregiverpagedesigning.css" rel="stylesheet" />
+    <title>CareGiver DashBoard</title>
+    <style>
+        *{
+        scroll-behavior: smooth;
+        }
+        /*Cards Hover Effect*/
+        .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        cursor: pointer;
+        }
+
+        .card:hover {
+        transform: translateY(-10px); 
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);         
+        background-color: #f8f9fa; 
+        }
+
+        .card .card-body {
+        transition: transform 0.3s ease;
+        }
+
+        .card:hover .card-body {
+        transform: translateY(-5px); /* Slight shift in the body of the card */
+        }
+
+        .card .iconimg {
+        transition: transform 0.3s ease;
+        }
+
+        .card:hover .iconimg {
+        transform: scale(1.1); /* Slightly increase the size of the icon image */
+        }
+
+        .hero-img {
+        width: 100%;
+        height: auto; 
+        max-width: 120%; 
+        max-height: 500px;
+        border-radius: 20px;
+
+        }
+
+        .hero{
+        margin-top: 8rem;
+        }
+    </style>
+</head>
+
+@{
+    var userEmail = Context.Session.GetString("UserEmail");
+}
+<!-- Hero Section -->
+<div class="container my-5">
+    <div class="row align-items-center hero">
+        <!-- Image Column -->
+        <div class="col-lg-6 order-1 order-lg-2 imgbox">
+            <img src="~/images/home.jpg" alt="Virtual Healthcare" class="img-fluid hero-img">
+        </div>
+
+        <!-- Text Column -->
+        <div class="col-lg-6 order-2 order-lg-1 mb-4 mb-lg-0">
+            <h1 class="display-5 fw-bold">@AlzhCareHub.StringResources.Resource.HeroText</h1>
+            <p class="text-muted">@AlzhCareHub.StringResources.Resource.HeroPara</p>
+
+            @if (userEmail == null)
+            {
+                <!-- Show alert when user is not logged in -->
+                <a href="javascript:void(0);" class="btn btn-primary btn-lg helpbtn" onclick="showLoginAlert()">
+                    @AlzhCareHub.StringResources.Resource.GetHelp
+                </a>
+            }
+            else
+            {
+                <!-- Allow navigation when user is logged in -->
+                <a asp-action="Contact" asp-controller="Contact" class="btn btn-primary btn-lg helpbtn">
+                    @AlzhCareHub.StringResources.Resource.GetHelp
+                </a>
+            }
+        </div>
+    </div>
+</div>
+
+<!-- Our Services Section -->
+<div class="container my-5">
+    <div class="text-center mb-4">
+        <h2 class="fw-bold">@AlzhCareHub.StringResources.Resource.Services</h2>
+        <div class="rowborder"></div>
+        <p class="text-muted mb-5">
+            @AlzhCareHub.StringResources.Resource.ServicesPara
+        </p>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <a style="text-decoration: none;" onclick="checkAuth(event, '/ServiceGallery/Remainder_And_Alerts')">
+                <div class="card shadow border-0 h-100">
+                    <div class="card-body text-center">
+                        <img src="~/images/reminder.png" class="iconimg img-fluid" />
+                        <h5 class="card-title mt-3">@AlzhCareHub.StringResources.Resource.Remainder</h5>
+                        <p class="card-text">@AlzhCareHub.StringResources.Resource.RemainderPara</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="card shadow border-0 h-100">
+                <div class="card-body text-center">
+                    <img src="~/images/trainingresouces.png" class="iconimg img-fluid" />
+                    <h5 class="card-title mt-3">@AlzhCareHub.StringResources.Resource.TrainingResources</h5>
+                    <p class="card-text">@AlzhCareHub.StringResources.Resource.tp</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <a href="https://poki.com/en/g/brain-test-tricky-puzzles" style="text-decoration: none; color: black;" target="_blank"
+               onclick="checkAuthentication(event, 'https://poki.com/en/g/brain-test-tricky-puzzles')">
+                <div class="card shadow border-0 h-100">
+                    <div class="card-body text-center">
+                        <img src="~/images/games.png" class="iconimg img-fluid" />
+                        <h5 class="card-title mt-3">@AlzhCareHub.StringResources.Resource.AppsAndGames</h5>
+                        <p class="card-text">@AlzhCareHub.StringResources.Resource.gp</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <a style="text-decoration: none; color: black;" onclick="checkAuth(event, '/DoctorAppointment/DoctorAppointment')">
+                <div class="card shadow border-0 h-100">
+                    <div class="card-body text-center">
+                        <img src="~/images/appointment.png" class="iconimg img-fluid" />
+                        <h5 class="card-title mt-3">@AlzhCareHub.StringResources.Resource.dap</h5>
+                        <p class="card-text">@AlzhCareHub.StringResources.Resource.dappara</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <a style="text-decoration: none; color: black;" onclick="checkAuth(event, '/FeedBack/Submit')">
+                <div class="card shadow border-0 h-100">
+                    <div class="card-body text-center">
+                        <img src="~/images/feedback.png" class="iconimg img-fluid" />
+                        <h5 class="card-title mt-3">@AlzhCareHub.StringResources.Resource.feedback</h5>
+                        <p class="card-text">@AlzhCareHub.StringResources.Resource.feedpara</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+            <a style="text-decoration: none; color:black;" onclick="checkAuth(event, '/FAQ/FAQ')">
+                <div class="card shadow border-0 h-100">
+                    <div class="card-body text-center">
+                        <img src="~/images/faq.webp" class="iconimg img-fluid" />
+                        <h5 class="card-title mt-3">@AlzhCareHub.StringResources.Resource.faq</h5>
+                        <p class="card-text">@AlzhCareHub.StringResources.Resource.fp</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<!-- Join Us Section -->
+<div class="container support-section">
+    <div>
+        <img src="~/images/JoinUs.png" alt="Supporting Alzheimer's Patients">
+    </div>
+    <div class="support-content">
+        <h2>@AlzhCareHub.StringResources.Resource.JoinHead</h2>
+        <p>@AlzhCareHub.StringResources.Resource.JoinPara</p>
+        <a asp-controller="AboutUs" asp-action="Index" class="btn btn-outline-primary helpbtn">@AlzhCareHub.StringResources.Resource.LM</a>
+    </div>
+    
+</div>
+
+<!-- Donate Section -->
+<div class="container support-section">
+    <div class="support-content">
+        <h2>@AlzhCareHub.StringResources.Resource.DonateHead</h2>
+        <p>@AlzhCareHub.StringResources.Resource.DonatePara </p>
+        <a asp-controller="Donation" asp-action="Donate" class="btn btn-outline-primary helpbtn">@AlzhCareHub.StringResources.Resource.Donate</a>
+    </div>
+    <div>
+        <img src="~/images/Donate.png" alt="Supporting Alzheimer's Patients" >
+    </div>
+</div>
+
+<!-- Latest Articles Section -->
+<div class="container my-5">
+    <div class="text-center">
+        <h2 class="fw-bold">@AlzhCareHub.StringResources.Resource.AHead</h2>
+        <hr class="mx-auto" style="width: 50px; background-color: #000; height: 2px;">
+    </div>
+
+    <div class="row mt-4 d-flex">
+        <!-- Article Card 1 -->
+
+        <div class="col-md-4 d-flex" style="cursor: pointer">
+            <div class="card shadow border-0 w-100">
+                <img src="~/images/article1.jpeg" class="card-img-top" alt="Alzheimer's Article">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title fw-bold">@AlzhCareHub.StringResources.Resource.arhead1</h5>
+                    <p class="card-text">@AlzhCareHub.StringResources.Resource.a1para</p>
+                    <a href="~/what_is_alzheimers_disease.pdf" download class="text-primary fw-bold mt-auto">@AlzhCareHub.StringResources.Resource.adownload</a>
+
+                </div>
+            </div>
+        
+        </div>
+        <!-- Article Card 2 -->
+        <div class="col-md-4 d-flex" style="cursor: pointer;">
+            <div class="card shadow border-0 w-100">
+                <img src="~/images/article2.jpeg" class="card-img-top" alt="Alzheimer's Article">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title fw-bold">@AlzhCareHub.StringResources.Resource.a2head</h5>
+                    <p class="card-text">@AlzhCareHub.StringResources.Resource.a2para</p>
+                    <a href="~/6 Things Never to Do When Caring an Alzheimer patient.pdf" download class="text-primary fw-bold mt-auto">@AlzhCareHub.StringResources.Resource.adownload</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Article Card 3 -->
+        <div class="col-md-4 d-flex" style="cursor: pointer;">
+            <div class="card shadow border-0 w-100">
+                <img src="~/images/article3.jpeg" class="card-img-top" alt="Alzheimer's Article">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title fw-bold">@AlzhCareHub.StringResources.Resource.a3head</h5>
+                    <p class="card-text">@AlzhCareHub.StringResources.Resource.a3para</p>
+                    <a href="https://www.rcpsych.ac.uk/mental-health/translations/urdu/memory-problems-and-dementia" class="text-primary fw-bold mt-auto" target="_blank">@AlzhCareHub.StringResources.Resource.a3btn</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function checkAuth(event, url) {
+        var userEmail = "@userEmail";  // Getting the userEmail from Razor
+        if (!userEmail || userEmail.trim() === "") {
+            event.preventDefault();  // Prevent navigation
+            alert("Please log in to access this page.");
+            window.location.href = "/Auth/Login";
+        } else {
+            window.location.href = url;  // Allow navigation
+        }
+    }
+
+</script>
+<script>
+    var isAuthenticated = "@(string.IsNullOrEmpty(userEmail) ? "false" : "true")";
+
+    function checkAuthentication(event, url) {
+        if (isAuthenticated === "false") {
+            event.preventDefault(); // Prevent navigation
+            alert("Please log in to access this service.");
+            window.location.href = "/Auth/Login"; // Redirect to login page
+        } else {
+            window.location.href = url; // Allow navigation
+        }
+    }
+     function showLoginAlert() {
+        alert("Please login to access this service.");
+    }
+</script>

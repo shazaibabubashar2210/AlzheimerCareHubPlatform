@@ -1,0 +1,388 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutUs " xml:space="preserve">
+    <value>AboutUs </value>
+    <comment>AboutUs </comment>
+  </data>
+  <data name="AlzhCare" xml:space="preserve">
+    <value>AlzhCare</value>
+    <comment>AlzhCare</comment>
+  </data>
+  <data name="WebSiteFooterText" xml:space="preserve">
+    <value>AlzhCare Hub A platform where there is a release of burden from Caregivers to their Old People for take care.</value>
+    <comment>AlzhCare Hub A platform where there is a release of burden from Caregivers to their Old People for take care.</comment>
+  </data>
+  <data name="EducationalResources" xml:space="preserve">
+    <value>EducationalResources</value>
+    <comment>EducationalResources</comment>
+  </data>
+  <data name="FindDoctor" xml:space="preserve">
+    <value>FindDoctor</value>
+    <comment>FindDoctor</comment>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+    <comment>Home</comment>
+  </data>
+  <data name="Login " xml:space="preserve">
+    <value>Login </value>
+    <comment>Login </comment>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Logout</value>
+    <comment>Logout</comment>
+  </data>
+  <data name="Volunteer" xml:space="preserve">
+    <value>Volunteer</value>
+    <comment>Volunteer</comment>
+  </data>
+  <data name="Testimonials" xml:space="preserve">
+    <value>Testimonials</value>
+    <comment>Testimonials</comment>
+  </data>
+  <data name="AppsAndGames" xml:space="preserve">
+    <value>AppsAndGames</value>
+    <comment>AppsAndGames</comment>
+  </data>
+  <data name="Region" xml:space="preserve">
+    <value>Region</value>
+    <comment>Region</comment>
+  </data>
+  <data name="Lahore" xml:space="preserve">
+    <value>Lahore</value>
+    <comment>Lahore</comment>
+  </data>
+  <data name="Karachi" xml:space="preserve">
+    <value>Karachi</value>
+    <comment>Karachi</comment>
+  </data>
+  <data name="Islamabad" xml:space="preserve">
+    <value>Islamabad</value>
+    <comment>Islamabad</comment>
+  </data>
+  <data name="Mulla Wala" xml:space="preserve">
+    <value>Mulla Wala</value>
+    <comment>Mulla Wala</comment>
+  </data>
+  <data name="HelpCenter" xml:space="preserve">
+    <value>HelpCenter</value>
+    <comment>HelpCenter</comment>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Help</value>
+    <comment>Help</comment>
+  </data>
+  <data name="ContactSupport" xml:space="preserve">
+    <value>ContactSupport</value>
+    <comment>ContactSupport</comment>
+  </data>
+  <data name="Instructions" xml:space="preserve">
+    <value>Instructions</value>
+    <comment>Instructions</comment>
+  </data>
+  <data name="Works" xml:space="preserve">
+    <value>Works</value>
+    <comment>Works</comment>
+  </data>
+  <data name="Rigths" xml:space="preserve">
+    <value>Rights</value>
+    <comment>Rights</comment>
+  </data>
+  <data name="HeroText" xml:space="preserve">
+    <value>HeroText</value>
+    <comment>HeroText</comment>
+  </data>
+  <data name="HeroPara" xml:space="preserve">
+    <value>HeroPara</value>
+    <comment>HeroPara</comment>
+  </data>
+  <data name="GetHelp" xml:space="preserve">
+    <value>GetHelp</value>
+    <comment>GetHelp</comment>
+  </data>
+  <data name="Services" xml:space="preserve">
+    <value>Services</value>
+    <comment>Services</comment>
+  </data>
+  <data name="ServicesPara" xml:space="preserve">
+    <value>ServicesPara</value>
+    <comment>ServicesPara</comment>
+  </data>
+  <data name="Remainder" xml:space="preserve">
+    <value>Remainder</value>
+    <comment>Remainder</comment>
+  </data>
+  <data name="RemainderPara" xml:space="preserve">
+    <value>RemainderPara</value>
+    <comment>RemainderPara</comment>
+  </data>
+  <data name="TrainingResources" xml:space="preserve">
+    <value>TrainingResources</value>
+    <comment>TrainingResources</comment>
+  </data>
+  <data name="tp" xml:space="preserve">
+    <value>tp</value>
+    <comment>tp</comment>
+  </data>
+  <data name="gp" xml:space="preserve">
+    <value>gp</value>
+    <comment>gp</comment>
+  </data>
+  <data name="dap" xml:space="preserve">
+    <value>dap</value>
+    <comment>dap</comment>
+  </data>
+  <data name="dappara" xml:space="preserve">
+    <value>dappara</value>
+    <comment>dappara</comment>
+  </data>
+  <data name="feedback" xml:space="preserve">
+    <value>feedback</value>
+    <comment>feedback</comment>
+  </data>
+  <data name="feedpara" xml:space="preserve">
+    <value>feedpara</value>
+    <comment>feedpara</comment>
+  </data>
+  <data name="faq" xml:space="preserve">
+    <value>faq</value>
+    <comment>faq</comment>
+  </data>
+  <data name="fp" xml:space="preserve">
+    <value>fp</value>
+    <comment>fp</comment>
+  </data>
+  <data name="JoinHead" xml:space="preserve">
+    <value>JoinHead</value>
+    <comment>JoinHead</comment>
+  </data>
+  <data name="JoinPara" xml:space="preserve">
+    <value>JoinPara</value>
+    <comment>JoinPara</comment>
+  </data>
+  <data name="DonateHead" xml:space="preserve">
+    <value>DonateHead</value>
+    <comment>DonateHead</comment>
+  </data>
+  <data name="DonatePara" xml:space="preserve">
+    <value>DonatePara</value>
+    <comment>DonatePara</comment>
+  </data>
+  <data name="LM" xml:space="preserve">
+    <value>LM</value>
+    <comment>LM</comment>
+  </data>
+  <data name="Donate" xml:space="preserve">
+    <value>Donate</value>
+    <comment>Donate</comment>
+  </data>
+  <data name="AHead" xml:space="preserve">
+    <value>AHead</value>
+    <comment>AHead</comment>
+  </data>
+  <data name="arhead1" xml:space="preserve">
+    <value>arhead1</value>
+    <comment>arhead1</comment>
+  </data>
+  <data name="a1para" xml:space="preserve">
+    <value>a1para</value>
+    <comment>a1para</comment>
+  </data>
+  <data name="adownload" xml:space="preserve">
+    <value>adownload</value>
+    <comment>adownload</comment>
+  </data>
+  <data name="a2head" xml:space="preserve">
+    <value>a2head</value>
+    <comment>a2head</comment>
+  </data>
+  <data name="a2para" xml:space="preserve">
+    <value>a2para</value>
+    <comment>a2para</comment>
+  </data>
+  <data name="a3head" xml:space="preserve">
+    <value>a3head</value>
+    <comment>a3head</comment>
+  </data>
+  <data name="a3para" xml:space="preserve">
+    <value>a3para</value>
+    <comment>a3para</comment>
+  </data>
+  <data name="a3btn" xml:space="preserve">
+    <value>a3btn</value>
+    <comment>a3btn</comment>
+  </data>
+  <data name="AboutUsHeroHead" xml:space="preserve">
+    <value>AboutUsHeroHead</value>
+    <comment>AboutUsHeroHead</comment>
+  </data>
+  <data name="AboutUsHeroPara" xml:space="preserve">
+    <value>AboutUsHeroPara</value>
+    <comment>AboutUsHeroPara</comment>
+  </data>
+  <data name="AboutUsVideoHead" xml:space="preserve">
+    <value>AboutUsVideoHead</value>
+    <comment>AboutUsVideoHead</comment>
+  </data>
+  <data name="LoginHead" xml:space="preserve">
+    <value>LoginHead</value>
+    <comment>LoginHead</comment>
+  </data>
+  <data name="LoginPara" xml:space="preserve">
+    <value>LoginPara</value>
+    <comment>LoginPara</comment>
+  </data>
+  <data name="Create account" xml:space="preserve">
+    <value>Create account</value>
+    <comment>Create account</comment>
+  </data>
+  <data name="Reset Password" xml:space="preserve">
+    <value>Reset Password</value>
+    <comment>Reset Password</comment>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+    <comment>Email</comment>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+    <comment>Password</comment>
+  </data>
+  <data name="CreateAccount" xml:space="preserve">
+    <value>CreateAccount</value>
+    <comment>CreateAccount</comment>
+  </data>
+  <data name="RegisterText" xml:space="preserve">
+    <value>RegisterText</value>
+    <comment>RegisterText</comment>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+    <comment>Register</comment>
+  </data>
+  <data name="AlreadyAccount" xml:space="preserve">
+    <value>AlreadyAccount</value>
+    <comment>AlreadyAccount</comment>
+  </data>
+  <data name="LoginHere" xml:space="preserve">
+    <value>LoginHere</value>
+    <comment>LoginHere</comment>
+  </data>
+</root>

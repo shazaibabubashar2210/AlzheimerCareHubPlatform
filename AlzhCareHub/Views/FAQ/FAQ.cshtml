@@ -1,0 +1,157 @@
+﻿@{
+    Layout = "_Donation";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Section</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-header {
+            text-align: center;
+            color: rgb(87, 157, 248);
+            margin-bottom: 20px;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            background-color: rgb(87, 157, 248);
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+            .faq-question:hover {
+                background-color: rgb(70, 135, 225);
+            }
+
+            .faq-question .icon {
+                font-size: 1.5rem;
+                transition: transform 0.3s ease;
+            }
+
+        .faq-answer {
+            background: #fff;
+            padding: 0 10px;
+            border-left: 4px solid rgb(87, 157, 248);
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            margin-top: 5px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+            .faq-answer.open {
+                max-height: 200px; /* Adjust based on your content */
+                padding: 10px;
+            }
+    </style>
+</head>
+<body>
+
+    <div class="container faq-container">
+        <h2 class="faq-header">Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                What is Alzheimer's disease?
+                <span class="icon">+</span>
+            </div>
+            <div class="faq-answer">
+                Alzheimer's disease is a progressive neurological disorder that causes the brain to shrink (atrophy) and brain cells to die. It is the most common cause of dementia, leading to a continuous decline in thinking, behavioral, and social skills, which affects a person's ability to function independently.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                What are the early signs and symptoms of Alzheimer's disease?
+                <span class="icon">+</span>
+            </div>
+            <div class="faq-answer">
+                Early signs of Alzheimer's disease include:<br/>
+                <br/>1) Memory loss that disrupts daily life (e.g., forgetting recently learned information).
+                <br/>2) Difficulty planning or solving problems.
+                <br/>3) Confusion with time or place.
+                <br/>4) Trouble completing familiar tasks.
+                <br/>5) Changes in mood or personality, such as increased anxiety or withdrawal.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                What causes Alzheimer's disease?
+                <span class="icon">+</span>
+            </div>
+            <div class="faq-answer">
+                The exact cause of Alzheimer's disease is not fully understood, but it is believed to result from a combination of genetic, lifestyle, and environmental factors.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                Is there a cure for Alzheimer's disease?
+                <span class="icon">+</span>
+            </div>
+            <div class="faq-answer">
+                Currently, there is no cure for Alzheimer's disease. However, treatments are available to help manage symptoms and slow the progression of the disease. These include medications, lifestyle changes, and supportive therapies to improve quality of life for patients and their caregivers.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                How can I reduce my risk of developing Alzheimer's disease?
+                <span class="icon">+</span>
+            </div>
+            <div class="faq-answer">
+                While there is no guaranteed way to prevent Alzheimer's, certain lifestyle changes may help reduce the risk:
+
+               <br/> 1) Engage in regular physical exercise.
+
+               <br/> 2) Maintain a healthy diet, such as the Mediterranean or DASH diet.
+
+               <br/> 3) Stay mentally active through learning, puzzles, or social activities.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleFAQ(element) {
+            let answer = element.nextElementSibling;
+            let icon = element.querySelector(".icon");
+
+            if (answer.classList.contains("open")) {
+                answer.classList.remove("open");
+                icon.textContent = "+";
+            } else {
+                answer.classList.add("open");
+                icon.textContent = "−";
+            }
+        }
+    </script>
+
+</body>
+</html>

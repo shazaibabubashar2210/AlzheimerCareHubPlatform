@@ -1,0 +1,78 @@
+﻿body {
+}
+.services {
+    margin-top: 12rem;
+}
+.helpbtn{
+    padding: 8px 25px;
+    border-radius: 25px;
+}
+
+.hero{
+    margin-bottom: 10rem;
+}
+.rowborder {
+    border-bottom: 3px solid grey;
+    margin: auto;
+    width: 10%;
+    margin-top: 1rem;
+    border-radius: 25px;
+    margin-bottom: 1.5rem;
+}
+.iconimg {
+    height: 112px;
+    width: 112px;
+}
+.services {
+    margin-top: 12rem;
+}
+
+
+
+/*    Join us Styling*/
+
+.support-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+    .support-section img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+.support-content {
+    max-width: 50%;
+}
+
+    .support-content h2 {
+        font-size: 2.5rem;
+        font-weight: bold;
+    }
+
+    .support-content p {
+        font-size: 1.1rem;
+        color: #6c757d;
+        line-height: 1.7;
+        margin: 1rem 0;
+    }
+
+    .support-content .btn {
+        font-size: 1rem;
+        padding: 0.7rem 1.5rem;
+    }
+
+
+/*    Doctor section Styling*/
+.doctor-section {
+    border-radius: 25px;
+}
+
+
+.ourservicegallerysection {
+    color: black;
+
+}
+
