@@ -1,7 +1,11 @@
 ﻿@{
     Layout = "";
 }
+ @model AlzhCareHub.Models.ContactModel
 
+@{
+    ViewData["Title"] = "Contact Us";
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,16 +42,25 @@
 </head>
 <body class="bg-light">
 
+   
+
     <div class="container mt-3">
         <h2 class="text-center fw-bold">Contact Us</h2>
         <p class="text-center text-muted">Any question or remarks? Just write us a message!</p>
 
+        @if (TempData["Success"] != null)
+        {
+            <div class="alert alert-success">@TempData["Success"]</div>
+        }
+
+        @if (TempData["Error"] != null)
+        {
+            <div class="alert alert-danger">@TempData["Error"]</div>
+        }
+
         <div class="row g-0 d-flex">
-            <!-- Removed space between columns -->
-            <!-- Left Contact Information Card -->
             <div class="col-lg-4 d-flex">
                 <div class="contact-card w-100" style="height: 80vh;">
-                    <!-- Ensures full width -->
                     <h4>Contact Information</h4>
                     <p>Say something!</p>
                     <p><i class="bi bi-telephone"></i> +923035165423</p>
@@ -61,44 +74,53 @@
                 </div>
             </div>
 
-            <!-- Right Contact Form -->
             <div class="col-lg-8 d-flex">
                 <div class="form-container w-100" style="height: 80vh;">
-                    <!-- Ensures full width -->
-                    <form>
+                    <form asp-controller="Contact" asp-action="Submit" method="post">
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="firstName" class="form-label">First Name</label>
-                                <input type="text" class="form-control" id="firstName" placeholder="F-Name">
+                                <input type="text" class="form-control" asp-for="FirstName" placeholder="F-Name">
+                                <span class="text-danger" asp-validation-for="FirstName"></span>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="lastName" class="form-label">Last Name</label>
-                                <input type="text" class="form-control" id="lastName" placeholder="L-Name">
+                                <input type="text" class="form-control" asp-for="LastName" placeholder="L-Name">
+                                <span class="text-danger" asp-validation-for="LastName"></span>
                             </div>
                         </div>
 
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="example@gmail.com">
+                            <input type="email" class="form-control" asp-for="Email" placeholder="example@gmail.com">
+                            <span class="text-danger" asp-validation-for="Email"></span>
                         </div>
 
                         <div class="mb-3">
                             <label for="phoneNumber" class="form-label">Phone Number</label>
-                            <input type="text" class="form-control" id="phoneNumber" placeholder="+92035165423">
+                            <input type="text" class="form-control" asp-for="PhoneNumber" placeholder="+92035165423">
+                            <span class="text-danger" asp-validation-for="PhoneNumber"></span>
                         </div>
 
                         <div class="mb-3">
                             <label for="message" class="form-label">Message</label>
-                            <textarea class="form-control" id="message" rows="4" placeholder="Write your message..."></textarea>
-                            <button type="submit" class="btn btn-primary mt-3">Send Message</button>
-                            <a asp-controller="AboutUs" asp-action="Index" class="btn btn-outline-primary mt-3 ms-5" style="width: 20%;">Cancel</a>
+                            <textarea class="form-control" asp-for="Message" rows="4" placeholder="Write your message..."></textarea>
+                            <span class="text-danger" asp-validation-for="Message"></span>
                         </div>
-                       
+
+                        <button type="submit" class="btn btn-primary mt-3">Send Message</button>
+                        <a asp-controller="AboutUs" asp-action="Index" class="btn btn-outline-primary mt-3 ms-5" style="width: 20%;">Cancel</a>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
+    @section Scripts {
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+    }
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

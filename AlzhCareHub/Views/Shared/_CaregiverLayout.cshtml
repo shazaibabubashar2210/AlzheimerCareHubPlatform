@@ -80,7 +80,7 @@
                     }
                     else{
                         <li class="nav-item">
-                            <a class="nav-link" href="#">@AlzhCareHub.StringResources.Resource.FindDoctor</a>
+                            <a class="nav-link" asp-controller="DoctorAppointment" asp-action="DoctorAppointment">@AlzhCareHub.StringResources.Resource.FindDoctor</a>
                         </li>
                     }
 
@@ -162,10 +162,10 @@
                 <div class="col-md-2 col-lg-2 footer-section">
                     <h5>@AlzhCareHub.StringResources.Resource.Home</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#">@AlzhCareHub.StringResources.Resource.AboutUs_</a></li>
+                        <li><a asp-controller="AboutUs" asp-action="Index">@AlzhCareHub.StringResources.Resource.AboutUs_</a></li>
                         <li><a href="#">@AlzhCareHub.StringResources.Resource.Testimonials</a></li>
-                        <li><a href="#">@AlzhCareHub.StringResources.Resource.FindDoctor</a></li>
-                        <li><a href="#">@AlzhCareHub.StringResources.Resource.AppsAndGames</a></li>
+                        <li><a asp-controller="DoctorAppointment" asp-action="DoctorAppointment">@AlzhCareHub.StringResources.Resource.FindDoctor</a></li>
+                        <li><a href="https://poki.com/en/g/brain-test-tricky-puzzles" target="_blank">@AlzhCareHub.StringResources.Resource.AppsAndGames</a></li>
                     </ul>
                 </div>
 
