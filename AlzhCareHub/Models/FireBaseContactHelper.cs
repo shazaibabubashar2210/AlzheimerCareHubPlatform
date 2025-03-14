@@ -1,8 +1,6 @@
 ﻿using Firebase.Database;
 using Firebase.Database.Query;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace AlzhCareHub.Models
@@ -12,16 +10,18 @@ namespace AlzhCareHub.Models
         private static string DatabaseUrl = "https://alzheimercarehubsystem-a42e6-default-rtdb.firebaseio.com/";
         private static FirebaseClient firebaseClient = new FirebaseClient(DatabaseUrl);
 
-        // Saving Contact Details to DataBase
-
+        // Saving Contact Details to Database
         public static async Task<bool> SaveContact(ContactModel contact)
         {
             try
             {
                 Console.WriteLine($"Saving contact: {contact.FirstName} {contact.LastName}");
+
+                // Using PostAsync to add a new entry
                 await firebaseClient
                     .Child("Contacts")
-                    .PutAsync(contact);
+                    .PostAsync(contact);
+
                 Console.WriteLine("Contact saved successfully");
                 return true;
             }
@@ -31,6 +31,5 @@ namespace AlzhCareHub.Models
                 return false;
             }
         }
-
     }
 }

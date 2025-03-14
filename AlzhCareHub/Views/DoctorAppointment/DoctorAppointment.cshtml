@@ -81,6 +81,9 @@
            height: 275px;
            width: 100%;
         }
+        .team-container{
+            margin-top: 5rem;
+        }
     </style>
 </head>
 <body>
@@ -124,88 +127,76 @@
             </div>
         </div>
     </section>
-    <!-- Team Members Section -->
-    <section class="team-section py-5 bg-light" >
-        <div class="container">
-            <h6 class="text-primary text-uppercase text-center" style="margin-top: 3rem;">Our Team</h6>
-            <h2 class="fw-bold text-center" style="margin-bottom: 3rem;">Our Expert Team Members</h2>
+    @model List<AlzhCareHub.Models.TeamMember>
 
-            <div class="row mt-4">
-                <div class="col-lg-3 col-md-6 mb-4" id="Team">
-                    <div class="card shadow-sm">
-                        <img src="~/images/Doc2.jpg" class="card-img-top" alt="Devon Lane">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Dr. Ayaan Rahmani</h5>
-                            <a href="#">Check Availability</a>
-                        </div>
-                    </div>
+    <div class="container mt-4 team-container">
+        <div class="row">
+            <div class="col-12">
+                <div class="col-12">
+                    <h2 class="text-center mb-4" id="Team" style="margin-top: 5rem;">Our Team</h2>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="card shadow-sm">
-                        <img src="~/images/Doc3.jpg" class="card-img-top" alt="Devon Lane">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Dr. Zayan Malik</h5>
-                            <a href="#">Check Availability</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="card shadow-sm">
-                        <img src="~/images/Doc5.jpg" class="card-img-top" alt="Ralph Edwards">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Dr. Fahad Rahman</h5>
-                            <a href="#">Check Availability</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="card shadow-sm">
-                        <img src="~/images/Doc6.jpg" class="card-img-top" alt="Bessie Cooper">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Dr. Rasheed Mirza</h5>
-                            <a href="#">Check Availability</a>
-                        </div>
-                    </div>
-                </div>
-                   <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="card shadow-sm">
-                        <img src="~/images/Doc4.jpg" class="card-img-top" alt="Bessie Cooper">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Dr. Ali Abbasi</h5>
-                            <a href="#">Check Availability</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="card shadow-sm">
-                        <img src="~/images/Doc7.jpg" class="card-img-top" alt="Bessie Cooper">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Dr. Abdul Rehman</h5>
-                            <a href="#">Check Availability</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="card shadow-sm">
-                        <img src="~/images/Doc8.jpg" class="card-img-top" alt="Bessie Cooper">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Dr. Sarim Lateef</h5>
-                            <a href="#">Check Availability</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="card shadow-sm">
-                        <img src="~/images/Doc1.jpg" class="card-img-top" alt="Bessie Cooper">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Dr. Zaem Malik</h5>
-                            <a href="#">Check Availability</a>
-                        </div>
-                    </div>
+                <div class="row g-4">
+                    @if (Model == null || !Model.Any())
+                    {
+                        <p class="text-center text-danger">No team members found.</p>
+                    }
+                    else{
+
+                        @foreach (var member in Model)
+                        {
+                            <div class="col-lg-3 col-md-6 col-sm-12">
+                                <div class="card shadow-sm h-100">
+                                    <img src="@member.ImageUrl" class="card-img-top" alt="@member.ImageUrl">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">@member.Name</h5>
+                                        <p>@member.Email</p>
+                                        <a href="#" class="check-availability" data-bs-toggle="modal"
+                                           data-bs-target="#appointmentModal" data-doctor="@member.Name">
+                                            Check Availability
+                                        </a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+
+
+    <!-- Appointment Booking Modal -->
+    <div class="modal fade" id="appointmentModal" tabindex="-1" aria-labelledby="appointmentModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="appointmentModalLabel">Book Appointment</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="appointmentForm">
+                        <input type="hidden" id="doctorName" name="doctorName">
+                        <div class="mb-3">
+                            <label for="caregiverEmail" class="form-label">Your Email</label>
+                            <input type="email" class="form-control" id="caregiverEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="appointmentDate" class="form-label">Appointment Date</label>
+                            <input type="date" class="form-control" id="appointmentDate" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="appointmentTime" class="form-label">Appointment Time</label>
+                            <input type="time" class="form-control" id="appointmentTime" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Book Appointment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/js/popupform.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

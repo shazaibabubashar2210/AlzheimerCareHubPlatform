@@ -1,0 +1,23 @@
+﻿@model TeamMember
+
+<div class="container mt-4">
+    <h2>Add New Doctor</h2>
+    <form method="post" asp-action="AddDoctor">
+        <div class="mb-3">
+            <label for="name" class="form-label">Doctor Name</label>
+            <input type="text" class="form-control" id="name" name="Name" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="Email" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="imageUrl" class="form-label">Image URL</label>
+            <input type="text" class="form-control" id="imageUrl" name="ImageUrl" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add Doctor</button>
+    </form>
+</div>

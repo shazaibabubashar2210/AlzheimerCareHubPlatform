@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Reschedule Appointment";
+}
+
+<h2>Reschedule Appointment</h2>
+
+<form id="rescheduleForm">
+    <label>New Date:</label>
+    <input type="date" id="newDate" required>
+    <label>New Time:</label>
+    <input type="time" id="newTime" required>
+    <button type="button" onclick="rescheduleAppointment()">Suggest New Time</button>
+</form>
+
+<script>
+    async function rescheduleAppointment() {
+        const newDate = document.getElementById("newDate").value;
+        const newTime = document.getElementById("newTime").value;
+
+        const rescheduleData = {
+            Email: "@Model.Email",  // Passed from Controller
+            Doctor: "@Model.Doctor",
+            SuggestedDate: newDate,
+            SuggestedTime: newTime,
+            Status: "Rescheduled"
+        };
+
+        const response = await fetch('/Appointment/Reschedule', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(rescheduleData)
+        });
+
+        const result = await response.json();
+        alert(result.message);
+    }
+</script>

@@ -115,30 +115,91 @@
                 <div class="col-md-2 col-lg-2 footer-section">
                     <h5>@AlzhCareHub.StringResources.Resource.Home</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#">@AlzhCareHub.StringResources.Resource.AboutUs_</a></li>
-                        <li><a href="#">@AlzhCareHub.StringResources.Resource.Testimonials</a></li>
-                        <li><a href="#">@AlzhCareHub.StringResources.Resource.FindDoctor</a></li>
-                        <li><a href="#">@AlzhCareHub.StringResources.Resource.AppsAndGames</a></li>
+                        @if (userEmail == null)
+                        {
+                            <li>
+                                <a href="javascript:void(0)"
+                                   onclick="alert('Please login to access this page');">
+                                    @AlzhCareHub.StringResources.Resource.AboutUs_
+                                </a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li>
+                                <a href="javascript: void(0);">@AlzhCareHub.StringResources.Resource.AboutUs_</a>
+                            </li>
+                        }
+
+                        @if (userEmail == null)
+                        {
+                            <li>
+                                <a href="javascript:void(0)"
+                                   onclick="alert('Please login to access this page');">
+                                    @AlzhCareHub.StringResources.Resource.Testimonials
+                                </a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li>
+                                <a href="javascript: void(0);">@AlzhCareHub.StringResources.Resource.Testimonials</a>
+                            </li>
+                        }
+
+                        @if (userEmail == null)
+                        {
+                            <li>
+                                <a href="javascript:void(0)"
+                                   onclick="alert('Please login to access this page');">
+                                    @AlzhCareHub.StringResources.Resource.FindDoctor
+                                </a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li>
+                                <a asp-controller="DoctorAppointment" asp-action="DoctorAppointment">@AlzhCareHub.StringResources.Resource.FindDoctor</a>
+                            </li>
+                        }
+                        @if (userEmail == null)
+                        {
+                            <li>
+                                <a href="javascript:void(0);" onclick="alert('Please login to access this page');">
+                                    @AlzhCareHub.StringResources.Resource.AppsAndGames
+                                </a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li>
+                                <a href="https://poki.com/en/g/brain-test-tricky-puzzles" target="_blank">
+                                    @AlzhCareHub.StringResources.Resource.AppsAndGames
+                                </a>
+                            </li>
+                        }
+
                     </ul>
                 </div>
 
                 <div class="col-md-2 col-lg-2">
                     <h5>@AlzhCareHub.StringResources.Resource.Region</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#">@AlzhCareHub.StringResources.Resource.Lahore</a></li>
-                        <li><a href="#">@AlzhCareHub.StringResources.Resource.Karachi</a></li>
-                        <li><a href="#">@AlzhCareHub.StringResources.Resource.Islamabad</a></li>
-                        <li><a href="#">@AlzhCareHub.StringResources.Resource.Mulla_Wala</a></li>
+                        <li><a href="javscript: void(0);">@AlzhCareHub.StringResources.Resource.Lahore</a></li>
+                        <li><a href="javascript: void(0);">@AlzhCareHub.StringResources.Resource.Karachi</a></li>
+                        <li><a href="javascript: void(0);">@AlzhCareHub.StringResources.Resource.Islamabad</a></li>
+                        <li><a href="javascript: void(0);">@AlzhCareHub.StringResources.Resource.Mulla_Wala</a></li>
                     </ul>
                 </div>
+
 
                 <div class="col-md-2 col-lg-2">
                     <h5>@AlzhCareHub.StringResources.Resource.Help</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#">@AlzhCareHub.StringResources.Resource.HelpCenter</a></li>
-                        <li><a href="#">@AlzhCareHub.StringResources.Resource.ContactSupport</a></li>
-                        <li><a href="#">@AlzhCareHub.StringResources.Resource.Instructions</a></li>
-                        <li><a href="#">@AlzhCareHub.StringResources.Resource.Works</a></li>
+                        <li><a href="javacript: void(0);">@AlzhCareHub.StringResources.Resource.HelpCenter</a></li>
+                        <li><a href="javascript: void(0);">@AlzhCareHub.StringResources.Resource.ContactSupport</a></li>
+                        <li><a href="javascript: void(0);">@AlzhCareHub.StringResources.Resource.Instructions</a></li>
+                        <li><a href="javascript: void(0);">@AlzhCareHub.StringResources.Resource.Works</a></li>
                     </ul>
                 </div>
             </div>

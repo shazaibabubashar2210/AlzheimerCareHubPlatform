@@ -1,0 +1,41 @@
+﻿<h2>Confirm Appointment</h2>
+
+<p>Patient Email: @Model.Email</p>
+<p>Requested Date: @Model.Date</p>
+
+<form asp-action="ConfirmAppointment" method="post">
+    <input type="hidden" name="Id" value="@Model.Id" />
+
+    <label>
+        <input type="radio" name="Status" value="Confirmed" required /> Confirm Appointment
+    </label>
+    <br>
+    <label>
+        <input type="radio" name="Status" value="Doctor Suggested New Date" required /> Suggest New Date
+    </label>
+    <br>
+
+    <div id="rescheduleFields" style="display: none;">
+        <label for="SuggestedDate">New Date:</label>
+        <input type="date" name="SuggestedDate" />
+        <br>
+        <label for="SuggestedTime">New Time:</label>
+        <input type="time" name="SuggestedTime" />
+    </div>
+
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll("input[name='Status']").forEach((radio) => {
+            radio.addEventListener("change", function () {
+                if (this.value === "Doctor Suggested New Date") {
+                    document.getElementById("rescheduleFields").style.display = "block";
+                } else {
+                    document.getElementById("rescheduleFields").style.display = "none";
+                }
+            });
+        });
+    });
+</script>

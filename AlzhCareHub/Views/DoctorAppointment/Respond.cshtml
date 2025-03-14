@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Respond to Reschedule";
+}
+
+<h2>Respond to Reschedule</h2>
+<p>Dr. @Model.Doctor has suggested a new time: @Model.SuggestedDate at @Model.SuggestedTime. Do you accept?</p>
+
+<form id="responseForm">
+    <button type="button" onclick="respondToReschedule(true)">Accept</button>
+    <button type="button" onclick="respondToReschedule(false)">Decline</button>
+</form>
+
+<script>
+    async function respondToReschedule(accepted) {
+        const responseData = {
+            Email: "@Model.Email",
+            OriginalDate: "@Model.OriginalDate",
+            Accepted: accepted
+        };
+
+        const response = await fetch('/Appointment/RespondToReschedule', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(responseData)
+        });
+
+        const result = await response.json();
+        alert(result.message);
+    }
+</script>

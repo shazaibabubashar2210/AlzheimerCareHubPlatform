@@ -1,12 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AlzhCareHub.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace AlzhCareHub.Controllers
 {
     public class DoctorAppointmentController : Controller
     {
-        public IActionResult DoctorAppointment()
+        public async Task<IActionResult> DoctorAppointment()
         {
-            return View();
+            var teamService = new TeamService();
+            var members = await teamService.GetTeamMembers();
+            return View(members);
         }
     }
 }
