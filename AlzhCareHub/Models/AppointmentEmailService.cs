@@ -23,6 +23,25 @@ namespace AlzhCareHub.Services
             await SendEmail(caregiverEmail, subject, body);
         }
 
+        // Canceling and Rescheduling Appointments
+        public static async Task SendCancellation(AppointmentModel appointment, string doctorEmail, string caregiverEmail)
+        {
+            string subject = "Appointment Cancelled";
+            string body = $"The appointment with Dr. {appointment.Doctor} on {appointment.AppointmentDate:yyyy-MM-dd} at {appointment.AppointmentTime} has been cancelled.";
+
+            await SendEmail(doctorEmail, subject, body);
+            await SendEmail(caregiverEmail, subject, body);
+        }
+
+        public static async Task SendRescheduleRequest(AppointmentModel appointment, string doctorEmail)
+        {
+            string subject = "Reschedule Request";
+            string body = $"The caregiver has requested to reschedule the appointment with Dr. {appointment.Doctor} to {appointment.SuggestedDate:yyyy-MM-dd} at {appointment.SuggestedTime}. Please review the request.";
+
+            await SendEmail(doctorEmail, subject, body);
+        }
+
+
         private static async Task SendEmail(string to, string subject, string body)
         {
             using (SmtpClient smtp = new SmtpClient("smtp.gmail.com"))

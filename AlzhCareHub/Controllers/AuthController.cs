@@ -18,9 +18,8 @@
         {
             try
             {
-                string role = "Caregiver"; // Automatically assigning Caregiver role
-
-                var auth = await FirebaseAuthHelper.RegisterUser(email, password, role);
+                string role= "Caregiver"; // Default role for new users
+                var auth = await FirebaseAuthHelper.RegisterUser(email, password,role);
 
                 if (auth != null)
                 {
@@ -50,36 +49,20 @@
         {
             try
             {
-                // Check if the user is trying to log in as admin
+                // Check for hardcoded admin credentials
                 if (email == "admin@gmail.com" && password == "admin123@")
                 {
-                    HttpContext.Session.SetString("UserRole", "Admin");
-                    HttpContext.Session.SetString("UserEmail", "admin@alzhcarehub.com");
+                    HttpContext.Session.SetString("UserEmail", email);
                     return RedirectToAction("AdminDashboard");
                 }
 
+                // Otherwise, authenticate using Firebase
                 var auth = await FirebaseAuthHelper.LoginUser(email, password);
 
                 if (auth != null)
                 {
-
-                    var userRole = await FirebaseAuthHelper.GetUserRole(auth.User.LocalId);
-
-                    HttpContext.Session.SetString("UserRole", userRole);
                     HttpContext.Session.SetString("UserEmail", email);
-
-                    if (userRole == "Caregiver")
-                    {
-                        return RedirectToAction("CaregiverDashboard");
-                    }
-                    else if (userRole == "Admin")
-                    {
-                        return RedirectToAction("AdminDashboard");
-                    }
-                    else
-                    {
-                        return RedirectToAction("Dashboard");
-                    }
+                    return RedirectToAction("CaregiverDashboard"); // Default for non-admin users
                 }
             }
             catch (InvalidOperationException ex)
@@ -96,6 +79,18 @@
 
 
         public ActionResult AdminDashboard()
+        {
+            var userEmail = HttpContext.Session.GetString("UserEmail");
+            if (string.IsNullOrEmpty(userEmail))
+            {
+                return RedirectToAction("Login");
+            }
+
+            ViewBag.UserEmail = userEmail;
+            return View();
+        }
+
+        public ActionResult CaregiverDashboard()
         {
             var userEmail = HttpContext.Session.GetString("UserEmail");
             if (string.IsNullOrEmpty(userEmail))
@@ -130,15 +125,8 @@
 
         public ActionResult Logout()
         {
-            HttpContext.Session.Remove("UserEmail");
-            HttpContext.Session.Remove("UserRole");
             HttpContext.Session.Clear();
-            return RedirectToAction("CaregiverDashboard");
-        }
-
-        public ActionResult CaregiverDashboard()
-        {
-            return View();
+            return RedirectToAction("Login");
         }
     }
 }

@@ -20,14 +20,10 @@
             {
                 var authLink = await authProvider.CreateUserWithEmailAndPasswordAsync(email, password);
 
-                // Send email verification
-                await authProvider.SendEmailVerificationAsync(authLink.FirebaseToken);
-
-                // Save user role in Firebase Database
+                // Store user role in Firebase Database
                 await firebaseClient
                     .Child("Users")
-                    .Child(authLink.User.LocalId)
-                    .PutAsync(new { Email = email, Role = role, EmailVerified = false });
+                    .PutAsync(new { Email = email, Role = role, EmailVerified = true });
 
                 return authLink;
             }
@@ -40,23 +36,14 @@
                 throw new Exception("Error creating user: " + ex.Message);
             }
         }
+
+
         // Login User with Email Verification Check
         public static async Task<FirebaseAuthLink> LoginUser(string email, string password)
         {
             try
             {
                 var authLink = await authProvider.SignInWithEmailAndPasswordAsync(email, password);
-
-                // Force refresh user data
-                await Task.Delay(1000); // Small delay to allow Firebase to update
-                var freshAuth = await authProvider.GetUserAsync(authLink.FirebaseToken);
-
-                // Now check email verification status
-                if (!freshAuth.IsEmailVerified)
-                {
-                    throw new InvalidOperationException("Your email is not verified. Please check your inbox and verify your email before logging in.");
-                }
-
                 return authLink;
             }
             catch (FirebaseAuthException ex)
@@ -86,8 +73,9 @@
                 .Child(userId)
                 .OnceSingleAsync<dynamic>();
 
-            return user?.Role ?? "Unknown"; // Default to "Unknown" if role not found
+            return user?.Role?.ToString() ?? "Unknown"; // Ensure proper role retrieval
         }
+
 
         // Reset Password
         public static async Task<string> ResetPassword(string email)
