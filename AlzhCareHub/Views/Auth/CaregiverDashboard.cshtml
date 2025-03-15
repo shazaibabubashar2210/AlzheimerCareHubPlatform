@@ -43,7 +43,7 @@
         width: 100%;
         height: auto; 
         max-width: 100%; 
-        max-height: 320px;
+        max-height: 400px;
         border-radius: 20px;
 
         }
@@ -174,13 +174,18 @@
 
 
 <!-- Join Us Section -->
-<div class="container support-section">
-    <div>
-        <img src="~/images/JoinUs.png" alt="Supporting Alzheimer's Patients" data-aos="zoom-in" data-aos-delay="400">
+<div class="container support-section" style="margin-top: 12rem;">
+    <div style="height: 260px; width: 260px">
+        <img src="~/images/joinus.jpg" alt="Supporting Alzheimer's Patients" data-aos="zoom-in" data-aos-delay="400">
     </div>
     <div class="support-content" data-aos="fade-left" data-aos-delay="400">
+        <div style="margin-top: 12rem">
         <h2>@AlzhCareHub.StringResources.Resource.JoinHead</h2>
-        <p>@AlzhCareHub.StringResources.Resource.JoinPara</p>
+        </div>
+        <div>
+            <p>@AlzhCareHub.StringResources.Resource.JoinPara</p>
+        </div>
+      
         @if(userEmail==null)
         {
             <a href="javascript:void(0);" onclick="showLoginAlert();" class="btn btn-outline-primary helpbtn">@AlzhCareHub.StringResources.Resource.LM</a>
@@ -193,7 +198,7 @@
 </div>
 
 <!-- Donate Section -->
-<div class="container support-section">
+<div class="container support-section" style="margin-top: 20rem; margin-bottom: 10rem;">
     <div class="support-content" data-aos="zoom-in" data-aos-delay="400">
         <h2>@AlzhCareHub.StringResources.Resource.DonateHead</h2>
         <p>@AlzhCareHub.StringResources.Resource.DonatePara </p>
@@ -207,7 +212,7 @@
 
     </div>
     <div data-aos="zoom-in" data-aos-delay="400">
-        <img src="~/images/Donate.png" alt="Supporting Alzheimer's Patients" >
+        <img src="~/images/donationimg.jpg" alt="Supporting Alzheimer's Patients" >
     </div>
 </div>
 
