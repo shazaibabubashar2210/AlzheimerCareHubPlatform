@@ -90,6 +90,12 @@
             return View();
         }
 
+
+        [HttpGet]
+        public IActionResult CaregiverDashBoard()
+        {
+            return View();
+        }
         public ActionResult CaregiverDashboard()
         {
             var userEmail = HttpContext.Session.GetString("UserEmail");
@@ -128,5 +134,7 @@
             HttpContext.Session.Clear();
             return RedirectToAction("Login");
         }
+
+  
     }
 }

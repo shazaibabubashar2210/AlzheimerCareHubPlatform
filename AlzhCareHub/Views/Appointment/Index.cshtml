@@ -1,20 +1,31 @@
 ﻿@model List<AppointmentModel>
-
-<h2>Your Appointments</h2>
-
-@foreach (var appointment in Model)
+@{
+    Layout = "_Donation";
+}
+@if (Model == null || !Model.Any()) // Fix null check
 {
-    <div class="card mb-3">
-        <div class="card-body">
-            <h5 class="card-title">Doctor: @appointment.Doctor</h5>
-            <p class="card-text">Date: @appointment.SuggestedDate</p>
-            <p class="card-text">Time: @appointment.SuggestedTime</p>
-            <p class="card-text">Status: <strong>@appointment.Status</strong></p>
+    <p>No Appointments Found</p>
+}
+else
+{
+    <h2 class="text-center">Your Appointments</h2>
 
-            <button class="btn btn-danger cancel-btn" data-id="@appointment.Id">Cancel</button>
-            <button class="btn btn-warning reschedule-btn" data-id="@appointment.Id" data-toggle="modal" data-target="#rescheduleModal">Reschedule</button>
+    @foreach (var appointment in Model)
+    {
+        <div class="card mb-3" style="width: 30%; margin: auto">
+            <div class="card-body">
+                <p class="card-text">Date: @Convert.ToDateTime(appointment.SuggestedDate).ToString("dd-MM-yyyy")</p>
+                <p class="card-text">Time: @Convert.ToDateTime(appointment.SuggestedTime).ToString("hh:mm tt")</p>
+                <p class="card-text">Caregiver: @appointment.CaregiverEmail</p>
+                <p class="card-text">Status: <strong>@appointment.Status</strong></p>
+
+                <button class="btn btn-danger cancel-btn" data-id="@appointment.Id">Cancel</button>
+                <button class="btn btn-warning reschedule-btn" data-id="@appointment.Id" data-bs-toggle="modal" data-bs-target="#rescheduleModal">
+                    Reschedule
+                </button>
+            </div>
         </div>
-    </div>
+    }
 }
 
 <!-- Reschedule Modal -->
@@ -23,7 +34,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Reschedule Appointment</h5>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> <!-- Fixed close button -->
             </div>
             <div class="modal-body">
                 <input type="hidden" id="rescheduleId">
@@ -38,6 +49,7 @@
         </div>
     </div>
 </div>
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".cancel-btn").forEach(button => {

@@ -2,12 +2,14 @@
 namespace AlzhCareHub.Controllers
 {
     using AlzhCareHub.Models;
+    using Google.Api;
     using Microsoft.AspNetCore.Mvc;
     using System.Threading.Tasks;
 
     public class TeamController : Controller
     {
         private readonly TeamService _teamService;
+        private object _context;
 
         public TeamController()
         {
@@ -41,8 +43,5 @@ namespace AlzhCareHub.Controllers
             return View(teamMembers);
         }
 
-
     }
-
-
 }
