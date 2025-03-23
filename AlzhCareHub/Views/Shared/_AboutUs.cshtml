@@ -75,16 +75,16 @@
                         <a class="nav-link active" asp-controller="Auth" asp-action="CaregiverDashboard">@AlzhCareHub.StringResources.Resource.Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="DoctorAppointment" asp-action="DoctorAppointment">@AlzhCareHub.StringResources.Resource.FindDoctor</a>
+                        <a class="nav-link active" asp-controller="DoctorAppointment" asp-action="DoctorAppointment">@AlzhCareHub.StringResources.Resource.FindDoctor</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">@AlzhCareHub.StringResources.Resource.EducationalResources</a>
+                        <a class="nav-link active" href="#">@AlzhCareHub.StringResources.Resource.EducationalResources</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="AboutUs" asp-action="Index">@AlzhCareHub.StringResources.Resource.AboutUs_</a>
+                        <a class="nav-link active" asp-controller="AboutUs" asp-action="Index">@AlzhCareHub.StringResources.Resource.AboutUs_</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="Donation" asp-action="Donate">@AlzhCareHub.StringResources.Resource.Donate</a>
+                        <a class="nav-link active" asp-controller="Donation" asp-action="Donate">@AlzhCareHub.StringResources.Resource.Donate</a>
                     </li>
                     @{
                         var userEmail = Context.Session.GetString("UserEmail");
@@ -92,11 +92,11 @@
 
                     @if (!string.IsNullOrEmpty(userEmail))
                     {
-                        <a class="nav-link me-5" asp-controller="Auth" asp-action="Logout">@AlzhCareHub.StringResources.Resource.Logout</a>
+                        <a class="nav-link me-5 active" asp-controller="Auth" asp-action="Logout">@AlzhCareHub.StringResources.Resource.Logout</a>
                     }
                     else
                     {
-                        <a class="nav-link me-5" asp-controller="Auth" asp-action="Login">@AlzhCareHub.StringResources.Resource.Login_</a>
+                        <a class="nav-link me-5 active" asp-controller="Auth" asp-action="Login">@AlzhCareHub.StringResources.Resource.Login_</a>
                     }
                 </ul>
             </div>

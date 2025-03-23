@@ -8,50 +8,104 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page - AlzhCareHub</title>
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="~/css/loginpagedesigning.css" rel="stylesheet" />
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #cfe6dc, #9dcab6);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-container {
+            max-width: 400px;
+            width: 100%;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .form-control {
+            border-radius: 8px;
+            padding: 12px;
+        }
+
+        .input-group-text {
+            background: #e9f0ed;
+            border-radius: 8px;
+            border: none;
+        }
+
+        .btn-primary {
+            background: #4a826d;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            transition: 0.3s ease-in-out;
+        }
+
+            .btn-primary:hover {
+                background: #366854;
+            }
+
+        .forgot-links {
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
-    <div class="container d-flex flex-column flex-lg-row align-items-center justify-content-center">
-        <div class="image-container col-12 col-lg-6 d-flex justify-content-center">
-            <img src="~/images/1.jpg" alt="Login Image" class="img-fluid" style="max-width: 450px; width: 100%;">
-        </div>
 
-        <div class="form-container col-12 col-lg-6 mt-5">
-            <h2 class="text-center mb-4">@AlzhCareHub.StringResources.Resource.LoginHead</h2>
-            <p class="text-center mb-4">@AlzhCareHub.StringResources.Resource.LoginPara</p>
+    <div class="login-container">
+        <h2 class="mb-3 fw-bold">@AlzhCareHub.StringResources.Resource.LoginHead</h2>
+        <p class="text-muted mb-4">@AlzhCareHub.StringResources.Resource.LoginPara</p>
 
-            @if (TempData["Message"] != null)
-            {
-                <div class="alert alert-success text-center">
-                    @TempData["Message"]
-                </div>
-            }
+        @if (TempData["Message"] != null)
+        {
+            <div class="alert alert-success">
+                @TempData["Message"]
+            </div>
+        }
 
-            @using (Html.BeginForm("Login", "Auth", FormMethod.Post))
-            {
-                <div class="mb-3">
+        @using (Html.BeginForm("Login", "Auth", FormMethod.Post))
+        {
+            <div class="mb-3">
+                <div class="input-group">
+                    <span class="input-group-text">
+                        <i class="bi bi-envelope"></i>
+                    </span>
                     <input type="email" name="email" class="form-control" placeholder="@AlzhCareHub.StringResources.Resource.Email" required>
                 </div>
-                <div class="mb-3">
+            </div>
+
+            <div class="mb-3">
+                <div class="input-group">
+                    <span class="input-group-text">
+                        <i class="bi bi-lock"></i>
+                    </span>
                     <input type="password" name="password" class="form-control" placeholder="@AlzhCareHub.StringResources.Resource.Password" required>
                 </div>
-                <button type="submit" class="btn btn-primary w-100">@AlzhCareHub.StringResources.Resource.Login_</button>
-            }
+            </div>
 
-            <p class="mt-3 text-center">
-                Don't have an account?
-                <a asp-controller="Auth" asp-action="Register">@AlzhCareHub.StringResources.Resource.Create_account</a> |
-                <a asp-controller="Auth" asp-action="ForgotPassword">@AlzhCareHub.StringResources.Resource.Reset_Password</a>
-            </p>
-        </div>
+            <button type="submit" class="btn btn-primary w-100">@AlzhCareHub.StringResources.Resource.Login_</button>
+        }
+
+        <p class="mt-3 forgot-links">
+            <a asp-controller="Auth" asp-action="ForgotPassword">@AlzhCareHub.StringResources.Resource.Reset_Password</a>
+        </p>
+
+        <p class="mt-3">
+            Don't have an account?
+            <a asp-controller="Auth" asp-action="Register">@AlzhCareHub.StringResources.Resource.Create_account</a>
+        </p>
     </div>
 
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
-
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</html>  
+</html>

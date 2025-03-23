@@ -6,50 +6,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register Page - AlzhCareHub</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="~/css/registerationpagedesigning.css" rel="stylesheet" />
+    <title>Register - AlzhCareHub</title>
 
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://accounts.google.com/gsi/client" async defer></script>
+    
+    <style>
+        body {
+            background-color: #cfe6dc;
+        }
+
+        .form-container {
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+            .form-container h2 {
+                font-weight: bold;
+                color: #2d545e;
+            }
+
+        .form-control {
+            border-radius: 8px;
+            padding: 12px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background: white;
+            overflow: hidden;
+        }
+
+        .input-group-text {
+            background: #f0f0f0;
+            border: none;
+            padding: 12px;
+            border-right: 1px solid #ccc;
+        }
+
+        .form-control:focus {
+            border-color: #2d545e;
+            box-shadow: none;
+        }
+
+        .btn-primary {
+            background: #4a826d;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            transition: 0.3s ease-in-out;
+        }
+
+            .btn-primary:hover {
+                background-color: #1b3a42;
+            }
+
+        .alert {
+            border-radius: 8px;
+        }
+    </style>
+
 </head>
 <body>
-    <div class="container d-flex flex-column flex-lg-row align-items-center justify-content-center">
-        <div class="image-container col-12 col-lg-6 d-flex justify-content-center">
-            <img src="~/images/1.jpg" alt="Register Image" class="img-fluid" style="max-width: 450px; width: 100%;">
-        </div>
+    <div class="container d-flex flex-column flex-lg-row align-items-center justify-content-center vh-100">
+        <div class="col-12 col-lg-4">
+            <div class="form-container">
+                <h2 class="text-center mb-3">@AlzhCareHub.StringResources.Resource.CreateAccount</h2>
+                <p class="text-center mb-3">@AlzhCareHub.StringResources.Resource.RegisterText</p>
 
-        <div class="form-container col-12 col-lg-6">
-            <h2 class="text-center">@AlzhCareHub.StringResources.Resource.CreateAccount</h2>
-            <p class="text-center mb-4">@AlzhCareHub.StringResources.Resource.RegisterText</p>
+                @if (TempData["Error"] != null)
+                {
+                    <div class="alert alert-danger text-center">
+                        @TempData["Error"]
+                    </div>
+                }
 
-            @if (TempData["Error"] != null)
-            {
-                <div class="alert alert-danger text-center">
-                    @TempData["Error"]
-                </div>
-            }
+                @if (TempData["Success"] != null)
+                {
+                    <div class="alert alert-success text-center">
+                        @TempData["Success"]
+                    </div>
+                }
 
-            @if (TempData["Success"] != null)
-            {
-                <div class="alert alert-success text-center">
-                    @TempData["Success"]
-                </div>
-            }
+                @using (Html.BeginForm("Register", "Auth", FormMethod.Post, new { id = "registerForm" }))
+                {
+                    <div class="mb-3">
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="@AlzhCareHub.StringResources.Resource.Email" required />
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                            <input type="password" id="password" name="password" class="form-control" placeholder="@AlzhCareHub.StringResources.Resource.Password" required />
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">@AlzhCareHub.StringResources.Resource.Register</button>
+                }
 
-            @using (Html.BeginForm("Register", "Auth", FormMethod.Post, new { id = "registerForm" })) // ✅ Added ID for JavaScript
-            {
-                <div class="mb-3">
-                    <input type="email" id="email" name="email" class="form-control" placeholder="@AlzhCareHub.StringResources.Resource.Email" required />
-                </div>
-                <div class="mb-3">
-                    <input type="password" id="password" name="password" class="form-control" placeholder="@AlzhCareHub.StringResources.Resource.Password" required />
-                </div>
-                <button type="submit" class="btn btn-primary w-100">@AlzhCareHub.StringResources.Resource.Register</button>
-            }
-            <p class="text-center mt-3">
-                @AlzhCareHub.StringResources.Resource.AlreadyAccount
-                <a asp-controller="Auth" asp-action="Login">@AlzhCareHub.StringResources.Resource.LoginHere</a>
-            </p>
+                <p class="text-center mt-3">
+                    @AlzhCareHub.StringResources.Resource.AlreadyAccount
+                    <a asp-controller="Auth" asp-action="Login" class="text-decoration-none text-primary fw-bold">@AlzhCareHub.StringResources.Resource.LoginHere</a>
+                </p>
+            </div>
         </div>
     </div>
 
@@ -57,7 +124,6 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
     <script src="~/js/registration.js"></script>
     <script>
-        // ✅ Firebase Configuration
         const firebaseConfig = {
             apiKey: "AIzaSyCWeoUTihsySNUteX_FWBu9mDMXJY57yUs",
             authDomain: "alzheimercarehubsystem-a42e6.firebaseapp.com",
@@ -68,6 +134,6 @@
         const auth = firebase.auth();
     </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

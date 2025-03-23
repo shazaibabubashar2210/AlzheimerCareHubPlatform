@@ -9,23 +9,10 @@
 
 .container {
     max-width: 900px;
-    background-color: white;
     padding: 25px;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
-}
-
-.image-container img {
-    width: 450px;
-    border-radius: 10px;
-    object-fit: cover;
-}
-
-.form-container {
-    padding: 10px;
-    margin-left: 20px;
 }
 
 .form-control {
@@ -66,6 +53,3 @@ h2 {
 }
 
 
-.image-container img {
-    height: auto;
-}
