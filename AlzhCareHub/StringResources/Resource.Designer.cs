@@ -520,6 +520,15 @@ namespace AlzhCareHub.StringResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to OurTeam.
+        /// </summary>
+        public static string OurTeam {
+            get {
+                return ResourceManager.GetString("OurTeam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
         public static string Password {

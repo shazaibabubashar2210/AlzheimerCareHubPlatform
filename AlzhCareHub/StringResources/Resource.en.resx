@@ -320,4 +320,7 @@ platform offers a variety of services to make caregiving easier, more effective,
   <data name="LoginHere" xml:space="preserve">
     <value>Login here</value>
   </data>
+  <data name="OurTeam" xml:space="preserve">
+    <value>Our Team</value>
+  </data>
 </root>

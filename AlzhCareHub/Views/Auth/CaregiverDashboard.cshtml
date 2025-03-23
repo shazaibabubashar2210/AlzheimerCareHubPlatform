@@ -51,42 +51,86 @@
         .hero{
         margin-top: 8rem;
         }
-    </style>
+        /* Hero Section */
+        .hero-section {
+         
+            padding: 80px 0;
+            background-color: #cfe6dc;
+        }
+
+        .hero-section .text-content {
+            text-align: left;
+            padding-left: 30px;
+        }
+
+        .hero-section h1 {
+            font-size: 42px;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .hero-section p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 20px;
+               
+        }
+
+        .hero-section .help-btn {
+            border: none;
+            padding: 12px 24px;
+            font-size: 18px;
+            border-radius: 30px;
+            font-weight: 500;
+        }
+
+        .hero-section .hero-img {
+            max-width: 100%;
+            height: auto;
+        }
+        .cards{
+            background-color: #E4F1EB;
+            
+        }
+        .cards :hover{
+            background-color: #E4F1EB;
+        }
+
+     </style>
 </head>
 
 @{
     var userEmail = Context.Session.GetString("UserEmail");
 }
 <!-- Hero Section -->
-<div class="container my-5">
-    <div class="row align-items-center hero">
-        <!-- Image Column -->
-        <div class="col-lg-6 order-1 order-lg-2 imgbox" data-aos="fade-left" data-aos-delay="300">
-            <img src="~/images/HeroSectionImage.png" alt="Virtual Healthcare" class="img-fluid hero-img">
-        </div>
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Text Column -->
+            <div class="col-lg-4 order-2 order-lg-1 text-content">
+                <h1>@AlzhCareHub.StringResources.Resource.AboutUsHeroHead</h1>
+                <p>@AlzhCareHub.StringResources.Resource.HeroPara</p>
 
-        <!-- Text Column -->
-        <div class="col-lg-6 order-2 order-lg-1 mb-4 mb-lg-0" data-aos="fade-right" data-aos-delay="300">
-            <h1 class="display-5 fw-bold">@AlzhCareHub.StringResources.Resource.HeroText</h1>
-            <p class="text-muted">@AlzhCareHub.StringResources.Resource.HeroPara</p>
+                @if (userEmail == null)
+                {
+                    <!-- Show alert when user is not logged in -->
+                    <a href="javascript:void(0);" class="btn btn-primary help-btn" onclick="showLoginAlert()">@AlzhCareHub.StringResources.Resource.GetHelp</a>
+                }
+                else
+                {
+                    <!-- Allow navigation when user is logged in -->
+                    <a asp-action="Index" asp-controller="Contact" class="btn btn-primary help-btn">@AlzhCareHub.StringResources.Resource.GetHelp</a>
+                }
+            </div>
 
-            @if (userEmail == null)
-            {
-                <!-- Show alert when user is not logged in -->
-                <a href="javascript:void(0);" class="btn btn-primary btn-lg helpbtn" onclick="showLoginAlert()">
-                    @AlzhCareHub.StringResources.Resource.GetHelp
-                </a>
-            }
-            else
-            {
-                <!-- Allow navigation when user is logged in -->
-                <a asp-action="Index" asp-controller="Contact" class="btn btn-primary btn-lg helpbtn">
-                    @AlzhCareHub.StringResources.Resource.GetHelp
-                </a>
-            }
+            <!-- Image Column -->
+            <div class="col-lg-8 order-1 order-lg-2 text-center">
+                <img src="~/images/HeroSectionImage.png" alt="Virtual Healthcare" class="hero-img">
+            </div>
         </div>
     </div>
-</div>
+</section>
+
 
 <!-- Our Services Section -->
 <div class="container my-5">
@@ -101,7 +145,7 @@
     <div class="row g-4">
         <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up">
             <a style="text-decoration: none;" onclick="checkAuth(event, '/ServiceGallery/Remainder_And_Alerts')">
-                <div class="card shadow border-0 h-100">
+                <div class="card shadow border-0 h-100 cards">
                     <div class="card-body text-center">
                         <img src="~/images/reminder.png" class="iconimg img-fluid" />
                         <h5 class="card-title mt-3">@AlzhCareHub.StringResources.Resource.Remainder</h5>
@@ -113,7 +157,7 @@
 
         <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="200">
             <div class="card shadow border-0 h-100">
-                <div class="card-body text-center">
+                <div class="card-body text-center cards">
                     <img src="~/images/trainingresouces.png" class="iconimg img-fluid" />
                     <h5 class="card-title mt-3">@AlzhCareHub.StringResources.Resource.TrainingResources</h5>
                     <p class="card-text">@AlzhCareHub.StringResources.Resource.tp</p>
@@ -125,7 +169,7 @@
             <a href="https://poki.com/en/g/brain-test-tricky-puzzles" style="text-decoration: none; color: black;" target="_blank"
                onclick="checkAuthentication(event, 'https://poki.com/en/g/brain-test-tricky-puzzles')">
                 <div class="card shadow border-0 h-100">
-                    <div class="card-body text-center">
+                    <div class="card-body text-center cards">
                         <img src="~/images/games.png" class="iconimg img-fluid" />
                         <h5 class="card-title mt-3">@AlzhCareHub.StringResources.Resource.AppsAndGames</h5>
                         <p class="card-text">@AlzhCareHub.StringResources.Resource.gp</p>
@@ -137,7 +181,7 @@
         <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-right">
             <a style="text-decoration: none; color: black;" onclick="checkAuth(event, '/DoctorAppointment/DoctorAppointment')">
                 <div class="card shadow border-0 h-100">
-                    <div class="card-body text-center">
+                    <div class="card-body text-center cards">
                         <img src="~/images/appointment.png" class="iconimg img-fluid" />
                         <h5 class="card-title mt-3">@AlzhCareHub.StringResources.Resource.dap</h5>
                         <p class="card-text">@AlzhCareHub.StringResources.Resource.dappara</p>
@@ -149,7 +193,7 @@
         <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-left" data-aos-delay="200">
             <a style="text-decoration: none; color: black;" onclick="checkAuth(event, '/FeedBack/Submit')">
                 <div class="card shadow border-0 h-100">
-                    <div class="card-body text-center">
+                    <div class="card-body text-center cards">
                         <img src="~/images/feedback.png" class="iconimg img-fluid" />
                         <h5 class="card-title mt-3">@AlzhCareHub.StringResources.Resource.feedback</h5>
                         <p class="card-text">@AlzhCareHub.StringResources.Resource.feedpara</p>
@@ -161,8 +205,8 @@
         <div class="col-lg-4 col-md-6 col-sm-12 mb-3" data-aos="zoom-in" data-aos-delay="400">
             <a style="text-decoration: none; color:black;" onclick="checkAuth(event, '/FAQ/FAQ')">
                 <div class="card shadow border-0 h-100">
-                    <div class="card-body text-center">
-                        <img src="~/images/faq.webp" class="iconimg img-fluid" />
+                    <div class="card-body text-center cards">
+                        <img src="~/images/faq.jpeg" class="iconimg img-fluid" />
                         <h5 class="card-title mt-3">@AlzhCareHub.StringResources.Resource.faq</h5>
                         <p class="card-text">@AlzhCareHub.StringResources.Resource.fp</p>
                     </div>
@@ -174,12 +218,12 @@
 
 
 <!-- Join Us Section -->
-<div class="container support-section" style="margin-top: 12rem;">
-    <div style="height: 260px; width: 260px">
-        <img src="~/images/joinus.jpg" alt="Supporting Alzheimer's Patients" data-aos="zoom-in" data-aos-delay="400">
+<div class="container support-section " style="margin-top: 12rem; display: flex;">
+    <div style="height: 360px; width: 290px">
+        <img src="~/images/JoinUsSec.jpg" alt="Supporting Alzheimer's Patients" class="join" data-aos="zoom-in" data-aos-delay="400" style="height: 350px; width: 300px">
     </div>
     <div class="support-content" data-aos="fade-left" data-aos-delay="400">
-        <div style="margin-top: 12rem">
+        <div>
         <h2>@AlzhCareHub.StringResources.Resource.JoinHead</h2>
         </div>
         <div>
@@ -229,7 +273,7 @@
         <div class="col-md-4 d-flex" style="cursor: pointer" data-aos="fade-up" data-aos-delay="400">
             <div class="card shadow border-0 w-100">
                 <img src="~/images/article1.jpeg" class="card-img-top" alt="Alzheimer's Article">
-                <div class="card-body d-flex flex-column">
+                <div class="card-body d-flex flex-column cards">
                     <h5 class="card-title fw-bold">@AlzhCareHub.StringResources.Resource.arhead1</h5>
                     <p class="card-text">@AlzhCareHub.StringResources.Resource.a1para</p>
                     <a href="~/what_is_alzheimers_disease.pdf" download class="text-primary fw-bold mt-auto">@AlzhCareHub.StringResources.Resource.adownload</a>
@@ -242,7 +286,7 @@
         <div class="col-md-4 d-flex" style="cursor: pointer;" data-aos="fade-up" data-aos-delay="400">
             <div class="card shadow border-0 w-100">
                 <img src="~/images/article2.jpeg" class="card-img-top" alt="Alzheimer's Article">
-                <div class="card-body d-flex flex-column">
+                <div class="card-body d-flex flex-column cards">
                     <h5 class="card-title fw-bold">@AlzhCareHub.StringResources.Resource.a2head</h5>
                     <p class="card-text">@AlzhCareHub.StringResources.Resource.a2para</p>
                     <a href="~/6 Things Never to Do When Caring an Alzheimer patient.pdf" download class="text-primary fw-bold mt-auto">@AlzhCareHub.StringResources.Resource.adownload</a>
@@ -254,7 +298,7 @@
         <div class="col-md-4 d-flex" style="cursor: pointer;" data-aos="fade-up" data-aos-delay="400">
             <div class="card shadow border-0 w-100">
                 <img src="~/images/article3.jpeg" class="card-img-top" alt="Alzheimer's Article">
-                <div class="card-body d-flex flex-column">
+                <div class="card-body d-flex flex-column cards">
                     <h5 class="card-title fw-bold">@AlzhCareHub.StringResources.Resource.a3head</h5>
                     <p class="card-text">@AlzhCareHub.StringResources.Resource.a3para</p>
                     <a href="https://www.rcpsych.ac.uk/mental-health/translations/urdu/memory-problems-and-dementia" class="text-primary fw-bold mt-auto" target="_blank">@AlzhCareHub.StringResources.Resource.a3btn</a>

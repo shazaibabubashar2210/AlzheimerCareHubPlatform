@@ -12,6 +12,14 @@
         *{
             scroll-behavior: smooth;
         }
+
+        .logo {
+            border-radius: 50%;
+            padding: 2px 10px;
+            border: 2px solid #458ff6;
+            color: #fff;
+            background-color: #458ff6;
+        }
         .hero-section{
             margin-top: 50px;
         }
@@ -84,6 +92,7 @@
         .team-container{
             margin-top: 5rem;
         }
+
     </style>
 </head>
 <body>
@@ -91,7 +100,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
         <div class="container-fluid">
-            <a class="navbar-brand brand-logo ms-5" asp-controller="Auth" asp-action="CaregiverDashBoard">AlzhCare</a>
+            <a class="navbar-brand brand-logo ms-5" asp-controller="Auth" asp-action="CaregiverDashBoard"><span class=" logo me-lg-2">A</span>AlzhCare</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -133,7 +142,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="col-12">
-                    <h2 class="text-center mb-4" id="Team" style="margin-top: 5rem;">Our Team</h2>
+                    <h2 class="text-center mb-4" id="Team" style="margin-top: 5rem;">@AlzhCareHub.StringResources.Resource.OurTeam</h2>
                 </div>
                 <div class="row g-4">
                     @if (Model == null || !Model.Any())

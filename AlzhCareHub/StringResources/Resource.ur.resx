@@ -320,4 +320,7 @@
   <data name="LoginHere" xml:space="preserve">
     <value>یہاں لاگ ان کریں</value>
   </data>
+  <data name="OurTeam" xml:space="preserve">
+    <value>ہماری ٹیم</value>
+  </data>
 </root>
