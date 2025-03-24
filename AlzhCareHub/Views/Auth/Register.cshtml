@@ -11,49 +11,29 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://accounts.google.com/gsi/client" async defer></script>
-    
+    <link href="~/css/RegisterationPageDesigning.css" rel="stylesheet" />
     <style>
         body {
-            background-color: #cfe6dc;
+            background: linear-gradient(135deg, #cfe6dc, #9dcab6);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .form-container {
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        .registration-container{
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-
-            .form-container h2 {
-                font-weight: bold;
-                color: #2d545e;
-            }
 
         .form-control {
             border-radius: 8px;
             padding: 12px;
-            border: 1px solid #ccc;
-            font-size: 16px;
-        }
-
-        .input-group {
-            display: flex;
-            align-items: center;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            background: white;
-            overflow: hidden;
         }
 
         .input-group-text {
-            background: #f0f0f0;
+            background: #e9f0ed;
+            border-radius: 8px;
             border: none;
-            padding: 12px;
-            border-right: 1px solid #ccc;
-        }
-
-        .form-control:focus {
-            border-color: #2d545e;
-            box-shadow: none;
         }
 
         .btn-primary {
@@ -65,21 +45,21 @@
         }
 
             .btn-primary:hover {
-                background-color: #1b3a42;
+                background: #366854;
             }
 
-        .alert {
-            border-radius: 8px;
+        .forgot-links {
+            font-size: 14px;
         }
     </style>
 
 </head>
 <body>
-    <div class="container d-flex flex-column flex-lg-row align-items-center justify-content-center vh-100">
-        <div class="col-12 col-lg-4">
+    <div class="container registration-container d-flex flex-column flex-lg-row align-items-center justify-content-center vh-85">
+        <div class="col-12 col-lg-6">
             <div class="form-container">
-                <h2 class="text-center mb-3">@AlzhCareHub.StringResources.Resource.CreateAccount</h2>
-                <p class="text-center mb-3">@AlzhCareHub.StringResources.Resource.RegisterText</p>
+                <h2 class="text-center mb-3" style="color: #004241;">@AlzhCareHub.StringResources.Resource.CreateAccount</h2>
+                <p class="text-center mb-3" style="color: #004241;">@AlzhCareHub.StringResources.Resource.RegisterText</p>
 
                 @if (TempData["Error"] != null)
                 {
@@ -99,13 +79,17 @@
                 {
                     <div class="mb-3">
                         <div class="input-group">
-                            <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                            <span class="input-group-text">
+                                <i class="bi bi-envelope"></i>
+                            </span>
                             <input type="email" id="email" name="email" class="form-control" placeholder="@AlzhCareHub.StringResources.Resource.Email" required />
                         </div>
                     </div>
                     <div class="mb-3">
                         <div class="input-group">
-                            <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                            <span class="input-group-text">
+                                <i class="bi bi-lock"></i>
+                            </span>
                             <input type="password" id="password" name="password" class="form-control" placeholder="@AlzhCareHub.StringResources.Resource.Password" required />
                         </div>
                     </div>

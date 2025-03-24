@@ -65,8 +65,15 @@
                 </div>
                 <!-- Hover Overlay -->
                 <div class="overlay">
+                @if(userEmail==null)
+                {
+                        <a href="javascript: void(0);" onclick="showLoginAlert();" class="overlay-link">Explore</a>
+                   
+                }
+                else{    
                     <a href="/ServiceGallery/Remainder_And_Alerts" class="overlay-link">Explore</a>
-                </div>
+                }
+                    </div>
             </div>
         </div>
 
@@ -79,7 +86,13 @@
                     <p class="card-text" style="color: #004241;">@AlzhCareHub.StringResources.Resource.tp</p>
                 </div>
                 <div class="overlay">
+                @if(userEmail==null)
+                {
+                    <a href="javascript: void(0);" onclick="showLoginAlert();" class="overlay-link">Explore</a>
+                }
+                else{
                     <a href="/TrainingResources" class="overlay-link">Explore</a>
+                }
                 </div>
             </div>
         </div>
@@ -93,7 +106,15 @@
                     <p class="card-text" style="color: #004241;">@AlzhCareHub.StringResources.Resource.gp</p>
                 </div>
                 <div class="overlay">
-                    <a href="https://poki.com/en/g/brain-test-tricky-puzzles" class="overlay-link" target="_blank">Explore</a>
+                @if(userEmail==null)
+                {
+                    <a href="javascript: void(0);" onclick="showLoginAlert();" class="overlay-link">Explore</a>
+                }
+                else{
+                    
+                        <a href="https://poki.com/en/g/brain-test-tricky-puzzles" class="overlay-link" target="_blank">Explore</a>
+                 
+                }
                 </div>
             </div>
         </div>
@@ -107,7 +128,14 @@
                     <p class="card-text" style="color: #004241;">@AlzhCareHub.StringResources.Resource.dappara</p>
                 </div>
                 <div class="overlay">
-                    <a href="/DoctorAppointment/DoctorAppointment" class="overlay-link">Explore</a>
+                    @if(userEmail==null)
+                    {
+                        <a href="javascript:void(0);" onclick="showLoginAlert();" class="overlay-link">Explore</a>
+
+                    }
+                    else{
+                        <a asp-controller="DoctorAppointment" asp-action="DoctorAppointment" class="overlay-link">Explore</a>
+                    }
                 </div>
             </div>
         </div>
@@ -121,7 +149,15 @@
                     <p class="card-text" style="color: #004241;">@AlzhCareHub.StringResources.Resource.feedpara</p>
                 </div>
                 <div class="overlay">
-                    <a href="/FeedBack/Submit" class="overlay-link">Explore</a>
+                @if(userEmail==null)
+                {
+                    <a href="javascript: void(0);" onclick="showLoginAlert();" class="overlay-link">Explore</a>
+                }
+                else{
+                   
+                        <a href="/FeedBack/Submit" class="overlay-link">Explore</a>
+                  
+                }
                 </div>
             </div>
         </div>
@@ -135,7 +171,14 @@
                     <p class="card-text" style="color: #004241;">@AlzhCareHub.StringResources.Resource.fp</p>
                 </div>
                 <div class="overlay">
-                    <a href="/FAQ/FAQ" class="overlay-link">Explore</a>
+                @if(userEmail==null)
+                {
+                    <a href="javascript: void(0);" onclick="showLoginAlert();" class="overlay-link">Explore</a>
+                }
+                else{
+                  
+                   <a href="/FAQ/FAQ" class="overlay-link">Explore</a>
+                }
                 </div>
             </div>
         </div>
@@ -159,7 +202,7 @@
         }
         else
         {
-            <a asp-controller="AboutUs" asp-action="Index" class="helpbtn">
+            <a asp-controller="AboutUs" asp-action="Index" class="helpbtnprimary">
                 @AlzhCareHub.StringResources.Resource.LM
             </a>
         }
@@ -176,6 +219,7 @@
         @if(userEmail==null)
         {
             <a href="javascript:void(0);" onclick="showLoginAlert();" class="helpbtnprimary" style="padding: 10px 34px; transition: ease-in-out 0.3s">@AlzhCareHub.StringResources.Resource.Donate</a>
+           
         }
         else{
             <a asp-controller="Donation" asp-action="Donate" class="helpbtnprimary" style="padding: 10px 34px; transition: ease-in-out 0.3s">@AlzhCareHub.StringResources.Resource.Donate</a>

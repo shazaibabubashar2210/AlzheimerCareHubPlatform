@@ -8,8 +8,7 @@
 }
 
 .container {
-    max-width: 900px;
-    padding: 25px;
+    max-width: 500px;
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -18,7 +17,6 @@
 .form-control {
     margin-bottom: 15px;
     border-radius: 20px;
-    padding: 10px;
 }
 
 .btn-primary {

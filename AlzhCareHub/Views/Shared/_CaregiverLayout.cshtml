@@ -41,6 +41,7 @@
         height: 50px;
         border-radius: 50%;
         background-color: white;
+        color: #004241;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -157,8 +158,8 @@
                     <li class="nav-item" style="background-color: #cfe6dc;">
                         <form method="post" asp-controller="Language" asp-action="SetLanguage" class="d-flex me-3">
                             <select name="culture" onchange="this.form.submit()" class="form-select">
-                                <option value="en" selected="@((Context.Session.GetString("Culture") == "en") ? "selected" : null)">English</option>
-                                <option value="ur" selected="@((Context.Session.GetString("Culture") == "ur") ? "selected" : null)">اردو</option>
+                                <option value="en" selected="@((Context.Session.GetString("Culture") == "en") ? "selected" : null)" style="color: #004241;">English</option>
+                                <option value="ur" selected="@((Context.Session.GetString("Culture") == "ur") ? "selected" : null)" style="color: #004241;">اردو</option>
                             </select>
                         </form>
                     </li>
@@ -177,7 +178,7 @@
         <div class="container text-center text-md-start">
             <div class="row">
                 <div class="col-md-4 col-lg-3">
-                    <div class="footer-icon" style="color: #70a7f5">A</div>
+                    <div class="footer-icon" style="color: #004241;">A</div>
                     <h5>@AlzhCareHub.StringResources.Resource.AlzhCare</h5>
                     <p style="color: #c3dffa; font-weight: bold;">@AlzhCareHub.StringResources.Resource.WebSiteFooterText</p>
                 </div>
