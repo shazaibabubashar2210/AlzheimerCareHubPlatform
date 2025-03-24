@@ -13,10 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <style>
         *{
-            /* font-family: "Roboto", sans-serif; */
-            /* font-optical-sizing: auto; */
-            /* font-style: normal; */
-            /* font-size: 18px; */
+             font-family: "Roboto", sans-serif; 
         }
         body {
         overflow-x: hidden;
@@ -75,7 +72,9 @@
             .form-select:focus {
                 background-color: #bfe0d0 !important; /* Slightly darker shade */
             }
-
+            .link:hover{
+            text-decoration: underline;
+            }
     </style>
 </head>
 @{
@@ -92,50 +91,50 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" asp-controller="Auth" asp-action="CaregiverDashboard" style="color:#004241;">
+                        <a class="nav-link active link" asp-controller="Auth" asp-action="CaregiverDashboard" style="color:#004241;">
                             @AlzhCareHub.StringResources.Resource.Home
                         </a>
                     </li>
                     @if(userEmail==null)
                     {
                         <li class="nav-item">
-                            <a href="javascript:void(0);" class="nav-link active" onclick="showError()" style="color: #004241;">@AlzhCareHub.StringResources.Resource.FindDoctor</a>
+                            <a href="javascript:void(0);" class="nav-link active link" onclick="showError()" style="color: #004241;">@AlzhCareHub.StringResources.Resource.FindDoctor</a>
                         </li>
                     }
                     else{
                         <li class="nav-item">
-                            <a class="nav-link active" asp-controller="DoctorAppointment" asp-action="DoctorAppointment" style="color: #004241;">@AlzhCareHub.StringResources.Resource.FindDoctor</a>
+                            <a class="nav-link active link" asp-controller="DoctorAppointment" asp-action="DoctorAppointment" style="color: #004241;">@AlzhCareHub.StringResources.Resource.FindDoctor</a>
                         </li>
                     }
 
                     @if(userEmail==null)
                     {
                         <li class="nav-item">
-                            <a href="javascript:void(0);" class="nav-link active" onclick="showError()" style="color: #004241;">@AlzhCareHub.StringResources.Resource.EducationalResources</a>
+                            <a href="javascript:void(0);" class="nav-link active link" onclick="showError()" style="color: #004241;">@AlzhCareHub.StringResources.Resource.EducationalResources</a>
                         </li>
                     }
                     else{
                         <li class="nav-item">
-                            <a class="nav-link active" href="#" style="color: #004241;">@AlzhCareHub.StringResources.Resource.EducationalResources</a>
+                            <a class="nav-link active link" href="#" style="color: #004241;">@AlzhCareHub.StringResources.Resource.EducationalResources</a>
                         </li>
                     }
 
                     <li class="nav-item">
                         @if (userEmail == null)
                         {
-                            <a href="javascript:void(0);" class="nav-link active" onclick="showError()" style="color: #004241;">
+                            <a href="javascript:void(0);" class="nav-link active link" onclick="showError()" style="color: #004241;">
                                 @AlzhCareHub.StringResources.Resource.AboutUs_
                             </a>
                         }
                         else
                         {
-                            <a asp-controller="AboutUs" asp-action="Index" class="nav-link active" style="color: #004241;">
+                            <a asp-controller="AboutUs" asp-action="Index" class="nav-link active link" style="color: #004241;">
                                 @AlzhCareHub.StringResources.Resource.AboutUs_
                             </a>
                         }
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" asp-controller="Volunteer" asp-action="Volunteer" style="color: #004241;">
+                        <a class="nav-link active link" asp-controller="Volunteer" asp-action="Volunteer" style="color: #004241;">
                             @AlzhCareHub.StringResources.Resource.Volunteer
                         </a>
                     </li>
@@ -144,15 +143,16 @@
 
                     @if (!string.IsNullOrEmpty(userEmail))
                     {
-                        <a class="nav-link me-5 active" asp-controller="Auth" asp-action="Logout" style="color: #004241;">
+                        <a class="nav-link me-5 active link" asp-controller="Auth" asp-action="Logout" style="color: #004241;">
                             @AlzhCareHub.StringResources.Resource.Logout
                         </a>
                     }
                     else
                     {
-                        <a class="nav-link me-5 active" asp-controller="Auth" asp-action="Login" style="color: #004241;">
+                        <a class="nav-link me-5 active link" asp-controller="Auth" asp-action="Login" style="color: #004241;">
                             @AlzhCareHub.StringResources.Resource.Login_
                         </a>
+
                     }
 
                     <li class="nav-item" style="background-color: #cfe6dc;">
