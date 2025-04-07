@@ -44,9 +44,6 @@ namespace AlzhCareHub.Controllers
                 var doctor = (await firebaseClient.Child("Doctors").OnceAsync<TeamMember>())
                     .FirstOrDefault(d => d.Object.Name == appointment.Doctor)?.Object;
 
-                if (doctor != null)
-                    await AppointmentEmailService.SendConfirmation(appointment, doctor.Email, appointment.CaregiverEmail);
-
                 // Redirect to Index page after successful booking
                 return RedirectToAction("Index");
             }
@@ -95,12 +92,6 @@ namespace AlzhCareHub.Controllers
 
                 if (doctor == null)
                     return NotFound("Doctor not found.");
-
-                if (model.Status == "Confirmed")
-                {
-                    appointment.Status = "Confirmed";
-                    await AppointmentEmailService.SendConfirmation(appointment, doctor.Email, appointment.CaregiverEmail);
-                }
                 else if (model.Status == "Doctor Suggested New Date" && model.SuggestedDate != null && !string.IsNullOrEmpty(model.SuggestedTime))
                 {
                     appointment.Status = "Doctor Suggested New Date";
@@ -176,8 +167,6 @@ namespace AlzhCareHub.Controllers
                 var doctor = (await firebaseClient.Child("Doctors").OnceAsync<TeamMember>())
                     .FirstOrDefault(d => d.Object.Name == appointment.Doctor)?.Object;
 
-                if (doctor != null)
-                    await AppointmentEmailService.SendRescheduleRequest(appointment, doctor.Email);
 
                 return Ok(new { message = "Reschedule request sent successfully!" });
             }

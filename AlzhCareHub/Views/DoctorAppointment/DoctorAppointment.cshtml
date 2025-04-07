@@ -12,13 +12,20 @@
         *{
             scroll-behavior: smooth;
         }
-
+        nav{
+            background-color: #cfe6dc;
+            color: #006B69;
+        }
+        body{
+            background-color: #cfe6dc;
+            color: #006B69;
+        }
         .logo {
             border-radius: 50%;
             padding: 2px 10px;
-            border: 2px solid #458ff6;
+            border: 2px solid #006B69;
             color: #fff;
-            background-color: #458ff6;
+            background-color: #006B69;
         }
         .hero-section{
             margin-top: 50px;
@@ -26,7 +33,7 @@
         .brand-logo {
             font-size: 22px;
             font-weight: bold;
-            color: #007bff;
+            color: #006B69;
         }
 
         .navbar-nav .nav-link {
@@ -71,19 +78,13 @@
                 font-weight: bold;
             }
 
-        .check-availability {
-            color: #007bff;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
             .check-availability:hover {
                 text-decoration: underline;
             }
 
         .carousel-indicators button {
-            background-color: #007bff !important;
+            background-color: #006B69;
+            !important;
         }
        .team-section .container img{
            height: 275px;
@@ -92,13 +93,25 @@
         .team-container{
             margin-top: 5rem;
         }
+        /* Add some fade-in animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px); /* Move the element a little down */
+            transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+        }
+
+        /* This class will be added when the element is in view */
+        .fade-in-visible {
+            opacity: 1;
+            transform: translateY(0); /* Move element back to its original position */
+        }
 
     </style>
 </head>
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <nav class="navbar navbar-expand-lg shadow-sm">
         <div class="container-fluid">
             <a class="navbar-brand brand-logo ms-5" asp-controller="Auth" asp-action="CaregiverDashBoard"><span class=" logo me-lg-2">A</span>AlzhCare</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -106,8 +119,8 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" asp-controller="AboutUs" asp-action="Index">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link me-4" href="#Team">Team</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="AboutUs" asp-action="Index" style="color: #006B69;">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link me-4" href="#Team" style="color: #006B69;">Team</a></li>
                 </ul>
             </div>
         </div>
@@ -119,14 +132,14 @@
             <div class="row align-items-center">
                 <!-- Image: Appears first on small screens -->
                 <div class="col-lg-6 col-md-12 text-center image-section mb-4 mb-lg-0">
-                    <img src="~/images/Doc1.jpg" class="img-fluid" alt="Physiotherapy Treatment" style="height: 300px">
+                    <img src="~/images/HeroDoctor.jpg" class="img-fluid" alt="Physiotherapy Treatment" style="height: 300px">
                 </div>
 
                 <!-- Text Content -->
                 <div class="col-lg-6 col-md-12 text-center text-lg-start">
-                    <h5 class="text-uppercase text-secondary">Highly Professional Treating Alzheimer Disease Doctors</h5>
-                    <h1 class="fw-bold">Welcome to <span class="text-primary">AlzhCare</span> Treatment</h1>
-                    <p class="text-muted">
+                    <h5 class="text-uppercase">Highly Professional Treating Alzheimer Disease Doctors</h5>
+                    <h1 class="fw-bold">Welcome to AlzhCare Treatment</h1>
+                    <p style="font-size: 18px;">
                         Receive expert physiotherapy care from specialists trusted by professionals.
                         Our experienced doctors have treated patients from <strong>leading medical institutions</strong> and
                         <strong>renowned alzheimer disease rehabilitation centers</strong>. Book your appointment today for personalized treatment.
@@ -142,28 +155,29 @@
         <div class="row">
             <div class="col-12">
                 <div class="col-12">
-                    <h2 class="text-center mb-4" id="Team" style="margin-top: 5rem;">@AlzhCareHub.StringResources.Resource.OurTeam</h2>
+                    <h2 class="text-center mb-4" id="Team" style="margin-top: 5rem;">
+                        @AlzhCareHub.StringResources.Resource.OurTeam
+                    </h2>
                 </div>
                 <div class="row g-4">
                     @if (Model == null || !Model.Any())
                     {
                         <p class="text-center text-danger">No team members found.</p>
                     }
-                    else{
-
+                    else
+                    {
                         @foreach (var member in Model)
                         {
-                            <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="col-lg-3 col-md-6 col-sm-12 fade-in" style="width: 25vw">
                                 <div class="card shadow-sm h-100">
-                                    <img src="@member.ImageUrl" class="card-img-top" alt="@member.ImageUrl">
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">@member.Name</h5>
-                                        <p>@member.Email</p>
-                                        <a href="#" class="check-availability" data-bs-toggle="modal"
-                                           data-bs-target="#appointmentModal" data-doctor="@member.Name">
-                                            Check Availability
+                                    <img src="@Url.Content("~/" + member.ImageUrl)" class="img-fluid" style="width: 100%; height: 280px; font-size: 18px;">
+                                    <div class="card-body" style="background-color:#cfe6dc;">
+                                        <p class="card-title">Name: @member.Name</p>
+                                        <p>Location: @member.Location</p>
+                                        <p>Phone: @member.PhoneNumber</p>
+                                        <a href="#" class="d-block fw-bold text-center whatsapp-link" data-phone="@member.PhoneNumber" style="text-decoration: none; color: #006B69;">
+                                            Connect Via WhatsApp
                                         </a>
-
                                     </div>
                                 </div>
                             </div>
@@ -174,38 +188,49 @@
         </div>
     </div>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const links = document.querySelectorAll(".whatsapp-link");
+            links.forEach(link => {
+                link.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    const phone = this.getAttribute("data-phone");  // Get the phone number directly from data attribute
 
-    <!-- Appointment Booking Modal -->
-    <div class="modal fade" id="appointmentModal" tabindex="-1" aria-labelledby="appointmentModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="appointmentModalLabel">Book Appointment</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="appointmentForm">
-                        <input type="hidden" id="doctorName" name="doctorName">
-                        <div class="mb-3">
-                            <label for="caregiverEmail" class="form-label">Your Email</label>
-                            <input type="email" class="form-control" id="caregiverEmail" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="appointmentDate" class="form-label">Appointment Date</label>
-                            <input type="date" class="form-control" id="appointmentDate" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="appointmentTime" class="form-label">Appointment Time</label>
-                            <input type="time" class="form-control" id="appointmentTime" required>
-                        </div>
+                    if (phone) {
+                        // Remove non-digit characters from the phone number
+                        const cleanedPhone = phone.replace(/\D/g, '');
+                        // Open WhatsApp link in a new tab
+                        window.open(`https://wa.me/${cleanedPhone}`, "_blank");
+                    } else {
+                        alert("Phone number not found.");
+                    }
+                });
+            });
+        });
+    </script>
 
-                        <button type="submit" class="btn btn-primary">Book Appointment</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
     <script src="~/js/popupform.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in-visible');
+                        observer.unobserve(entry.target); // Stop observing once animation is triggered
+                    }
+                });
+            }, {
+                threshold: 0.1 // Trigger the animation when 10% of the element is visible
+            });
+
+            // Target elements you want to animate on scroll
+            const fadeInElements = document.querySelectorAll('.fade-in');
+
+            fadeInElements.forEach(element => {
+                observer.observe(element); // Start observing the element
+            });
+        });
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

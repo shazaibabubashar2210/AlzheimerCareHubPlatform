@@ -1,23 +1,88 @@
 ﻿@model TeamMember
 
-<div class="container mt-4">
-    <h2>Add New Doctor</h2>
-    <form method="post" asp-action="AddDoctor">
-        <div class="mb-3">
-            <label for="name" class="form-label">Doctor Name</label>
-            <input type="text" class="form-control" id="name" name="Name" required>
-        </div>
+<Doctype html>
+    <html lang="en">
+    <head>
+        <title>Add New Doctor</title>
+        <link href="~/css/caregiverdashboardstyling.css" rel="stylesheet" />
+        <style>
+            body {
+                background-color: #cfe6dc;
+            }
 
-        <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" name="Email" required>
-        </div>
+            /* Target only text input fields */
+            input[type="text"] {
+                border: none;
+                outline: none;
+                background: transparent;
+                border: 1.5px solid #ccc;
+                background-color: #cfe6dc;
+            }
 
-        <div class="mb-3">
-            <label for="imageUrl" class="form-label">Image URL</label>
-            <input type="text" class="form-control" id="imageUrl" name="ImageUrl" required>
-        </div>
+            /* Add a custom class to make sure styles are applied to specific inputs */
+            .custom-input {
+                border: none;
+                outline: none;
+                background: transparent;
+                border: 1px solid #ccc;
+                background-color: #cfe6dc;
+            }
+            /* Make the select box background transparent */
+            select {
+                background-color: transparent !important;
+                border: 1px solid #ccc; 
+                -webkit-appearance: none; 
+                -moz-appearance: none; 
+                appearance: none;
+                padding: 8px 12px; 
+                font-size: 16px;
+                color: #333; 
+            }
 
-        <button type="submit" class="btn btn-primary">Add Doctor</button>
-    </form>
-</div>
+                select:focus {
+                    border-color: #007bff; /* Optional: Change border color on focus */
+                    outline: none; /* Optional: Remove the default focus outline */
+                }
+
+        </style>
+    </head>
+    <body>
+        <div class="container mt-4">
+            <h2>Add New Doctor</h2>
+            <form method="post" asp-action="AddDoctor" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Doctor Name</label>
+                    <input type="text" class="form-control custom-input" id="name" name="Name" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="PhoneNumber" class="form-label">Phone Number</label>
+                    <div class="input-group">
+                        <select class="form-select" id="CountryCode" name="CountryCode" required style="width: 60px;">
+                            <option value="+1">+1 (USA)</option>
+                            <option value="+44">+44 (UK)</option>
+                            <option value="+91">+91 (India)</option>
+                            <option value="+61">+61 (Australia)</option>
+                            <option value="+49">+49 (Germany)</option>
+                            <option value="+92">+92 (Pakistan)</option>
+                        </select>
+
+                        <input type="text" class="form-control custom-input" id="PhoneNumber" name="PhoneNumber" pattern="\d{10}" required placeholder="Enter 10 digits">
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="Location" class="form-label">Location</label>
+                    <input type="text" class="form-control custom-input" id="Location" name="Location" required>
+                </div>
+
+                <div class="mb-3 form-group">
+                    <label asp-for="ImageFile">Upload Profile Picture</label>
+                    <input asp-for="ImageFile" type="file" class="form-control-file" />
+                </div>
+
+                <button type="submit" class="helpbtnprimary">Add Doctor</button>
+            </form>
+        </div>
+    </body>
+</html>
