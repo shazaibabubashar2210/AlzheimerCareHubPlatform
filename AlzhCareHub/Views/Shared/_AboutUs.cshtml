@@ -8,13 +8,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
+    <link href="~/css/caregiverdashboardstyling.css" rel="stylesheet" />
+    <link href="~/css/caregiverdashboardcards.css" rel="stylesheet" />
     <style>
         *{
             font-family: 'Roboto', sans-serif;
         }
         body {
             overflow-x: hidden;
+            background-color: #cfe6dc;
         }
 
         span {
@@ -26,9 +28,8 @@
         }
         /*footer Designing*/
         .footer {
-            background: linear-gradient(to right, #65c7f7, #0052d4);
+            background: #004241;
             padding: 40px 0;
-            
         }
 
         .footer-icon {
@@ -36,6 +37,7 @@
             height: 50px;
             border-radius: 50%;
             background-color: white;
+            color: #004241;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -53,9 +55,17 @@
             margin-left: 10rem;
         }
 
+
         * {
             scroll-behavior: smooth;
            
+        }
+        .logo{
+            border-radius: 50%;
+            padding: 2px 10px;
+            border: 2px solid #004241;
+            color: #fff;
+            background-color: #004241;
         }
     </style>
 
@@ -64,7 +74,7 @@
     <nav class="navbar navbar-expand-lg" style="color: #ffffff">
         <div class="container-fluid">
 
-            <a class="navbar-brand ms-5" href="#"><span class="me-2">A</span>@AlzhCareHub.StringResources.Resource.AlzhCare</a>
+            <a class="navbar-brand ms-5" href="#"><span class="me-2 logo">A</span>@AlzhCareHub.StringResources.Resource.AlzhCare</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -111,7 +121,7 @@
         <div class="container text-center text-md-start">
             <div class="row">
                 <div class="col-md-4 col-lg-3">
-                    <div class="footer-icon" style="color: #70a7f5">A</div>
+                    <div class="footer-icon" style="color: #004241;">A</div>
                     <h5>@AlzhCareHub.StringResources.Resource.AlzhCare</h5>
                     <p style="color: #c3dffa; font-weight: bold;">@AlzhCareHub.StringResources.Resource.WebSiteFooterText</p>
                 </div>
