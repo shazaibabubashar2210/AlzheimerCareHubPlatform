@@ -33,6 +33,7 @@
     <PackageReference Include="Microsoft.Owin" Version="4.2.2" />
     <PackageReference Include="Microsoft.Owin.Host.SystemWeb" Version="4.2.2" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
+    <PackageReference Include="Stripe.net" Version="48.0.2" />
     <PackageReference Include="System.Web.Mvc.Extensions" Version="1.1.1.2" />
     <PackageReference Include="Twilio" Version="7.8.5" />
   </ItemGroup>

@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Localization;
+using Microsoft.Extensions.Configuration;
+using Stripe;
 using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +13,14 @@ builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnC
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+// Stripe functionality
+
+// Load Stripe settings from configuration
+builder.Services.Configure<StripeSettings>(builder.Configuration.GetSection("Stripe"));
+
+// Set Stripe secret key globally
+var stripeSettings = builder.Configuration.GetSection("Stripe").Get<StripeSettings>();
+StripeConfiguration.ApiKey = stripeSettings.SecretKey;
 
 // 🔹 Add localization services
 builder.Services.AddLocalization(options => options.ResourcesPath = "Messages");

@@ -10,13 +10,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="~/css/caregiverdashboardstyling.css" rel="stylesheet" />
     <style>
-
-       body
-        {
+        body {
             overflow-x: hidden;
             background-color: #cfe6dc;
         }
-        
 
         .donation-container {
             max-width: 600px;
@@ -43,7 +40,7 @@
             }
     </style>
 </head>
-    <body>
+<body>
     @{
         var userEmail = Context.Session.GetString("UserEmail");
     }
@@ -61,7 +58,7 @@
             <h5 class="mb-3"><span class="logo me-1">A</span><strong>AlzhCare</strong></h5>
             <p>Welcome to heavenchild donation, please fill out the form below.<br>Hopefully, it is blessed. <span class="text-danger">*</span></p>
 
-            <form>
+            <form asp-controller="Donation" asp-action="CreateCheckoutSession" method="post">
                 <!-- Donation Type -->
                 <div class="mb-3">
                     <label for="donationType" class="form-label">Choose a donation type</label>
@@ -70,7 +67,6 @@
                         <option>Alzheimer Pateint Care</option>
                         <option>Support Our Website</option>
                     </select>
-
                 </div>
 
                 <!-- Donation Amount -->
@@ -94,6 +90,11 @@
                     </div>
                 </div>
 
+                <!-- Hidden Inputs -->
+                <input type="hidden" name="DonationType" id="donationTypeInput" />
+                <input type="hidden" name="Amount" id="donationAmountInput" />
+                <input type="hidden" name="Frequency" id="donationFrequencyInput" />
+
                 <!-- Buttons -->
                 <div class="d-flex justify-content-between">
                     <a asp-action="CaregiverDashBoard" asp-controller="Auth" class="helpbtnprimary text-center" style="width:48%;">Cancel</a>
@@ -102,5 +103,14 @@
             </form>
         </div>
     }
-    </body>
+
+    <script>
+        document.querySelector("form").addEventListener("submit", function (e) {
+            document.getElementById("donationTypeInput").value = document.getElementById("donationType").value;
+            document.getElementById("donationAmountInput").value = document.getElementById("donationAmount").value;
+            var freq = document.getElementById("monthly").checked ? "Monthly" : "One time";
+            document.getElementById("donationFrequencyInput").value = freq;
+        });
+    </script>
+</body>
 </html>
