@@ -22,7 +22,7 @@
         [Required]
         public string Priority { get; set; }
 
-        [Required]
+        //[Required]
         public string Description { get; set; }
     }
 }

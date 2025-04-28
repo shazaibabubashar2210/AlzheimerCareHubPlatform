@@ -21,15 +21,14 @@ namespace AlzhCareHub.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateCheckoutSession(DonationViewModel donation)
+        public async Task<IActionResult> CreateCheckoutSession(DonationViewModel donation)
         {
-            var domain = "https://localhost:44349"; // change to your domain
+            var domain = "https://localhost:44349"; // your domain
 
             SessionCreateOptions options;
 
             if (donation.Frequency == "Monthly")
             {
-                // For recurring, create a subscription with a recurring price
                 options = new SessionCreateOptions
                 {
                     PaymentMethodTypes = new List<string> { "card" },
@@ -58,7 +57,7 @@ namespace AlzhCareHub.Controllers
                     CancelUrl = domain + "/Donation/Cancel",
                 };
             }
-            else // One time donation
+            else
             {
                 options = new SessionCreateOptions
                 {
@@ -87,6 +86,9 @@ namespace AlzhCareHub.Controllers
 
             var service = new SessionService();
             Session session = service.Create(options);
+
+            // Save the donation data to Firebase here
+            await FirebaseHelper.SubmitDonation(donation);
 
             return Redirect(session.Url);
         }

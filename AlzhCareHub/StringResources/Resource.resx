@@ -389,4 +389,8 @@
     <value>OurTeam</value>
     <comment>OurTeam</comment>
   </data>
+  <data name="JoinUs" xml:space="preserve">
+    <value>JoinUs</value>
+    <comment>JoinUs</comment>
+  </data>
 </root>

@@ -106,11 +106,20 @@
 
     <script>
         document.querySelector("form").addEventListener("submit", function (e) {
+            var amount = parseFloat(document.getElementById("donationAmount").value);
+
+            if (amount <= 0 || isNaN(amount)) {
+                e.preventDefault(); // stop form from submitting
+                alert("Please enter a positive amount.");
+                return;
+            }
+
             document.getElementById("donationTypeInput").value = document.getElementById("donationType").value;
-            document.getElementById("donationAmountInput").value = document.getElementById("donationAmount").value;
+            document.getElementById("donationAmountInput").value = amount;
             var freq = document.getElementById("monthly").checked ? "Monthly" : "One time";
             document.getElementById("donationFrequencyInput").value = freq;
         });
     </script>
+
 </body>
 </html>

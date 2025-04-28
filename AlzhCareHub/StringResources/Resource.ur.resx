@@ -323,4 +323,7 @@
   <data name="OurTeam" xml:space="preserve">
     <value>ہماری ٹیم</value>
   </data>
+  <data name="JoinUs" xml:space="preserve">
+    <value>ہمارے ساتھ شامل ہوں</value>
+  </data>
 </root>

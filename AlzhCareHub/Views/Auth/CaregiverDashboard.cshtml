@@ -91,6 +91,14 @@
                 background-color: rgba(0, 0, 0, 1);
             }
 
+            /* Hero Image styling */
+        .hero-img {
+            margin-top: 0; /* remove any unwanted margin */
+            padding-top: 0; /* remove padding if there */
+            max-width: 100%;
+            height: auto;
+        }
+
      </style>
 </head>
 
@@ -101,7 +109,7 @@
 <!-- Hero Section -->
 <section class="hero-section">
     <div class="container">
-        <div class="row align-items-center">
+        <div class="row align-items-start">
             <!-- Text Column -->
             <div class="col-lg-5 order-2 order-lg-1 text-content">
                 <h1 style="color:#004241;">@AlzhCareHub.StringResources.Resource.AboutUsHeroHead</h1>
@@ -109,23 +117,23 @@
 
                 @if (userEmail == null)
                 {
-                    <!-- Show alert when user is not logged in -->
                     <a href="javascript:void(0);" class="helpbtnprimary" onclick="showLoginAlert()">@AlzhCareHub.StringResources.Resource.GetHelp</a>
                 }
                 else
                 {
-                    <!-- Allow navigation when user is logged in -->
                     <a asp-action="Index" asp-controller="Contact" class="helpbtnprimary">@AlzhCareHub.StringResources.Resource.GetHelp</a>
                 }
             </div>
 
             <!-- Image Column -->
             <div class="col-lg-7 order-1 order-lg-2 text-center">
-                <img src="~/images/HeroSectionImage.png" alt="Virtual Healthcare" class="hero-img">
+                <img src="~/images/HeroSectionImage.png" alt="Virtual Healthcare" class="hero-img" style="margin-top: -30px;">
+
             </div>
         </div>
     </div>
 </section>
+
 
 
 <!-- Our Services Section -->
@@ -281,13 +289,13 @@
         @if (userEmail == null)
         {
             <a href="javascript:void(0);" onclick="showLoginAlert();" class="helpbtnprimary">
-                @AlzhCareHub.StringResources.Resource.LM
+                @AlzhCareHub.StringResources.Resource.JoinUs
             </a>
         }
         else
         {
-            <a asp-controller="AboutUs" asp-action="Index" class="helpbtnprimary">
-                @AlzhCareHub.StringResources.Resource.LM
+            <a asp-controller="Volunteer" asp-action="Volunteer" class="helpbtnprimary">
+                @AlzhCareHub.StringResources.Resource.JoinUs
             </a>
         }
 

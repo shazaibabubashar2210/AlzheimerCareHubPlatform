@@ -82,5 +82,29 @@ namespace AlzhCareHub.Models
                 return false;
             }
         }
+
+        // Donation Submit Feature
+        // Add this to your FirebaseHelper class
+        public static async Task<bool> SubmitDonation(DonationViewModel donation)
+        {
+            try
+            {
+                // Generate unique ID
+                string donationId = Guid.NewGuid().ToString();
+
+                // Save the donation
+                await firebaseClient
+                    .Child("Donations")
+                    .Child(donationId)
+                    .PutAsync(donation);
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
     }
 }
