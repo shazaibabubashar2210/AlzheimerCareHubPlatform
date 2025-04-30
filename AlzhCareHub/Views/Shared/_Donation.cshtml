@@ -7,25 +7,36 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <style>
         body {
             background-color: #cfe6dc;
             color: #004241;
+            font-size: 18px;
         }
         * {
             scroll-behavior: smooth;
-            font-family: 'Roboto', sans-serif;
-   
+            font-family: "Baloo Bhaijaan 2", sans-serif;
         }
 
         .logo {
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            padding: 2px 10px;
-            border: 2px solid #004241;
+            background-color: #004242;
             color: #fff;
-            background-color: #004241;
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
         }
+
     </style>
 
 </head>
@@ -33,7 +44,9 @@
     <nav class="navbar navbar-expand-lg" style="color: #ffffff">
         <div class="container-fluid">
 
-            <a class="navbar-brand ms-5" href="#"><span class="me-2 logo">A</span>@AlzhCareHub.StringResources.Resource.AlzhCare</a>
+            <span class="logo ms-5 me-3">A</span> <a class="navbar-brand brand-logo" asp-controller="Auth" asp-action="CaregiverDashBoard">
+               @AlzhCareHub.StringResources.Resource.AlzhCare
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>

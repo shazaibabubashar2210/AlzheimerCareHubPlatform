@@ -286,6 +286,33 @@ namespace AlzhCareHub.StringResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to EarlyHead.
+        /// </summary>
+        public static string EarlyHead {
+            get {
+                return ResourceManager.GetString("EarlyHead", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EarlyStageGoal.
+        /// </summary>
+        public static string EarlyStageGoal {
+            get {
+                return ResourceManager.GetString("EarlyStageGoal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EarlyStageHead.
+        /// </summary>
+        public static string EarlyStageHead {
+            get {
+                return ResourceManager.GetString("EarlyStageHead", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to EducationalResources.
         /// </summary>
         public static string EducationalResources {
@@ -300,6 +327,69 @@ namespace AlzhCareHub.StringResources {
         public static string Email {
             get {
                 return ResourceManager.GetString("Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Er1.
+        /// </summary>
+        public static string Er1 {
+            get {
+                return ResourceManager.GetString("Er1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Er2.
+        /// </summary>
+        public static string Er2 {
+            get {
+                return ResourceManager.GetString("Er2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Er3.
+        /// </summary>
+        public static string Er3 {
+            get {
+                return ResourceManager.GetString("Er3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Es1.
+        /// </summary>
+        public static string Es1 {
+            get {
+                return ResourceManager.GetString("Es1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Es2.
+        /// </summary>
+        public static string Es2 {
+            get {
+                return ResourceManager.GetString("Es2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Es3.
+        /// </summary>
+        public static string Es3 {
+            get {
+                return ResourceManager.GetString("Es3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Es4.
+        /// </summary>
+        public static string Es4 {
+            get {
+                return ResourceManager.GetString("Es4", resourceCulture);
             }
         }
         

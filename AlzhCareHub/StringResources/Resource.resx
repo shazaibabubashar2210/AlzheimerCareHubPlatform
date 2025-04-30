@@ -537,4 +537,44 @@
     <value>mr3</value>
     <comment>mr3</comment>
   </data>
+  <data name="EarlyStageHead" xml:space="preserve">
+    <value>EarlyStageHead</value>
+    <comment>EarlyStageHead</comment>
+  </data>
+  <data name="EarlyHead" xml:space="preserve">
+    <value>EarlyHead</value>
+    <comment>EarlyHead</comment>
+  </data>
+  <data name="EarlyStageGoal" xml:space="preserve">
+    <value>EarlyStageGoal</value>
+    <comment>EarlyStageGoal</comment>
+  </data>
+  <data name="Es1" xml:space="preserve">
+    <value>Es1</value>
+    <comment>Es1</comment>
+  </data>
+  <data name="Es2" xml:space="preserve">
+    <value>Es2</value>
+    <comment>Es2</comment>
+  </data>
+  <data name="Es3" xml:space="preserve">
+    <value>Es3</value>
+    <comment>Es3</comment>
+  </data>
+  <data name="Es4" xml:space="preserve">
+    <value>Es4</value>
+    <comment>Es4</comment>
+  </data>
+  <data name="Er1" xml:space="preserve">
+    <value>Er1</value>
+    <comment>Er1</comment>
+  </data>
+  <data name="Er2" xml:space="preserve">
+    <value>Er2</value>
+    <comment>Er2</comment>
+  </data>
+  <data name="Er3" xml:space="preserve">
+    <value>Er3</value>
+    <comment>Er3</comment>
+  </data>
 </root>

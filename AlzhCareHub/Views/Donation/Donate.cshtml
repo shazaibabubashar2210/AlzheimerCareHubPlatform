@@ -55,8 +55,10 @@
     else
     {
         <div class="donation-container">
-            <h5 class="mb-3"><span class="logo me-1">A</span><strong>AlzhCare</strong></h5>
-            <p>Welcome to heavenchild donation, please fill out the form below.<br>Hopefully, it is blessed. <span class="text-danger">*</span></p>
+            <h5 class="mb-3 d-inline-flex align-items-center me-3">
+                <span class="logo me-1">A</span>
+                <strong>@AlzhCareHub.StringResources.Resource.AlzhCare</strong>
+            </h5>
 
             <form asp-controller="Donation" asp-action="CreateCheckoutSession" method="post">
                 <!-- Donation Type -->

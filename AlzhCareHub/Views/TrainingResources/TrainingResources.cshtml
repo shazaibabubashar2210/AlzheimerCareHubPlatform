@@ -12,7 +12,7 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #e5f6f1;
+            background-color: #cfe6dc;
             color: #003d2f;
             margin: 0;
             padding: 0;
@@ -29,7 +29,6 @@
             background-color: #e5f6f1;
             padding: 30px;
             border-radius: 10px;
-            border: 1px solid grey;
             box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.1);
             width: 80%;
             margin: auto;
@@ -61,6 +60,20 @@
             .radio-options input {
                 margin-right: 5px; /* Adjusted space between radio options */
             }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #006B69;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
 
         .result {
             font-weight: bold;
@@ -257,30 +270,30 @@
                         </ul>
                     </div>`;
             } else {
-                stage = "Early Stage Alzheimer's";
+                stage = "@AlzhCareHub.StringResources.Resource.EarlyStageHead";
                 resources = `
                     <div style="color: #004242; text-align: left;">
-                        <strong><h4>🧠 Early Stage (Mild Alzheimer's Disease)</h4></strong>
+                        <strong><h4>@AlzhCareHub.StringResources.Resource.EarlyHead</h4></strong>
                         <ul>
-                            <li><strong>Goals:</strong> Support independence, routines, emotional well-being.</li>
-                            <li><strong>Suggested Steps:</strong>
+                            <li><strong>@AlzhCareHub.StringResources.Resource.EarlyStageGoal</strong></li>
+                            <li><strong>@AlzhCareHub.StringResources.Resource.highsuggestedSteps</strong>
                                 <ol>
-                                    <li>Use labels</li>
-                                    <li>Set alarms</li>
-                                    <li>Use short sentences</li>
-                                    <li>Maintain a schedule</li>
+                                    <li>@AlzhCareHub.StringResources.Resource.Es1</li>
+                                    <li>@AlzhCareHub.StringResources.Resource.Es2</li>
+                                    <li>@AlzhCareHub.StringResources.Resource.Es3</li>
+                                    <li>@AlzhCareHub.StringResources.Resource.Es4</li>
                                 </ol>
                             </li>
-                            <li><strong>Resources:</strong>
+                            <li><strong>@AlzhCareHub.StringResources.Resource.Resouces</strong>
                                 <ul>
-                                    <li>Alzheimer’s Association: "Early Stage Caregiving"
-                                        <a href='https://www.alz.org/help-support/caregiving/stages-behaviors/early-stage#:~:text=In%20the%20early%20stage%20of,help%20plan%20for%20the%20future.' target='_blank'>Link</a>
+                                    <li>@AlzhCareHub.StringResources.Resource.Er1
+                                        <a href='https://www.alz.org/help-support/caregiving/stages-behaviors/early-stage#:~:text=In%20the%20early%20stage%20of,help%20plan%20for%20the%20future.' target='_blank'>@AlzhCareHub.StringResources.Resource.Link</a>
                                     </li>
-                                    <li>Book: "The 36-Hour Day"
-                                    <a href='https://archive.org/details/36hourday00nanc_0/page/n351/mode/2up?utm_source=chatgpt.com&view=theater' target='_blank'>Link</a>
+                                    <li>@AlzhCareHub.StringResources.Resource.Er2
+                                    <a href='https://archive.org/details/36hourday00nanc_0/page/n351/mode/2up?utm_source=chatgpt.com&view=theater' target='_blank'>@AlzhCareHub.StringResources.Resource.Link</a>
                                     </li>
-                                    <li>Course: "Alzheimer’s and Dementia Care Seminar"
-                                    <a href='https://longtreeeducation.com/course/comprehensive-alzheimers-and-dementia-care-seminar-9-2025/' target='_blank'>Link</a>
+                                    <li>@AlzhCareHub.StringResources.Resource.Er3
+                                    <a href='https://longtreeeducation.com/course/comprehensive-alzheimers-and-dementia-care-seminar-9-2025/' target='_blank'>@AlzhCareHub.StringResources.Resource.Link</a>
                                     </li>
                                 </ul>
                             </li>

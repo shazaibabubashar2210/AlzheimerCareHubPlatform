@@ -434,4 +434,34 @@ platform offers a variety of services to make caregiving easier, more effective,
   <data name="mr3" xml:space="preserve">
     <value>Savvy Caregiver Program - Enroll And Learn About Alzheimer</value>
   </data>
+  <data name="EarlyStageHead" xml:space="preserve">
+    <value>Early Stage Alzheimer's</value>
+  </data>
+  <data name="EarlyHead" xml:space="preserve">
+    <value>🧠 Early Stage (Mild Alzheimer's Disease)</value>
+  </data>
+  <data name="EarlyStageGoal" xml:space="preserve">
+    <value>Goals: Support independence, routines, emotional well-being.</value>
+  </data>
+  <data name="Es1" xml:space="preserve">
+    <value>Use labels</value>
+  </data>
+  <data name="Es2" xml:space="preserve">
+    <value>Set alarms</value>
+  </data>
+  <data name="Es3" xml:space="preserve">
+    <value>Use short sentences</value>
+  </data>
+  <data name="Es4" xml:space="preserve">
+    <value>Maintain a schedule</value>
+  </data>
+  <data name="Er1" xml:space="preserve">
+    <value>Alzheimer’s Association: "Early Stage Caregiving"</value>
+  </data>
+  <data name="Er2" xml:space="preserve">
+    <value>Book: "The 36-Hour Day"</value>
+  </data>
+  <data name="Er3" xml:space="preserve">
+    <value>Course: "Alzheimer’s and Dementia Care Seminar"</value>
+  </data>
 </root>

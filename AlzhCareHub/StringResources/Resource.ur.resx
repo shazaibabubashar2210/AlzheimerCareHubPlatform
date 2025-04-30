@@ -434,4 +434,34 @@
   <data name="mr3" xml:space="preserve">
     <value>ورکشاپ: "سمجھدار نگہداشت پروگرام - الزائمر کے بارے میں سیکھیں اور شامل ہوں</value>
   </data>
+  <data name="EarlyStageHead" xml:space="preserve">
+    <value>ابتدائی مرحلہ الزائمر</value>
+  </data>
+  <data name="EarlyHead" xml:space="preserve">
+    <value>🧠 ابتدائی مرحلہ (ہلکی الزائمر کی بیماری)</value>
+  </data>
+  <data name="EarlyStageGoal" xml:space="preserve">
+    <value>مقاصد: خودمختاری، معمولات، اور جذباتی فلاح و بہبود کی حمایت کرنا۔</value>
+  </data>
+  <data name="Es1" xml:space="preserve">
+    <value>لیبلز کا استعمال کریں</value>
+  </data>
+  <data name="Es2" xml:space="preserve">
+    <value>الارم سیٹ کریں</value>
+  </data>
+  <data name="Es3" xml:space="preserve">
+    <value>مختصر جملے استعمال کریں</value>
+  </data>
+  <data name="Es4" xml:space="preserve">
+    <value>شیڈول برقرار رکھیں</value>
+  </data>
+  <data name="Er1" xml:space="preserve">
+    <value>الزائمر ایسوسی ایشن: "ابتدائی مرحلے کی دیکھ بھال</value>
+  </data>
+  <data name="Er2" xml:space="preserve">
+    <value>کتاب: "دی 36 آور ڈے"</value>
+  </data>
+  <data name="Er3" xml:space="preserve">
+    <value>کورس: "الزائمر اور ڈیمینشیا کی دیکھ بھال کا سیمینار"</value>
+  </data>
 </root>
