@@ -9,23 +9,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task List</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/css/caregiverdashboardstyling.css" rel="stylesheet" />
+    <link href="~/css/caregiverdashboardcards.css" rel="stylesheet" />
+    <style>
+        body{
+            background-color: #cfe6dc;
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
 </head>
-<body class="bg-light">
+<body>
     <div class="container mt-5">
         <h2 class="text-center mb-4">Task List</h2>
+        <div class="text-center">
+            <a href="@Url.Action("Remainder_And_Alerts", "ServiceGallery")" class="helpbtn helpbtnprimary">Add New Task</a>
+        </div>
 
         <div class="row">
             @foreach (var task in Model)
             {
-                <div class="col-md-4 mb-4">
+                <div class="col-md-4 mb-4" style="background-color: #cfe6dc;">
                     <div class="card shadow-lg">
                         <div class="card-body">
-                            <h5 class="card-title">@task.Title</h5>
-                            <p class="card-text"><strong>Email:</strong> @task.Email</p>
-                            <p class="card-text"><strong>Date:</strong> @task.Date</p>
-                            <p class="card-text"><strong>Time:</strong> @task.Time</p>
-                            <p class="card-text"><strong>Priority:</strong> @task.Priority</p>
-                            <p class="card-text"><strong>Description:</strong> @task.Description</p>
+                            <h5 class="card-title" style="color: #004242;">@task.Title</h5>
+                            <p class="card-text" style="color: #004242;"><strong>Email:</strong> @task.Email</p>
+                            <p class="card-text" style="color: #004242;"><strong>Date:</strong> @task.Date</p>
+                            <p class="card-text" style="color: #004242;">
+                                <strong>Time:</strong> @DateTime.Parse(task.Time).ToString("hh:mm tt")
+                            </p>
+
+                            <p class="card-text" style="color: #004242;"><strong>Priority:</strong> @task.Priority</p>
+                            <p class="card-text" style="color: #004242;"><strong>Description:</strong> @task.Description</p>
 
                             <div class="d-flex justify-content-between">
                                 <a href="@Url.Action("EditTask", "ServiceGallery", new { id = task.Id })" class="btn btn-warning btn-sm px-5 py-2">Edit</a>
@@ -41,9 +55,7 @@
             }
         </div>
 
-        <div class="text-center mt-3">
-            <a href="@Url.Action("Remainder_And_Alerts", "ServiceGallery")" class="btn btn-primary">Add New Task</a>
-        </div>
+    
     </div>
 
     <script>

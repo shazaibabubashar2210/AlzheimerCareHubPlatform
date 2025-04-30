@@ -17,6 +17,8 @@
         body {
             overflow-x: hidden;
             background-color: #cfe6dc;
+            font-family: 'Roboto', sans-serif;
+            font-size: 18px;
         }
 
         span {
@@ -88,7 +90,7 @@
                         <a class="nav-link active" asp-controller="DoctorAppointment" asp-action="DoctorAppointment">@AlzhCareHub.StringResources.Resource.FindDoctor</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">@AlzhCareHub.StringResources.Resource.EducationalResources</a>
+                        <a class="nav-link active" asp-controller="TrainingResources" asp-action="TrainingResources">@AlzhCareHub.StringResources.Resource.EducationalResources</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" asp-controller="AboutUs" asp-action="Index">@AlzhCareHub.StringResources.Resource.AboutUs_</a>

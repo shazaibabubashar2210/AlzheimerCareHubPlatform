@@ -189,17 +189,15 @@
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+               document.addEventListener("DOMContentLoaded", function () {
             const links = document.querySelectorAll(".whatsapp-link");
             links.forEach(link => {
                 link.addEventListener("click", function (e) {
                     e.preventDefault();
-                    const phone = this.getAttribute("data-phone");  // Get the phone number directly from data attribute
+                    const phone = this.getAttribute("data-phone");
 
                     if (phone) {
-                        // Remove non-digit characters from the phone number
                         const cleanedPhone = phone.replace(/\D/g, '');
-                        // Open WhatsApp link in a new tab
                         window.open(`https://wa.me/${cleanedPhone}`, "_blank");
                     } else {
                         alert("Phone number not found.");
@@ -207,6 +205,7 @@
                 });
             });
         });
+
     </script>
 
     <script src="~/js/popupform.js"></script>

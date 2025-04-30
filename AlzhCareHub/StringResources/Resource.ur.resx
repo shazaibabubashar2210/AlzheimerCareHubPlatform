@@ -326,4 +326,112 @@
   <data name="JoinUs" xml:space="preserve">
     <value>ہمارے ساتھ شامل ہوں</value>
   </data>
+  <data name="AlzhStageHead" xml:space="preserve">
+    <value>الزائمر کے مرحلے کی پیش گوئی</value>
+  </data>
+  <data name="q1" xml:space="preserve">
+    <value>1. کیا آپ اکثر حالیہ بات چیت یا واقعات کو بھول جاتے ہیں؟</value>
+  </data>
+  <data name="o1" xml:space="preserve">
+    <value>کبھی نہیں</value>
+  </data>
+  <data name="o2" xml:space="preserve">
+    <value>کبھی کبھار</value>
+  </data>
+  <data name="o3" xml:space="preserve">
+    <value>اکثر</value>
+  </data>
+  <data name="q2" xml:space="preserve">
+    <value>2. کیا آپ کو مالیات یا بلوں کی ادائیگی کے انتظام میں مدد کی ضرورت ہے؟</value>
+  </data>
+  <data name="q3" xml:space="preserve">
+    <value>3. کیا آپ کو وقت یا جگہ کے بارے میں الجھن ہوتی ہے؟ (مثلاً، ہفتے کا دن بھول جانا)</value>
+  </data>
+  <data name="q4" xml:space="preserve">
+    <value>4. کیا آپ کو اہم تاریخیں جیسے سالگرہ یا شادی کی سالگرہ یاد رہتی ہیں؟</value>
+  </data>
+  <data name="q5" xml:space="preserve">
+    <value>5. کیا آپ بغیر کسی مشکل کے بات چیت کو سمجھ اور اس کی پیروی کر سکتے ہیں؟</value>
+  </data>
+  <data name="q6" xml:space="preserve">
+    <value>6. کیا آپ قریبی دوستوں یا خاندان کے افراد کے نام بھول جاتے ہیں؟</value>
+  </data>
+  <data name="q7" xml:space="preserve">
+    <value>7. کیا آپ کو خاندان کے افراد یا قریبی دوستوں کو پہچاننے میں دشواری ہوتی ہے؟</value>
+  </data>
+  <data name="q8" xml:space="preserve">
+    <value>8. کیا آپ کو ذاتی نگہداشت جیسے کپڑے پہننے یا کھانے میں مدد کی ضرورت ہوتی ہے؟</value>
+  </data>
+  <data name="q9" xml:space="preserve">
+    <value>9. کیا آپ واضح طور پر بول سکتے ہیں اور اپنے خیالات آسانی سے ظاہر کر سکتے ہیں؟</value>
+  </data>
+  <data name="q10" xml:space="preserve">
+    <value>10. کیا آپ نے موڈ میں اتار چڑھاؤ یا رویے میں تبدیلی کا تجربہ کیا ہے؟</value>
+  </data>
+  <data name="questioneryBtn" xml:space="preserve">
+    <value>الزائمر کے مرحلے کا حساب لگائیں</value>
+  </data>
+  <data name="predictHighStage" xml:space="preserve">
+    <value>پیش گوئی کی گئی الزائمر کی حالت: اعلیٰ درجے کا الزائمر</value>
+  </data>
+  <data name="highGoal" xml:space="preserve">
+    <value>مقاصد: مکمل وقت کی دیکھ بھال فراہم کرنا، آرام کو یقینی بنانا، صحت کا انتظام کرنا۔</value>
+  </data>
+  <data name="highsuggestedSteps" xml:space="preserve">
+    <value>:مجوزہ اقدامات</value>
+  </data>
+  <data name="highs1" xml:space="preserve">
+    <value>نرم جسمانی تھراپی</value>
+  </data>
+  <data name="highs2" xml:space="preserve">
+    <value>پُر سکون موسیقی بجائیں</value>
+  </data>
+  <data name="highs3" xml:space="preserve">
+    <value>پالی ایٹو دیکھ بھال کو سمجھیں</value>
+  </data>
+  <data name="Resouces" xml:space="preserve">
+    <value>وسائل </value>
+  </data>
+  <data name="hrs1" xml:space="preserve">
+    <value>الزائمر ایسوسی ایشن: "آخری مرحلے کی دیکھ بھال" لنک</value>
+  </data>
+  <data name="hrs2" xml:space="preserve">
+    <value>این آئی ایچ: "الزائمر کے لیے آخری وقت کی دیکھ بھال" </value>
+  </data>
+  <data name="hrs3" xml:space="preserve">
+    <value>ویب سائٹ - "ڈیمینشیا کی دیکھ بھال: زندگی کے اختتام کے مسائل</value>
+  </data>
+  <data name="Link" xml:space="preserve">
+    <value>لنک</value>
+  </data>
+  <data name="highstagehead" xml:space="preserve">
+    <value>🧠 شدید مرحلہ (آخر/اعلی الزائمر کی بیماری)</value>
+  </data>
+  <data name="ModerateStageHead" xml:space="preserve">
+    <value>درمیانی مرحلہ الزائمر</value>
+  </data>
+  <data name="ModerateHead" xml:space="preserve">
+    <value>🧠 درمیانی مرحلہ (الزائمر کی درمیانی حالت)</value>
+  </data>
+  <data name="ModerateGoal" xml:space="preserve">
+    <value>مقاصد: الجھن، رویے اور حفاظت کا انتظام کرنا۔</value>
+  </data>
+  <data name="ms1" xml:space="preserve">
+    <value>محفوظ جگہیں تخلیق</value>
+  </data>
+  <data name="ms2" xml:space="preserve">
+    <value>تحریک دینے والے عوامل کی نگرانی کریں</value>
+  </data>
+  <data name="ms3" xml:space="preserve">
+    <value>مرحلہ وار ہدایات استعمال کریں</value>
+  </data>
+  <data name="mr1" xml:space="preserve">
+    <value>الزائمر ایسوسی ایشن: "درمیانی مرحلے کی نگہداشت</value>
+  </data>
+  <data name="mr2" xml:space="preserve">
+    <value>یوٹیوب وسائل (اردو میں) برائے درمیانے درجے کا الزائمر مرض</value>
+  </data>
+  <data name="mr3" xml:space="preserve">
+    <value>ورکشاپ: "سمجھدار نگہداشت پروگرام - الزائمر کے بارے میں سیکھیں اور شامل ہوں</value>
+  </data>
 </root>

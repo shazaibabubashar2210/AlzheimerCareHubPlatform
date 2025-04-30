@@ -16,6 +16,12 @@ namespace AlzhCareHub.Controllers
         [HttpPost]
         public async Task<IActionResult> Submit(ContactModel model)
         {
+            model.FirstName = model.FirstName?.Trim();
+            model.LastName = model.LastName?.Trim();
+            model.Email = model.Email?.Trim();
+            model.PhoneNumber = model.PhoneNumber?.Trim();
+            model.Message = model.Message?.Trim();
+
             if (!ModelState.IsValid)
             {
                 foreach (var error in ModelState)
@@ -38,22 +44,6 @@ namespace AlzhCareHub.Controllers
 
             return View("Index", model);
         }
-
-        // Use for a database test purposes to check whether it work or not...
-        //public async Task<IActionResult> TestFirebase()
-        //{
-        //    ContactModel testModel = new ContactModel
-        //    {
-        //        FirstName = "Test",
-        //        LastName = "User",
-        //        Email = "test@example.com",
-        //        PhoneNumber = "1234567890",
-        //        Message = "This is a test message"
-        //    };
-
-        //    bool isSaved = await FireBaseContactHelper.SaveContact(testModel);
-        //    return Content(isSaved ? "Firebase Save Successful" : "Firebase Save Failed");
-        //}
     }
 }
    

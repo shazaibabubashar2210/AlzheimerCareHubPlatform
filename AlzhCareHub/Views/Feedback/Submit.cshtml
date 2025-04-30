@@ -5,21 +5,26 @@
     ViewData["Title"] = "Submit Form";
 }
 
-<!Doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="utf-8" />
     <title>@ViewData["Title"] - AlzhCare</title>
     <style>
         body {
             background-color: #cfe6dc;
             font-family: 'Roboto', sans-serif;
         }
-        .card{
+        .card {
             background-color: #cfe6dc;
         }
     </style>
+
+    @* SweetAlert2 CDN *@
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
-    <body>
+
+<body>
     <h2 class="mb-4 text-center" style="color: #004241;">Submit Your Feedback</h2>
 
     @if (ViewBag.Message != null)
@@ -28,22 +33,22 @@
         <a class="btn btn-primary" asp-controller="FeedBack" asp-action="Responses">Go To view our response</a>
     }
 
-    <div class="card shadow-lg p-4" style="width: 60%; display: block; margin:auto;">
-        <form asp-action="Submit" method="post">
+    <div class="card shadow-lg p-4" style="width: 60%; display: block; margin: auto;">
+        <form id="feedbackForm" asp-action="Submit" method="post">
             <div class="mb-3">
                 <label for="UserEmail" class="form-label fw-bold">Email Address</label>
-                <input type="email" name="UserEmail" class="form-control" placeholder="Enter your email" required style="background: transparent; border: 1px solid grey;"/>
+                <input type="email" id="UserEmail" name="UserEmail" class="form-control" placeholder="Enter your email" required style="background: transparent; border: 1px solid grey;" />
             </div>
 
             <div class="mb-3">
                 <label for="Message" class="form-label fw-bold">Your Message</label>
-                <textarea name="Message" class="form-control" rows="4" placeholder="Write your feedback..." required style="background: transparent; border: 1px solid grey;"></textarea>
+                <textarea id="Message" name="Message" class="form-control" rows="4" placeholder="Write your feedback..." required style="background: transparent; border: 1px solid grey;"></textarea>
             </div>
 
             <button type="submit" class="px-4 py-2 shadow" style="background-color: #004241; color: white;">Submit Feedback</button>
         </form>
     </div>
-    </body>
+
+    <script src="~/js/feedbackvalidation.js"></script>
+</body>
 </html>
-
-

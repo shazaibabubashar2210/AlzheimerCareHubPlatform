@@ -326,4 +326,112 @@ platform offers a variety of services to make caregiving easier, more effective,
   <data name="JoinUs" xml:space="preserve">
     <value>Join Us</value>
   </data>
+  <data name="AlzhStageHead" xml:space="preserve">
+    <value>Alzheimer's Stage Prediction</value>
+  </data>
+  <data name="q1" xml:space="preserve">
+    <value>1. Do you often forget recent conversations or events?</value>
+  </data>
+  <data name="o1" xml:space="preserve">
+    <value>Never</value>
+  </data>
+  <data name="o2" xml:space="preserve">
+    <value>Occasionally</value>
+  </data>
+  <data name="o3" xml:space="preserve">
+    <value>Frequently</value>
+  </data>
+  <data name="q2" xml:space="preserve">
+    <value>2. Do you need help with managing finances or paying bills?</value>
+  </data>
+  <data name="q3" xml:space="preserve">
+    <value>3. Do you experience confusion about time or place (e.g., forgetting the day of the week)?</value>
+  </data>
+  <data name="q4" xml:space="preserve">
+    <value>4. Can you remember important dates like birthdays or anniversaries?</value>
+  </data>
+  <data name="q5" xml:space="preserve">
+    <value>5. Are you able to follow a conversation without trouble?</value>
+  </data>
+  <data name="q6" xml:space="preserve">
+    <value>6. Do you forget names of close friends or family members?</value>
+  </data>
+  <data name="q7" xml:space="preserve">
+    <value>7. Do you have trouble recognizing family members or close friends?</value>
+  </data>
+  <data name="q8" xml:space="preserve">
+    <value>8. Do you need help with personal care, like dressing or eating?</value>
+  </data>
+  <data name="q9" xml:space="preserve">
+    <value>9. Are you able to speak clearly and communicate your thoughts easily?</value>
+  </data>
+  <data name="q10" xml:space="preserve">
+    <value>10. Have you experienced mood swings or behavior changes?</value>
+  </data>
+  <data name="questioneryBtn" xml:space="preserve">
+    <value>Calculate Alzheimer's Stage</value>
+  </data>
+  <data name="predictHighStage" xml:space="preserve">
+    <value>Predicted Alzheimer's Stage: High Stage Alzheimer's</value>
+  </data>
+  <data name="highGoal" xml:space="preserve">
+    <value>Goals: Provide full-time care, ensure comfort, manage health.</value>
+  </data>
+  <data name="highsuggestedSteps" xml:space="preserve">
+    <value>Suggested Steps:</value>
+  </data>
+  <data name="highs1" xml:space="preserve">
+    <value>Gentle physical therapy</value>
+  </data>
+  <data name="highs2" xml:space="preserve">
+    <value>Play calming music</value>
+  </data>
+  <data name="highs3" xml:space="preserve">
+    <value>Understand palliative care</value>
+  </data>
+  <data name="Resouces" xml:space="preserve">
+    <value>Resources:</value>
+  </data>
+  <data name="hrs1" xml:space="preserve">
+    <value>Alzheimer’s Association: "Late Stage Caregiving" Link</value>
+  </data>
+  <data name="hrs2" xml:space="preserve">
+    <value>NIH: "End-of-Life Care for Alzheimer’s" </value>
+  </data>
+  <data name="hrs3" xml:space="preserve">
+    <value>Website - "Dementia Care: End-of-Life Issues" </value>
+  </data>
+  <data name="Link" xml:space="preserve">
+    <value>Link</value>
+  </data>
+  <data name="highstagehead" xml:space="preserve">
+    <value>🧠 Severe Stage (Late/High Alzheimer's Disease)</value>
+  </data>
+  <data name="ModerateStageHead" xml:space="preserve">
+    <value>Moderate Stage Alzheimer's</value>
+  </data>
+  <data name="ModerateHead" xml:space="preserve">
+    <value>🧠 Moderate Stage (Middle Alzheimer's Disease)</value>
+  </data>
+  <data name="ModerateGoal" xml:space="preserve">
+    <value>Goals: Manage confusion, behavior, and safety.</value>
+  </data>
+  <data name="ms1" xml:space="preserve">
+    <value>Use step-by-step instructions</value>
+  </data>
+  <data name="ms2" xml:space="preserve">
+    <value>Monitor triggers</value>
+  </data>
+  <data name="ms3" xml:space="preserve">
+    <value>Create safe spaces</value>
+  </data>
+  <data name="mr1" xml:space="preserve">
+    <value>Alzheimer’s Association: "Middle Stage Caregiving</value>
+  </data>
+  <data name="mr2" xml:space="preserve">
+    <value>YouTube Resources In Urdu with Mild Stage Alzheimer Disease</value>
+  </data>
+  <data name="mr3" xml:space="preserve">
+    <value>Savvy Caregiver Program - Enroll And Learn About Alzheimer</value>
+  </data>
 </root>

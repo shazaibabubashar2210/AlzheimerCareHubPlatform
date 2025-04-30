@@ -393,4 +393,148 @@
     <value>JoinUs</value>
     <comment>JoinUs</comment>
   </data>
+  <data name="AlzhStageHead" xml:space="preserve">
+    <value>AlzhStageHead</value>
+    <comment>AlzhStageHead</comment>
+  </data>
+  <data name="q1" xml:space="preserve">
+    <value>q1</value>
+    <comment>q1</comment>
+  </data>
+  <data name="o1" xml:space="preserve">
+    <value>o1</value>
+    <comment>o1</comment>
+  </data>
+  <data name="o2" xml:space="preserve">
+    <value>o2</value>
+    <comment>o2</comment>
+  </data>
+  <data name="o3" xml:space="preserve">
+    <value>o3</value>
+    <comment>o3</comment>
+  </data>
+  <data name="q2" xml:space="preserve">
+    <value>q2</value>
+    <comment>q2</comment>
+  </data>
+  <data name="q3" xml:space="preserve">
+    <value>q3</value>
+    <comment>q3</comment>
+  </data>
+  <data name="q4" xml:space="preserve">
+    <value>q4</value>
+    <comment>q4</comment>
+  </data>
+  <data name="q5" xml:space="preserve">
+    <value>q5</value>
+    <comment>q5</comment>
+  </data>
+  <data name="q6" xml:space="preserve">
+    <value>q6</value>
+    <comment>q6</comment>
+  </data>
+  <data name="q7" xml:space="preserve">
+    <value>q7</value>
+    <comment>q7</comment>
+  </data>
+  <data name="q8" xml:space="preserve">
+    <value>q8</value>
+    <comment>q8</comment>
+  </data>
+  <data name="q9" xml:space="preserve">
+    <value>q9</value>
+    <comment>q9</comment>
+  </data>
+  <data name="q10" xml:space="preserve">
+    <value>q10</value>
+    <comment>q10</comment>
+  </data>
+  <data name="questioneryBtn" xml:space="preserve">
+    <value>questioneryBtn</value>
+    <comment>questioneryBtn</comment>
+  </data>
+  <data name="predictHighStage" xml:space="preserve">
+    <value>predictHighStage</value>
+    <comment>predictHighStage</comment>
+  </data>
+  <data name="highGoal" xml:space="preserve">
+    <value>highGoal</value>
+    <comment>highGoal</comment>
+  </data>
+  <data name="highsuggestedSteps" xml:space="preserve">
+    <value>highsuggestedSteps</value>
+    <comment>highsuggestedSteps</comment>
+  </data>
+  <data name="highs1" xml:space="preserve">
+    <value>highs1</value>
+    <comment>highs1</comment>
+  </data>
+  <data name="highs2" xml:space="preserve">
+    <value>highs2</value>
+    <comment>highs2</comment>
+  </data>
+  <data name="highs3" xml:space="preserve">
+    <value>highs3</value>
+    <comment>highs3</comment>
+  </data>
+  <data name="Resouces" xml:space="preserve">
+    <value>Resouces</value>
+    <comment>Resouces</comment>
+  </data>
+  <data name="hrs1" xml:space="preserve">
+    <value>hrs2</value>
+    <comment>hrs2</comment>
+  </data>
+  <data name="hrs2" xml:space="preserve">
+    <value>hrs2</value>
+    <comment>hrs2</comment>
+  </data>
+  <data name="hrs3" xml:space="preserve">
+    <value>hrs3</value>
+    <comment>hrs3</comment>
+  </data>
+  <data name="Link" xml:space="preserve">
+    <value>Link</value>
+    <comment>Link</comment>
+  </data>
+  <data name="highstagehead" xml:space="preserve">
+    <value>highstagehead</value>
+    <comment>highstagehead</comment>
+  </data>
+  <data name="ModerateStageHead" xml:space="preserve">
+    <value>ModerateStageHead</value>
+    <comment>ModerateStageHead</comment>
+  </data>
+  <data name="ModerateHead" xml:space="preserve">
+    <value>ModerateHead</value>
+    <comment>ModerateHead</comment>
+  </data>
+  <data name="ModerateGoal" xml:space="preserve">
+    <value>ModerateGoal</value>
+    <comment>ModerateGoal</comment>
+  </data>
+  <data name="ms1" xml:space="preserve">
+    <value>ms1</value>
+    <comment>ms1</comment>
+  </data>
+  <data name="ms2" xml:space="preserve">
+    <value>ms2</value>
+    <comment>ms2</comment>
+  </data>
+  <data name="ms3" xml:space="preserve">
+    <value>ms3</value>
+    <comment>ms3</comment>
+  </data>
+  <data name="mr1" xml:space="preserve">
+    <value>mr1</value>
+    <comment>mr1</comment>
+  </data>
+  <data name="mr2" xml:space="preserve">
+    <value>mr2</value>
+    <comment>mr2</comment>
+  </data>
+  <data name="mr3" xml:space="preserve">
+    <value>mr3</value>
+    <comment>mr3</comment>
+  </data>
 </root>

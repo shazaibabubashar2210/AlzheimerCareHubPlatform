@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Mail;
 using System.Threading.Tasks;
-using System.Timers;  // Keep this for using System.Timers.Timer
+using System.Timers;  
 
 public class EmailScheduler
 {
@@ -12,7 +12,7 @@ public class EmailScheduler
     public static void ScheduleEmail(TaskModel task)
     {
         DateTime taskDateTime = DateTime.Parse(task.Date + " " + task.Time);
-        TimeSpan timeUntilAlert = taskDateTime - DateTime.Now; // No -15 minutes adjustment
+        TimeSpan timeUntilAlert = taskDateTime - DateTime.Now; 
 
         if (timeUntilAlert.TotalMilliseconds > 0)
         {
@@ -20,7 +20,7 @@ public class EmailScheduler
             timer.Elapsed += async (sender, e) =>
             {
                 await SendEmail(task);
-                timer.Dispose(); // Free resources after execution
+                timer.Dispose(); 
             };
             timer.AutoReset = false;
             timer.Start();
@@ -42,17 +42,21 @@ public class EmailScheduler
             mail.Subject = "Task Reminder: " + task.Title;
             mail.Body = $"Reminder: {task.Description}\nPriority: {task.Priority}\nTime: {task.Time}";
 
-            smtpClient.Port = 587;  // Changed from 465
+            smtpClient.Port = 587;
             smtpClient.Credentials = new System.Net.NetworkCredential("shazaibabubashar@gmail.com", "zkmo mgbv wnvt iemo");
             smtpClient.EnableSsl = true;
 
             await smtpClient.SendMailAsync(mail);
-            Console.WriteLine("Email sent successfully!");
+
+            // DELETE task from Firebase after sending email
+            await FirebaseService.DeleteTask(task.Id); 
+
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Email Error: " + ex.Message);
+            Console.WriteLine($"Error sending email: {ex.Message}");
         }
     }
+
 
 }

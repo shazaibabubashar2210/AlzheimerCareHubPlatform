@@ -13,8 +13,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <style>
         body {
-        overflow-x: hidden;
-        background-color: #cfe6dc;
+            overflow-x: hidden;
+            background-color: #cfe6dc;
+            font-family: 'Roboto', sans-serif;
+            font-size: 18px;
         }
 
         .logo {
@@ -112,7 +114,7 @@
                     }
                     else{
                         <li class="nav-item">
-                            <a class="nav-link active link" href="#" style="color: #004241;">@AlzhCareHub.StringResources.Resource.EducationalResources</a>
+                            <a class="nav-link active link" asp-controller="TrainingResources" asp-action="TrainingResources" style="color: #004241;">@AlzhCareHub.StringResources.Resource.EducationalResources</a>
                         </li>
                     }
 
