@@ -57,6 +57,14 @@
         .forgot-links {
             font-size: 14px;
         }
+
+        .changebg{
+          background: none;
+          background: transparent;
+          border:none;
+          outline: none;
+          border: 1px solid grey;
+        }
     </style>
 
 </head>
@@ -72,18 +80,18 @@
                 {
                     <div class="mb-3">
                         <div class="input-group">
-                            <span class="input-group-text">
-                                <i class="bi bi-envelope"></i>
-                            </span>
-                            <input type="email" id="email" name="email" class="form-control" placeholder="@AlzhCareHub.StringResources.Resource.Email" required />
+                            @* <span class="input-group-text"> *@
+                            @*     <i class="bi bi-envelope"></i> *@
+                            @* </span> *@
+                            <input type="email" id="email" name="email" class="form-control changebg" placeholder="@AlzhCareHub.StringResources.Resource.Email" required />
                         </div>
                     </div>
                     <div class="mb-3">
                         <div class="input-group">
-                            <span class="input-group-text">
-                                <i class="bi bi-lock"></i>
-                            </span>
-                            <input type="password" id="password" name="password" class="form-control" placeholder="@AlzhCareHub.StringResources.Resource.Password" required />
+                            @* <span class="input-group-text"> *@
+                            @*     <i class="bi bi-lock"></i> *@
+                            @* </span> *@
+                            <input type="password" id="password" name="password" class="form-control changebg" placeholder="@AlzhCareHub.StringResources.Resource.Password" required />
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary w-100">@AlzhCareHub.StringResources.Resource.Register</button>
