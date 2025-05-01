@@ -214,6 +214,15 @@ namespace AlzhCareHub.StringResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ConnectionWatsapp.
+        /// </summary>
+        public static string ConnectionWatsapp {
+            get {
+                return ResourceManager.GetString("ConnectionWatsapp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ContactSupport.
         /// </summary>
         public static string ContactSupport {
@@ -255,6 +264,42 @@ namespace AlzhCareHub.StringResources {
         public static string dappara {
             get {
                 return ResourceManager.GetString("dappara", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Doc1Name.
+        /// </summary>
+        public static string Doc1Name {
+            get {
+                return ResourceManager.GetString("Doc1Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DoctorHead.
+        /// </summary>
+        public static string DoctorHead {
+            get {
+                return ResourceManager.GetString("DoctorHead", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DoctorPara.
+        /// </summary>
+        public static string DoctorPara {
+            get {
+                return ResourceManager.GetString("DoctorPara", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DoctorSecondHead.
+        /// </summary>
+        public static string DoctorSecondHead {
+            get {
+                return ResourceManager.GetString("DoctorSecondHead", resourceCulture);
             }
         }
         
@@ -1038,6 +1083,15 @@ namespace AlzhCareHub.StringResources {
         public static string ServicesPara {
             get {
                 return ResourceManager.GetString("ServicesPara", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Team.
+        /// </summary>
+        public static string Team {
+            get {
+                return ResourceManager.GetString("Team", resourceCulture);
             }
         }
         

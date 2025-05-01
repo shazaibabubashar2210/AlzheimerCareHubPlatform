@@ -577,4 +577,28 @@
     <value>Er3</value>
     <comment>Er3</comment>
   </data>
+  <data name="Team" xml:space="preserve">
+    <value>Team</value>
+    <comment>Team</comment>
+  </data>
+  <data name="DoctorHead" xml:space="preserve">
+    <value>DoctorHead</value>
+    <comment>DoctorHead</comment>
+  </data>
+  <data name="DoctorSecondHead" xml:space="preserve">
+    <value>DoctorSecondHead</value>
+    <comment>DoctorSecondHead</comment>
+  </data>
+  <data name="DoctorPara" xml:space="preserve">
+    <value>DoctorPara</value>
+    <comment>DoctorPara</comment>
+  </data>
+  <data name="Doc1Name" xml:space="preserve">
+    <value>Doc1Name</value>
+    <comment>Doc1Name</comment>
+  </data>
+  <data name="ConnectionWatsapp" xml:space="preserve">
+    <value>ConnectionWatsapp</value>
+    <comment>ConnectionWatsapp</comment>
+  </data>
 </root>

@@ -464,4 +464,22 @@
   <data name="Er3" xml:space="preserve">
     <value>کورس: "الزائمر اور ڈیمینشیا کی دیکھ بھال کا سیمینار"</value>
   </data>
+  <data name="Team" xml:space="preserve">
+    <value>ٹیم</value>
+  </data>
+  <data name="DoctorHead" xml:space="preserve">
+    <value>الزائمر کے علاج میں ماہر پیشہ ور ڈاکٹرز</value>
+  </data>
+  <data name="DoctorSecondHead" xml:space="preserve">
+    <value>الزکیر علاج میں آپ کو خوش آمدید کہتے ہیں</value>
+  </data>
+  <data name="DoctorPara" xml:space="preserve">
+    <value>ماہرین سے تجربہ کار فزیو تھراپی علاج حاصل کریں جن پر پیشہ ور افراد بھی اعتماد کرتے ہیں۔ ہمارے تجربہ کار ڈاکٹروں نے معروف طبی اداروں اور مشہور الزائمر بیماری کی بحالی مراکز کے مریضوں کا علاج کیا ہے۔ ذاتی نوعیت کے علاج کے لیے آج ہی اپنی اپوائنٹمنٹ بک کریں</value>
+  </data>
+  <data name="Doc1Name" xml:space="preserve">
+    <value>نام: شزایب ابو بشر</value>
+  </data>
+  <data name="ConnectionWatsapp" xml:space="preserve">
+    <value>واٹس ایپ کے ذریعے رابطہ کریں</value>
+  </data>
 </root>

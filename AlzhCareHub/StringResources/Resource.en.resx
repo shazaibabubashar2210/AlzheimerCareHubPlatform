@@ -464,4 +464,23 @@ platform offers a variety of services to make caregiving easier, more effective,
   <data name="Er3" xml:space="preserve">
     <value>Course: "Alzheimer’s and Dementia Care Seminar"</value>
   </data>
+  <data name="Team" xml:space="preserve">
+    <value>Team</value>
+  </data>
+  <data name="DoctorHead" xml:space="preserve">
+    <value>Highly Professional Treating Alzheimer Disease Doctors
+</value>
+  </data>
+  <data name="DoctorSecondHead" xml:space="preserve">
+    <value>Welcome to AlzhCare Treatment </value>
+  </data>
+  <data name="DoctorPara" xml:space="preserve">
+    <value>Receive expert physiotherapy care from specialists trusted by professionals. Our experienced doctors have treated patients from leading medical institutions and renowned alzheimer disease rehabilitation centers. Book your appointment today for personalized treatment.</value>
+  </data>
+  <data name="Doc1Name" xml:space="preserve">
+    <value>Name: Shazaib AbuBashar</value>
+  </data>
+  <data name="ConnectionWatsapp" xml:space="preserve">
+    <value> Connect Via WhatsApp</value>
+  </data>
 </root>

@@ -27,7 +27,6 @@
         body{
             background-color: #cfe6dc;
             color: #006B69;
-            font-size: 18px;
         }
 
         .logo {
@@ -132,15 +131,15 @@
     <nav class="navbar navbar-expand-lg shadow-sm">
         <div class="container-fluid">
             <span class="logo ms-5 me-3">A</span> <a class="navbar-brand brand-logo" asp-controller="Auth" asp-action="CaregiverDashBoard">
-                AlzhCare
+                @AlzhCareHub.StringResources.Resource.AlzhCare
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" asp-controller="AboutUs" asp-action="Index" style="color: #006B69;">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link me-4" href="#Team" style="color: #006B69;">Team</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="AboutUs" asp-action="Index" style="color: #006B69;">@AlzhCareHub.StringResources.Resource.AboutUs_</a></li>
+                    <li class="nav-item"><a class="nav-link me-4" href="#Team" style="color: #006B69;">@AlzhCareHub.StringResources.Resource.Team</a></li>
                 </ul>
             </div>
         </div>
@@ -157,12 +156,10 @@
 
                 <!-- Text Content -->
                 <div class="col-lg-6 col-md-12 text-center text-lg-start">
-                    <h5 class="text-uppercase">Highly Professional Treating Alzheimer Disease Doctors</h5>
-                    <h1 class="fw-bold">Welcome to AlzhCare Treatment</h1>
-                    <p style="font-size: 18px;">
-                        Receive expert physiotherapy care from specialists trusted by professionals.
-                        Our experienced doctors have treated patients from <strong>leading medical institutions</strong> and
-                        <strong>renowned alzheimer disease rehabilitation centers</strong>. Book your appointment today for personalized treatment.
+                    <h5 class="text-uppercase mt-3">@AlzhCareHub.StringResources.Resource.DoctorHead</h5>
+                    <h1 class="fw-bold" style="line-height: 5.5rem;">@AlzhCareHub.StringResources.Resource.DoctorSecondHead</h1>
+                    <p style="line-height: 2.5rem; margin-top: 2rem; ">
+                        @AlzhCareHub.StringResources.Resource.DoctorPara
                     </p>
 
                 </div>
@@ -196,7 +193,7 @@
                                         <p>Location: @member.Location</p>
                                         <p>Phone: @member.PhoneNumber</p>
                                         <a href="#" class="d-block fw-bold text-center whatsapp-link" data-phone="@member.PhoneNumber" style="text-decoration: none; color: #006B69;">
-                                            Connect Via WhatsApp
+                                            @AlzhCareHub.StringResources.Resource.ConnectionWatsapp
                                         </a>
                                     </div>
                                 </div>
