@@ -184,12 +184,12 @@
     <div class="container-fluid mt-4">
         @RenderBody()  @* This is required *@
     </div>
-
-    <footer class="footer text-center text-lg-start" style="width: 100vw; height: 45vh; color: white;">
+    <!-- Footer -->
+    <footer class="footer text-center text-lg-start" style="width: 100vw; height: 45vh; color: white; position: relative; background-color: #004241;">
         <div class="container text-center text-md-start">
             <div class="row">
                 <div class="col-md-4 col-lg-3">
-                    <div class="footer-icon" style="color: #004241;">A</div>
+                    <div class="footer-icon" style="color: #ffffff; font-size: 24px;">A</div>
                     <h5>@AlzhCareHub.StringResources.Resource.AlzhCare</h5>
                     <p style="color: #c3dffa; font-weight: bold;">@AlzhCareHub.StringResources.Resource.WebSiteFooterText</p>
                 </div>
@@ -197,159 +197,239 @@
                 <div class="col-md-2 col-lg-2 footer-section">
                     <h5>@AlzhCareHub.StringResources.Resource.Home</h5>
                     <ul class="list-unstyled">
-                        @if(userEmail==null)
+                        @if (userEmail == null)
                         {
-                            <li>
-                                <a href="javascript:void(0)"
-                                onclick="alert('Please login to access this page');">
-                                    @AlzhCareHub.StringResources.Resource.AboutUs_
-                                </a>
-                            </li>
+                            <li><a href="javascript:void(0)" onclick="alert('Please login to access this page');">@AlzhCareHub.StringResources.Resource.AboutUs_</a></li>
                         }
                         else
                         {
-                            <li>
-                                <a asp-controller="AboutUs" asp-action="Index">@AlzhCareHub.StringResources.Resource.AboutUs_</a>
-                            </li>
+                            <li><a asp-controller="AboutUs" asp-action="Index">@AlzhCareHub.StringResources.Resource.AboutUs_</a></li>
                         }
 
                         @if (userEmail == null)
                         {
-                            <li>
-                                <a href="javascript:void(0)"
-                                onclick="alert('Please login to access this page');">
-                                    @AlzhCareHub.StringResources.Resource.Testimonials
-                                </a>
-                            </li>
+                            <li><a href="javascript:void(0)" onclick="alert('Please login to access this page');">@AlzhCareHub.StringResources.Resource.Testimonials</a></li>
                         }
                         else
                         {
-                            <li>
-                                <a href="javascript: void(0);">@AlzhCareHub.StringResources.Resource.Testimonials</a>
-                            </li>
+                            <li><a href="javascript: void(0);">@AlzhCareHub.StringResources.Resource.Testimonials</a></li>
                         }
 
-                        @if(userEmail==null)
-                        {
-                            <li>
-                                <a href="javascript:void(0)"
-                                onclick="alert('Please login to access this page');">
-                                    @AlzhCareHub.StringResources.Resource.FindDoctor
-                                </a>
-                            </li>
-                        }
-                        else
-                        {
-                            <li>
-                                <a asp-controller="DoctorAppointment" asp-action="DoctorAppointment">@AlzhCareHub.StringResources.Resource.FindDoctor</a>
-                            </li>
-                        }
                         @if (userEmail == null)
                         {
-                            <li>
-                                <a href="javascript:void(0);" onclick="alert('Please login to access this page');">
-                                    @AlzhCareHub.StringResources.Resource.AppsAndGames
-                                </a>
-                            </li>
+                            <li><a href="javascript:void(0)" onclick="alert('Please login to access this page');">@AlzhCareHub.StringResources.Resource.FindDoctor</a></li>
                         }
                         else
                         {
-                            <li>
-                                <a href="https://poki.com/en/g/brain-test-tricky-puzzles" target="_blank">
-                                    @AlzhCareHub.StringResources.Resource.AppsAndGames
-                                </a>
-                            </li>
+                            <li><a asp-controller="DoctorAppointment" asp-action="DoctorAppointment">@AlzhCareHub.StringResources.Resource.FindDoctor</a></li>
                         }
 
+                        @if (userEmail == null)
+                        {
+                            <li><a href="javascript:void(0);" onclick="alert('Please login to access this page');">@AlzhCareHub.StringResources.Resource.AppsAndGames</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="https://poki.com/en/g/brain-test-tricky-puzzles" target="_blank">@AlzhCareHub.StringResources.Resource.AppsAndGames</a></li>
+                        }
                     </ul>
                 </div>
 
                 <div class="col-md-2 col-lg-2">
                     <h5>@AlzhCareHub.StringResources.Resource.Region</h5>
                     <ul class="list-unstyled">
-                        @if (userEmail==null)
-                        {
-                            <li>
-                                <a href="javascript:void(0)"
-                                   onclick="alert('Please login to access this page');">
-                                    @AlzhCareHub.StringResources.Resource.Lahore
-                                </a>
-                            </li>
-                        }
-                        else{
-                            <li>
-                                <a href="javascript: void(0)">@AlzhCareHub.StringResources.Resource.Lahore</a>
-                            </li>
-                        }
-
-
-                        @if (userEmail == null)
-                        {
-                            <li>
-                                <a href="javascript:void(0)"
-                                   onclick="alert('Please login to access this page');">
-                                    @AlzhCareHub.StringResources.Resource.Karachi
-                                </a>
-                            </li>
-                        }
-                        else
-                        {
-                            <li>
-                                <a href="javascript: void(0)">@AlzhCareHub.StringResources.Resource.Karachi</a>
-                            </li>
-                        }
-
-                        @if (userEmail == null)
-                        {
-                            <li>
-                                <a href="javascript:void(0)"
-                                   onclick="alert('Please login to access this page');">
-                                    @AlzhCareHub.StringResources.Resource.Islamabad
-                                </a>
-                            </li>
-                        }
-                        else
-                        {
-                            <li>
-                                <a href="javascript: void(0)">@AlzhCareHub.StringResources.Resource.Islamabad</a>
-                            </li>
-                        }
-
-                        @if (userEmail == null)
-                        {
-                            <li>
-                                <a href="javascript:void(0)"
-                                   onclick="alert('Please login to access this page');">
-                                    @AlzhCareHub.StringResources.Resource.Mulla_Wala
-                                </a>
-                            </li>
-                        }
-                        else
-                        {
-                            <li>
-                                <a href="javascript: void(0)">@AlzhCareHub.StringResources.Resource.Mulla_Wala</a>
-                            </li>
-                        }
-                 
+                        <li><a href="javascript:void(0)" onclick="alert('Please login to access this page');">@AlzhCareHub.StringResources.Resource.Lahore</a></li>
+                        <li><a href="javascript:void(0)" onclick="alert('Please login to access this page');">@AlzhCareHub.StringResources.Resource.Karachi</a></li>
+                        <li><a href="javascript:void(0)" onclick="alert('Please login to access this page');">@AlzhCareHub.StringResources.Resource.Islamabad</a></li>
+                        <li><a href="javascript:void(0)" onclick="alert('Please login to access this page');">@AlzhCareHub.StringResources.Resource.Mulla_Wala</a></li>
                     </ul>
                 </div>
 
                 <div class="col-md-2 col-lg-2">
                     <h5>@AlzhCareHub.StringResources.Resource.Help</h5>
                     <ul class="list-unstyled">
-                        <li><a href="javacript: void(0);">@AlzhCareHub.StringResources.Resource.HelpCenter</a></li>
-                        <li><a href="javascript: void(0);">@AlzhCareHub.StringResources.Resource.ContactSupport</a></li>
-                        <li><a href="javascript: void(0);">@AlzhCareHub.StringResources.Resource.Instructions</a></li>
-                        <li><a href="javascript: void(0);">@AlzhCareHub.StringResources.Resource.Works</a></li>
+                        <li><a href="javascript:void(0)">@AlzhCareHub.StringResources.Resource.HelpCenter</a></li>
+                        <li><a href="javascript:void(0)">@AlzhCareHub.StringResources.Resource.ContactSupport</a></li>
+                        <li><a href="javascript:void(0)">@AlzhCareHub.StringResources.Resource.Instructions</a></li>
+                        <li><a href="javascript:void(0)">@AlzhCareHub.StringResources.Resource.Works</a></li>
                     </ul>
                 </div>
             </div>
         </div>
-
-        <div class="px-5 text-center" style="margin-left: 4rem;">
+        <div class="px-5 text-center mt-3">
             @AlzhCareHub.StringResources.Resource.Rigths
         </div>
     </footer>
+
+    <!-- Chatbot Icon -->
+    <div id="chatbot-icon" onclick="toggleChatbot()" style="
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    background-color: #004242;
+    border: 3px solid black;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 30px;
+    text-align: center;
+    line-height: 60px;
+    cursor: pointer;
+    z-index: 9999;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+">
+        💬
+    </div>
+
+    <!-- Chatbot Box -->
+    <div id="chatbot-box" style="
+    position: fixed;
+    bottom: 90px;
+    right: 30px;
+    width: 350px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 9998;
+">
+        <div class="chat-header d-flex justify-content-between align-items-center p-3" style="background-color: #004242; color: white;">
+            <span>Chat with us</span>
+        </div>
+        <div class="chat-body d-flex flex-column p-2" style="height: 300px; overflow-y: auto;">
+            <!-- Messages will appear here -->
+            <div class="message received">Welcome! How can I assist you?</div>
+        </div>
+        <div class="chat-footer p-2">
+            <input type="text" class="form-control" id="chatInput" placeholder="Type your message...">
+            <button class="mt-2 helpbtn helpbtnprimary" onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleChatbot() {
+            const box = document.getElementById("chatbot-box");
+            box.style.display = (box.style.display === "none" || box.style.display === "") ? "flex" : "none";
+        }
+
+        function sendMessage() {
+            const input = document.getElementById("chatInput");
+            const message = input.value.trim();
+            if (message === "") return;
+
+            appendMessage("sent", message);
+
+            // Show typing indicator
+            const typingMessage = appendMessage("received", "typing...");
+
+            // Simulate a delay before the bot responds (3 seconds)
+            setTimeout(() => {
+                // Remove typing indicator
+                typingMessage.remove();
+
+                const response = getBotResponse(message.toLowerCase());
+                appendMessage("received", response);
+            }, 3000);
+
+            input.value = "";
+        }
+
+        function appendMessage(type, text) {
+            const messageDiv = document.createElement("div");
+            messageDiv.className = `message ${type}`;
+            messageDiv.innerText = text;
+            document.querySelector(".chat-body").appendChild(messageDiv);
+            document.querySelector(".chat-body").scrollTop = document.querySelector(".chat-body").scrollHeight;
+            return messageDiv; // Return the message div for later removal
+        }
+
+                function getBotResponse(message) {
+            // Normalize input to lowercase for case-insensitivity
+            const normalizedMessage = message.toLowerCase().trim();
+
+            if (normalizedMessage.includes("what is alzheimer") || normalizedMessage.includes("about alzheimer")) {
+                return "Alzheimer's is a progressive brain disorder that slowly destroys memory and thinking skills.";
+            } else if (normalizedMessage.includes("common symptoms")) {
+                return "Common symptoms include memory loss, confusion, and changes in behavior.";
+            } else if (normalizedMessage.includes("stages of alzheimer")) {
+                return "There are three main stages of Alzheimer's: early (mild), moderate, and severe.";
+            } else if (normalizedMessage.includes("early signs of alzheimer") || normalizedMessage.includes("early signs")) {
+                return "Early signs of Alzheimer's include forgetfulness, confusion, and difficulty with familiar tasks.";
+            } else if (normalizedMessage.includes("dementia") || normalizedMessage.includes("difference")) {
+                return "Alzheimer's is a specific type of dementia that primarily affects memory, while dementia is a broader term for a decline in mental ability.";
+            } else if (normalizedMessage.includes("treatment")) {
+                return "There's no cure for Alzheimer's, but treatments can help manage symptoms. Medications like donepezil and memantine are often prescribed.";
+            } else if (normalizedMessage.includes("diet") || normalizedMessage.includes("food")) {
+                return "A Mediterranean diet rich in fruits, vegetables, and healthy fats may help brain health.";
+            } else if (normalizedMessage.includes("genetics")) {
+                return "Genetics play a significant role in Alzheimer's. A family history of the disease can increase the risk.";
+            } else if (normalizedMessage.includes("early stage")) {
+                return "In the early stage of Alzheimer's, the goal is to help the patient maintain independence and manage memory loss. Suggested steps include creating structured routines and using memory aids.";
+            } else if (normalizedMessage.includes("moderate stage")) {
+                return "During the moderate stage, Alzheimer's symptoms are more pronounced. The goal is to provide safety and comfort. Suggested steps include monitoring for wandering, helping with daily activities, and providing emotional support.";
+            } else if (normalizedMessage.includes("severe stage")) {
+                return "In the severe stage, the individual may lose the ability to communicate and require 24/7 care. The focus is on comfort and managing physical symptoms. End-of-life care and support for caregivers are essential.";
+            } else if (normalizedMessage.includes("cognitive symptoms")) {
+                return "Cognitive symptoms in Alzheimer's include memory loss, trouble with problem-solving, and difficulty planning and organizing.";
+            } else if (normalizedMessage.includes("behavior changes")) {
+                return "Behavioral changes can include mood swings, aggression, and social withdrawal, which often occur as Alzheimer's progresses.";
+            } else if (normalizedMessage.includes("medication for alzheimer")) {
+                return "Medications such as donepezil, rivastigmine, and galantamine can help manage symptoms but do not cure Alzheimer's.";
+            } else if (normalizedMessage.includes("caregiving strategies")) {
+                return "Caregiving strategies include establishing routines, providing clear instructions, and managing stress effectively. Ensuring a safe environment is also crucial.";
+            } else if (normalizedMessage.includes("memory loss management")) {
+                return "Managing memory loss includes using reminders, maintaining a structured environment, and engaging in memory exercises.";
+            } else if (normalizedMessage.includes("end of life care")) {
+                return "End-of-life care in Alzheimer's focuses on comfort and reducing pain. Hospice care can offer support for both patients and families during this time.";
+            } else if (normalizedMessage.includes("speech and communication")) {
+                return "As Alzheimer's progresses, speech and communication may become difficult. Encouraging simple conversations and using non-verbal cues can help.";
+            } else if (normalizedMessage.includes("support activities")) {
+                return "Engaging activities like music therapy, art, and physical exercise can help maintain cognitive function and improve mood.";
+            } else if (normalizedMessage.includes("treatment goals early stage") || normalizedMessage.includes("goals early stage")) {
+                return "In the early stage, the treatment goal is to slow the progression, maintain independence, and manage symptoms effectively.";
+            } else if (normalizedMessage.includes("treatment goals moderate stage") || normalizedMessage.includes("goals moderate stage")) {
+                return "In the moderate stage, the goal is to assist with daily activities, reduce agitation, and ensure safety.";
+            } else if (normalizedMessage.includes("treatment goals severe stage") || normalizedMessage.includes("goals higher stage")) {
+                return "In the severe stage, the focus is on providing comfort, managing physical needs, and offering emotional support to caregivers.";
+            } else {
+                return "Sorry, I didn’t understand that. Try asking about symptoms, treatment, or stages related to Alzheimer's.";
+            }
+        }
+
+    </script>
+
+
+    <style>
+        .message {
+            padding: 8px 12px;
+            border-radius: 10px;
+            max-width: 80%;
+            margin-bottom: 10px;
+        }
+
+            .message.received {
+                background: #e9ecef;
+                align-self: flex-start;
+            }
+
+            .message.sent {
+                background: #004242;
+                color: white;
+                align-self: flex-end;
+                text-align: right;
+            }
+
+            /* Typing animation */
+            .message.received:empty::after {
+                content: "typing...";
+                color: #999;
+                font-style: italic;
+            }
+
+    </style>
 
     <script>
         function showError(){
