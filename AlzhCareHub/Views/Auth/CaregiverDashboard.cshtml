@@ -117,11 +117,11 @@
 
                 @if (userEmail == null)
                 {
-                    <a href="javascript:void(0);" class="helpbtnprimary" onclick="showLoginAlert()">@AlzhCareHub.StringResources.Resource.GetHelp</a>
+                    <a href="javascript:void(0);" class="helpbtnprimary" onclick="showLoginAlert()">@AlzhCareHub.StringResources.Resource.GetVolunteerAssisstance</a>
                 }
                 else
                 {
-                    <a asp-action="Index" asp-controller="Contact" class="helpbtnprimary">@AlzhCareHub.StringResources.Resource.GetHelp</a>
+                    <a asp-action="CareGiverRequest" asp-controller="CareGiverRequest" class="helpbtnprimary">@AlzhCareHub.StringResources.Resource.GetVolunteerAssisstance</a>
                 }
             </div>
 

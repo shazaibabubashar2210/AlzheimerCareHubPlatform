@@ -268,6 +268,15 @@ namespace AlzhCareHub.StringResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to DateLabel.
+        /// </summary>
+        public static string DateLabel {
+            get {
+                return ResourceManager.GetString("DateLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Doc1Name.
         /// </summary>
         public static string Doc1Name {
@@ -372,6 +381,24 @@ namespace AlzhCareHub.StringResources {
         public static string Email {
             get {
                 return ResourceManager.GetString("Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmailInput.
+        /// </summary>
+        public static string EmailInput {
+            get {
+                return ResourceManager.GetString("EmailInput", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmailLabel.
+        /// </summary>
+        public static string EmailLabel {
+            get {
+                return ResourceManager.GetString("EmailLabel", resourceCulture);
             }
         }
         
@@ -489,6 +516,15 @@ namespace AlzhCareHub.StringResources {
         public static string GetHelp {
             get {
                 return ResourceManager.GetString("GetHelp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GetVolunteerAssisstance.
+        /// </summary>
+        public static string GetVolunteerAssisstance {
+            get {
+                return ResourceManager.GetString("GetVolunteerAssisstance", resourceCulture);
             }
         }
         
@@ -880,6 +916,33 @@ namespace AlzhCareHub.StringResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to P1.
+        /// </summary>
+        public static string P1 {
+            get {
+                return ResourceManager.GetString("P1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to P2.
+        /// </summary>
+        public static string P2 {
+            get {
+                return ResourceManager.GetString("P2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to P3.
+        /// </summary>
+        public static string P3 {
+            get {
+                return ResourceManager.GetString("P3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
         public static string Password {
@@ -894,6 +957,15 @@ namespace AlzhCareHub.StringResources {
         public static string predictHighStage {
             get {
                 return ResourceManager.GetString("predictHighStage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Priority.
+        /// </summary>
+        public static string Priority {
+            get {
+                return ResourceManager.GetString("Priority", resourceCulture);
             }
         }
         
@@ -1087,6 +1159,51 @@ namespace AlzhCareHub.StringResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SetBtn.
+        /// </summary>
+        public static string SetBtn {
+            get {
+                return ResourceManager.GetString("SetBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TaskDescription.
+        /// </summary>
+        public static string TaskDescription {
+            get {
+                return ResourceManager.GetString("TaskDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TaskHead.
+        /// </summary>
+        public static string TaskHead {
+            get {
+                return ResourceManager.GetString("TaskHead", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TaskHere.
+        /// </summary>
+        public static string TaskHere {
+            get {
+                return ResourceManager.GetString("TaskHere", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TaskLink.
+        /// </summary>
+        public static string TaskLink {
+            get {
+                return ResourceManager.GetString("TaskLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Team.
         /// </summary>
         public static string Team {
@@ -1101,6 +1218,24 @@ namespace AlzhCareHub.StringResources {
         public static string Testimonials {
             get {
                 return ResourceManager.GetString("Testimonials", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TimeLabel.
+        /// </summary>
+        public static string TimeLabel {
+            get {
+                return ResourceManager.GetString("TimeLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TitleLabel.
+        /// </summary>
+        public static string TitleLabel {
+            get {
+                return ResourceManager.GetString("TitleLabel", resourceCulture);
             }
         }
         

@@ -482,4 +482,49 @@
   <data name="ConnectionWatsapp" xml:space="preserve">
     <value>واٹس ایپ کے ذریعے رابطہ کریں</value>
   </data>
+  <data name="TaskHead" xml:space="preserve">
+    <value>نیا کام شامل کریں</value>
+  </data>
+  <data name="TaskLink" xml:space="preserve">
+    <value>واپس جائیں</value>
+  </data>
+  <data name="TitleLabel" xml:space="preserve">
+    <value>عنوان</value>
+  </data>
+  <data name="EmailLabel" xml:space="preserve">
+    <value>ای میل</value>
+  </data>
+  <data name="EmailInput" xml:space="preserve">
+    <value>پنا ای میل درج کریں</value>
+  </data>
+  <data name="DateLabel" xml:space="preserve">
+    <value>تاریخ</value>
+  </data>
+  <data name="TimeLabel" xml:space="preserve">
+    <value>وقت</value>
+  </data>
+  <data name="Priority" xml:space="preserve">
+    <value>ترجیحات</value>
+  </data>
+  <data name="P1" xml:space="preserve">
+    <value>انتہائی</value>
+  </data>
+  <data name="P2" xml:space="preserve">
+    <value>معتدل</value>
+  </data>
+  <data name="P3" xml:space="preserve">
+    <value>کم</value>
+  </data>
+  <data name="TaskDescription" xml:space="preserve">
+    <value>کام کی تفصیل</value>
+  </data>
+  <data name="TaskHere" xml:space="preserve">
+    <value>اپنا کام یہاں درج کریں</value>
+  </data>
+  <data name="SetBtn" xml:space="preserve">
+    <value>سیٹ</value>
+  </data>
+  <data name="GetVolunteerAssisstance" xml:space="preserve">
+    <value>رضاکارانہ مدد حاصل کریں</value>
+  </data>
 </root>

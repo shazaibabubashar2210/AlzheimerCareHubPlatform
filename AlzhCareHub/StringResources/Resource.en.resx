@@ -483,4 +483,49 @@ platform offers a variety of services to make caregiving easier, more effective,
   <data name="ConnectionWatsapp" xml:space="preserve">
     <value> Connect Via WhatsApp</value>
   </data>
+  <data name="TaskHead" xml:space="preserve">
+    <value>Add New Task Translate this pharase into Urdu</value>
+  </data>
+  <data name="TaskLink" xml:space="preserve">
+    <value>Go Back</value>
+  </data>
+  <data name="TitleLabel" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="EmailLabel" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="EmailInput" xml:space="preserve">
+    <value>Enter your Email</value>
+  </data>
+  <data name="DateLabel" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="TimeLabel" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="Priority" xml:space="preserve">
+    <value>Priority</value>
+  </data>
+  <data name="P1" xml:space="preserve">
+    <value>Extreme</value>
+  </data>
+  <data name="P2" xml:space="preserve">
+    <value>Moderate</value>
+  </data>
+  <data name="P3" xml:space="preserve">
+    <value>Low</value>
+  </data>
+  <data name="TaskDescription" xml:space="preserve">
+    <value>Task Description</value>
+  </data>
+  <data name="TaskHere" xml:space="preserve">
+    <value>Enter your Task Here...</value>
+  </data>
+  <data name="SetBtn" xml:space="preserve">
+    <value>SET</value>
+  </data>
+  <data name="GetVolunteerAssisstance" xml:space="preserve">
+    <value>Get Volunteer Assistance</value>
+  </data>
 </root>

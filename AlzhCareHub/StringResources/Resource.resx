@@ -601,4 +601,64 @@
     <value>ConnectionWatsapp</value>
     <comment>ConnectionWatsapp</comment>
   </data>
+  <data name="TaskHead" xml:space="preserve">
+    <value>TaskHead</value>
+    <comment>TaskHead</comment>
+  </data>
+  <data name="TaskLink" xml:space="preserve">
+    <value>TaskLink</value>
+    <comment>TaskLink</comment>
+  </data>
+  <data name="TitleLabel" xml:space="preserve">
+    <value>TitleLabel</value>
+    <comment>TitleLabel</comment>
+  </data>
+  <data name="EmailLabel" xml:space="preserve">
+    <value>EmailLabel</value>
+    <comment>EmailLabel</comment>
+  </data>
+  <data name="EmailInput" xml:space="preserve">
+    <value>EmailInput</value>
+    <comment>EmailInput</comment>
+  </data>
+  <data name="DateLabel" xml:space="preserve">
+    <value>DateLabel</value>
+    <comment>DateLabel</comment>
+  </data>
+  <data name="TimeLabel" xml:space="preserve">
+    <value>TimeLabel</value>
+    <comment>TimeLabel</comment>
+  </data>
+  <data name="Priority" xml:space="preserve">
+    <value>Priority</value>
+    <comment>Priority</comment>
+  </data>
+  <data name="P1" xml:space="preserve">
+    <value>P1</value>
+    <comment>P1</comment>
+  </data>
+  <data name="P2" xml:space="preserve">
+    <value>P2</value>
+    <comment>P2</comment>
+  </data>
+  <data name="P3" xml:space="preserve">
+    <value>P3</value>
+    <comment>P3</comment>
+  </data>
+  <data name="TaskDescription" xml:space="preserve">
+    <value>TaskDescription</value>
+    <comment>TaskDescription</comment>
+  </data>
+  <data name="TaskHere" xml:space="preserve">
+    <value>TaskHere</value>
+    <comment>TaskHere</comment>
+  </data>
+  <data name="SetBtn" xml:space="preserve">
+    <value>SetBtn</value>
+    <comment>SetBtn</comment>
+  </data>
+  <data name="GetVolunteerAssisstance" xml:space="preserve">
+    <value>GetVolunteerAssisstance</value>
+    <comment>GetVolunteerAssisstance</comment>
+  </data>
 </root>
