@@ -1,6 +1,7 @@
 ﻿@{
     Layout = "";
 }
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,8 +36,10 @@
         }
 
         .form-control {
-            background-color: #e7f0ff;
+            outline: none;
             border: none;
+            background: transparent;
+            border: 1px solid grey;
             border-radius: 10px;
         }
 
@@ -66,41 +69,42 @@
                     <a href="/Auth/CaregiverDashBoard" style="color: #004243;">Go Back To Home Page</a>
                 </div>
             </div>
-            <form>
+            <!-- Change form action to POST to the SubmitRequest action -->
+            <form asp-controller="CareGiverRequest" asp-action="CareGiverRequest" method="post">
                 <!-- Name -->
                 <div class="mb-3">
                     <label class="form-label" style="color: #004243;">Name</label>
-                    <input type="text" class="form-control" placeholder="Enter your name" required style="border: none; background: transparent; border: 1px solid grey;">
+                    <input type="text" name="Name" class="form-control" placeholder="Enter your name" required>
                 </div>
 
                 <!-- Email -->
                 <div class="mb-3">
                     <label class="form-label" style="color: #004243;">Email</label>
-                    <input type="email" class="form-control" placeholder="Enter your email" required style="border: none; background: transparent; border: 1px solid grey;">
+                    <input type="email" name="Email" class="form-control" placeholder="Enter your email" required>
                 </div>
 
                 <!-- Phone Number -->
                 <div class="mb-3">
                     <label class="form-label" style="color: #004243;">Phone Number</label>
-                    <input type="tel" class="form-control" placeholder="Enter your phone number" required style="border: none; background: transparent; border: 1px solid grey;">
+                    <input type="tel" name="PhoneNumber" class="form-control" placeholder="Enter your phone number" required>
                 </div>
 
                 <!-- Patient Age -->
                 <div class="mb-3">
                     <label class="form-label" style="color: #004243;">Patient's Age</label>
-                    <input type="number" class="form-control" placeholder="Enter patient's age" required style="border: none; background: transparent; border: 1px solid grey;">
+                    <input type="number" name="PatientAge" class="form-control" placeholder="Enter patient's age" required>
                 </div>
 
                 <!-- Days Needed -->
                 <div class="mb-3">
                     <label class="form-label" style="color: #004243;">How many days per week do you need assistance?</label>
-                    <input type="number" class="form-control" placeholder="Enter number of days" required style="border: none; background: transparent; border: 1px solid grey;">
+                    <input type="number" name="DaysNeeded" class="form-control" placeholder="Enter number of days" required>
                 </div>
 
                 <!-- Type of Help -->
                 <div class="mb-3">
                     <label class="form-label" style="color: #004243;">Type of help required</label>
-                    <select class="form-control" required style="border: none; background: transparent; border: 1px solid grey;">
+                    <select name="TypeOfHelp" class="form-control" required>
                         <option value="" disabled selected>Select an option</option>
                         <option>Physical Assistance</option>
                         <option>Memory Care</option>
@@ -114,11 +118,11 @@
                 <div class="mb-3">
                     <label class="form-label" style="color: #004243;">Do you need emergency support availability?</label><br>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="emergency_required" value="yes" required style="border: none; background: transparent; border: 1px solid grey;">
+                        <input class="form-check-input" type="radio" name="EmergencyRequired" value="yes" required>
                         <label class="form-check-label" style="color: #004243;">Yes</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="emergency_required" value="no">
+                        <input class="form-check-input" type="radio" name="EmergencyRequired" value="no">
                         <label class="form-check-label" style="color: #004243;">No</label>
                     </div>
                 </div>
@@ -126,7 +130,7 @@
                 <!-- Notes -->
                 <div class="mb-3">
                     <label class="form-label" style="color: #004243;">Additional Notes</label>
-                    <textarea class="form-control" rows="3" placeholder="Describe anything specific..." style="border: none; background: transparent; border: 1px solid grey;"></textarea>
+                    <textarea name="AdditionalNotes" class="form-control" rows="3" placeholder="Describe anything specific..."></textarea>
                 </div>
 
                 <!-- Submit Button -->
@@ -134,6 +138,7 @@
                     <button type="submit" class="helpbtn helpbtnprimary" style="width: 100%;">Submit Request</button>
                 </div>
             </form>
+
         </div>
     </div>
 

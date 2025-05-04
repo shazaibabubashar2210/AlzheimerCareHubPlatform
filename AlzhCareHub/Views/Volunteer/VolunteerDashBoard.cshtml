@@ -1,0 +1,45 @@
+﻿@model List<dynamic>
+@{
+    Layout = "_Donation";
+}
+<!Doctype html>
+<html lang="en">
+    <head>
+        <title>Volunteer DashBoard</title>
+    </head>
+    <body>
+    <h2 class="mb-4 mt-5 text-center">Matched Caregiver Requests</h2>
+
+    @if (Model != null && Model.Count > 0)
+    {
+        <div class="row">
+            @foreach (var match in Model)
+            {
+                <div class="col-md-6">
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-header text-white" style="background-color: #004242;">
+                            <strong>Caregiver:</strong> @match.Caregiver?.Name
+                        </div>
+                        <div class="card-body" style="background-color: #cfe6dc;">
+                            <p><strong>Email:</strong> @match.Caregiver?.Email</p>
+                            <p><strong>Phone Number:</strong> @match.Caregiver?.PhoneNumber</p>
+                            <p><strong>Patient Age:</strong> @match.Caregiver?.PatientAge</p>
+                            <p><strong>Days Needed:</strong> @match.Caregiver?.DaysNeeded</p>
+                            <p><strong>Type of Help:</strong> @match.Caregiver?.TypeOfHelp</p>
+                            <p><strong>Emergency Required:</strong> @(match.Caregiver?.EmergencyRequired == true ? "Yes" : "No")</p>
+                            <p><strong>Notes:</strong> @match.Caregiver?.AdditionalNotes</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="text-danger text-center">
+            No caregiver-volunteer matches found yet.
+        </div>
+    }
+    </body>
+</html>
+
