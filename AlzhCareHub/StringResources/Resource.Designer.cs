@@ -214,6 +214,24 @@ namespace AlzhCareHub.StringResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to CancelBtn.
+        /// </summary>
+        public static string CancelBtn {
+            get {
+                return ResourceManager.GetString("CancelBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CheckoutBtn.
+        /// </summary>
+        public static string CheckoutBtn {
+            get {
+                return ResourceManager.GetString("CheckoutBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ConnectionWatsapp.
         /// </summary>
         public static string ConnectionWatsapp {
@@ -228,6 +246,15 @@ namespace AlzhCareHub.StringResources {
         public static string ContactSupport {
             get {
                 return ResourceManager.GetString("ContactSupport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CostofEducation.
+        /// </summary>
+        public static string CostofEducation {
+            get {
+                return ResourceManager.GetString("CostofEducation", resourceCulture);
             }
         }
         
@@ -340,6 +367,33 @@ namespace AlzhCareHub.StringResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to donationAmount.
+        /// </summary>
+        public static string donationAmount {
+            get {
+                return ResourceManager.GetString("donationAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DonationFrequency.
+        /// </summary>
+        public static string DonationFrequency {
+            get {
+                return ResourceManager.GetString("DonationFrequency", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to donationtype.
+        /// </summary>
+        public static string donationtype {
+            get {
+                return ResourceManager.GetString("donationtype", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to EarlyHead.
         /// </summary>
         public static string EarlyHead {
@@ -399,6 +453,15 @@ namespace AlzhCareHub.StringResources {
         public static string EmailLabel {
             get {
                 return ResourceManager.GetString("EmailLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EnterAmount.
+        /// </summary>
+        public static string EnterAmount {
+            get {
+                return ResourceManager.GetString("EnterAmount", resourceCulture);
             }
         }
         
@@ -817,6 +880,15 @@ namespace AlzhCareHub.StringResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Monthly.
+        /// </summary>
+        public static string Monthly {
+            get {
+                return ResourceManager.GetString("Monthly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to mr1.
         /// </summary>
         public static string mr1 {
@@ -907,6 +979,15 @@ namespace AlzhCareHub.StringResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to OneTime.
+        /// </summary>
+        public static string OneTime {
+            get {
+                return ResourceManager.GetString("OneTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to OurTeam.
         /// </summary>
         public static string OurTeam {
@@ -948,6 +1029,15 @@ namespace AlzhCareHub.StringResources {
         public static string Password {
             get {
                 return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PatientCare.
+        /// </summary>
+        public static string PateintCare {
+            get {
+                return ResourceManager.GetString("PateintCare", resourceCulture);
             }
         }
         
@@ -1164,6 +1254,15 @@ namespace AlzhCareHub.StringResources {
         public static string SetBtn {
             get {
                 return ResourceManager.GetString("SetBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SupportOurWebsite.
+        /// </summary>
+        public static string SupportOurWebsite {
+            get {
+                return ResourceManager.GetString("SupportOurWebsite", resourceCulture);
             }
         }
         

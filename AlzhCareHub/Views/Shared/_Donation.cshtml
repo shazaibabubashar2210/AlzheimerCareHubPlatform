@@ -64,6 +64,9 @@
                     <li class="nav-item">
                         <a class="nav-link active" asp-controller="Donation" asp-action="Donate">@AlzhCareHub.StringResources.Resource.Donate</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" asp-controller="Contact" asp-action="Index">@AlzhCareHub.StringResources.Resource.ContactSupport</a>
+                    </li>
                     @{
                         var userEmail = Context.Session.GetString("UserEmail");
                     }

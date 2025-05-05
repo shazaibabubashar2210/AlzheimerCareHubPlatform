@@ -172,7 +172,7 @@
     <value>Help</value>
   </data>
   <data name="ContactSupport" xml:space="preserve">
-    <value>Contact Support</value>
+    <value>Contact Us</value>
   </data>
   <data name="Instructions" xml:space="preserve">
     <value>Instructions</value>
@@ -227,7 +227,7 @@ platform offers a variety of services to make caregiving easier, more effective,
     <value>You can get 24/7 urgent care for yourself or your family</value>
   </data>
   <data name="faq" xml:space="preserve">
-    <value>FAQ</value>
+    <value>Frquently Asked Question</value>
   </data>
   <data name="fp" xml:space="preserve">
     <value>Track and read about Alzheimer’s disease: what it is and how it started.</value>
@@ -484,7 +484,7 @@ platform offers a variety of services to make caregiving easier, more effective,
     <value> Connect Via WhatsApp</value>
   </data>
   <data name="TaskHead" xml:space="preserve">
-    <value>Add New Task Translate this pharase into Urdu</value>
+    <value>Add New Task </value>
   </data>
   <data name="TaskLink" xml:space="preserve">
     <value>Go Back</value>
@@ -527,5 +527,39 @@ platform offers a variety of services to make caregiving easier, more effective,
   </data>
   <data name="GetVolunteerAssisstance" xml:space="preserve">
     <value>Get Volunteer Assistance</value>
+  </data>
+  <data name="donationtype" xml:space="preserve">
+    <value>Choose a donation type</value>
+  </data>
+  <data name="CostofEducation" xml:space="preserve">
+    <value>Cost of Education</value>
+  </data>
+  <data name="PateintCare" xml:space="preserve">
+    <value>Alzheimer Pateint Care</value>
+  </data>
+  <data name="SupportOurWebsite" xml:space="preserve">
+    <value>Support Our Website</value>
+  </data>
+  <data name="donationAmount" xml:space="preserve">
+    <value>Choose a donation amount
+</value>
+  </data>
+  <data name="EnterAmount" xml:space="preserve">
+    <value>Enter Your Amount</value>
+  </data>
+  <data name="DonationFrequency" xml:space="preserve">
+    <value>Choose a donation frequency</value>
+  </data>
+  <data name="Monthly" xml:space="preserve">
+    <value>Monthly</value>
+  </data>
+  <data name="OneTime" xml:space="preserve">
+    <value>One Time</value>
+  </data>
+  <data name="CancelBtn" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="CheckoutBtn" xml:space="preserve">
+    <value>Go to Checkout</value>
   </data>
 </root>

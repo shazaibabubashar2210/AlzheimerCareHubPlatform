@@ -63,31 +63,31 @@
             <form asp-controller="Donation" asp-action="CreateCheckoutSession" method="post">
                 <!-- Donation Type -->
                 <div class="mb-3">
-                    <label for="donationType" class="form-label">Choose a donation type</label>
+                    <label for="donationType" class="form-label">@AlzhCareHub.StringResources.Resource.donationtype</label>
                     <select class="form-select" id="donationType" style="background-color: transparent; border: 1px solid #004241; color: #004241" required>
-                        <option selected>Cost of education</option>
-                        <option>Alzheimer Pateint Care</option>
-                        <option>Support Our Website</option>
+                        <option selected>@AlzhCareHub.StringResources.Resource.CostofEducation</option>
+                        <option>@AlzhCareHub.StringResources.Resource.PateintCare</option>
+                        <option>@AlzhCareHub.StringResources.Resource.SupportOurWebsite</option>
                     </select>
                 </div>
 
                 <!-- Donation Amount -->
                 <div class="mb-3">
-                    <label for="donationAmount" class="form-label">Choose a donation amount <span class="text-danger">*</span></label>
-                    <input type="number" class="form-control" id="donationAmount" placeholder="Enter amount" required style="background:transparent; border: 1px solid #004241;">
+                    <label for="donationAmount" class="form-label">@AlzhCareHub.StringResources.Resource.donationAmount <span class="text-danger">*</span></label>
+                    <input type="number" class="form-control" id="donationAmount" placeholder="@AlzhCareHub.StringResources.Resource.EnterAmount" required style="background:transparent; border: 1px solid #004241;">
                 </div>
 
                 <!-- Donation Frequency -->
                 <div class="mb-3">
-                    <label class="form-label">Choose a donation frequency</label>
+                    <label class="form-label">@AlzhCareHub.StringResources.Resource.DonationFrequency</label>
                     <div class="d-flex align-items-center">
                         <div class="form-check me-3">
                             <input class="form-check-input" type="radio" name="donationFrequency" id="monthly" checked>
-                            <label class="form-check-label" for="monthly">Monthly</label>
+                            <label class="form-check-label" for="monthly">@AlzhCareHub.StringResources.Resource.Monthly</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="donationFrequency" id="oneTime">
-                            <label class="form-check-label" for="oneTime">One time</label>
+                            <label class="form-check-label" for="oneTime">@AlzhCareHub.StringResources.Resource.OneTime</label>
                         </div>
                     </div>
                 </div>
@@ -99,8 +99,8 @@
 
                 <!-- Buttons -->
                 <div class="d-flex justify-content-between">
-                    <a asp-action="CaregiverDashBoard" asp-controller="Auth" class="helpbtnprimary text-center" style="width:48%;">Cancel</a>
-                    <button type="submit" class="helpbtnprimary" style="width:48%;">Go to checkout</button>
+                    <a asp-action="CaregiverDashBoard" asp-controller="Auth" class="helpbtnprimary text-center" style="width:48%;">@AlzhCareHub.StringResources.Resource.CancelBtn</a>
+                    <button type="submit" class="helpbtnprimary" style="width:48%;">@AlzhCareHub.StringResources.Resource.CheckoutBtn</button>
                 </div>
             </form>
         </div>

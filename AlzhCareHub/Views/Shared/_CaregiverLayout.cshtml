@@ -144,12 +144,26 @@
                             </a>
                         }
                     </li>
+
+
                     <li class="nav-item">
                         <a class="nav-link active link" asp-controller="Volunteer" asp-action="Volunteer" style="color: #004241;">
                             @AlzhCareHub.StringResources.Resource.Volunteer
                         </a>
                     </li>
 
+                    @if (userEmail == null)
+                    {
+                        <li class="nav-item">
+                            <a href="javascript:void(0);" class="nav-link active link" onclick="showError()" style="color: #004241;">@AlzhCareHub.StringResources.Resource.ContactSupport</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link active link" asp-controller="Contact" asp-action="Index" style="color: #004241;">@AlzhCareHub.StringResources.Resource.ContactSupport</a>
+                        </li>
+                    }
 
 
                     @if (!string.IsNullOrEmpty(userEmail))
@@ -260,56 +274,79 @@
             @AlzhCareHub.StringResources.Resource.Rigths
         </div>
     </footer>
-
     <!-- Chatbot Icon -->
     <div id="chatbot-icon" onclick="toggleChatbot()" style="
-    position: fixed;
-    bottom: 20px;
-    right: 30px;
-    background-color: #004242;
-    border: 3px solid black;
-    color: white;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    font-size: 30px;
-    text-align: center;
-    line-height: 60px;
-    cursor: pointer;
-    z-index: 9999;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
-">
+position: fixed;
+bottom: 20px;
+right: 30px;
+background-color: #004242;
+border: 3px solid black;
+color: white;
+width: 60px;
+height: 60px;
+border-radius: 50%;
+font-size: 30px;
+text-align: center;
+line-height: 60px;
+cursor: pointer;
+z-index: 9999;
+box-shadow: 0 0 10px rgba(0,0,0,0.3);">
         💬
     </div>
 
     <!-- Chatbot Box -->
     <div id="chatbot-box" style="
-    position: fixed;
-    bottom: 90px;
-    right: 30px;
-    width: 350px;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    display: none;
-    flex-direction: column;
-    overflow: hidden;
-    z-index: 9998;
-">
+position: fixed;
+bottom: 90px;
+right: 30px;
+width: 350px;
+background: white;
+border-radius: 15px;
+box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+display: none;
+flex-direction: column;
+overflow: hidden;
+z-index: 9998;
+height: 500px;">
         <div class="chat-header d-flex justify-content-between align-items-center p-3" style="background-color: #004242; color: white;">
             <span>Chat with us</span>
         </div>
-        <div class="chat-body d-flex flex-column p-2" style="height: 300px; overflow-y: auto;">
-            <!-- Messages will appear here -->
-            <div class="message received">Welcome! How can I assist you?</div>
+
+        <!-- Container for both chat body and suggestion box -->
+        <div id="chatContainer" style="flex-grow: 1; overflow-y: auto; scroll-behavior: smooth;">
+            <div class="chat-body d-flex flex-column p-2" id="chatBody" style="height: auto;">
+                <div class="message received">Welcome! How can I assist you?</div>
+            </div>
+
+            <!-- Suggestion box above input (no scrollbar) -->
+            <div id="suggestion-box" style="margin: 8px 12px 0px 12px; max-height: 100px;"></div>
         </div>
-        <div class="chat-footer p-2">
-            <input type="text" class="form-control" id="chatInput" placeholder="Type your message...">
+
+        <div class="chat-footer p-2" style="background-color: #f9f9f9;">
+            <input type="text" class="form-control" id="chatInput" placeholder="Type your message..." style="width: 100%; margin-bottom: 8px;">
             <button class="mt-2 helpbtn helpbtnprimary" onclick="sendMessage()">Send</button>
         </div>
     </div>
 
     <script>
+        const availableQuestions = [
+            "What is Alzheimer's disease?",
+            "What are the common symptoms of Alzheimer's?",
+            "What are the stages of Alzheimer's?",
+            "What are the early signs of Alzheimer's?",
+            "What is the difference between Alzheimer's and dementia?",
+            "What treatments are available for Alzheimer's?",
+            "How does diet affect Alzheimer's?",
+            "Is Alzheimer's genetic?",
+            "What are the caregiving strategies for Alzheimer's?",
+            "How do you manage memory loss in Alzheimer's?",
+            "What are the behavioral changes in Alzheimer's?",
+            "What are the treatment goals for each stage?",
+            "What are effective support activities for Alzheimer's patients?",
+            "How does Alzheimer's affect speech and communication?",
+            "What is end-of-life care in Alzheimer's?"
+        ];
+
         function toggleChatbot() {
             const box = document.getElementById("chatbot-box");
             box.style.display = (box.style.display === "none" || box.style.display === "") ? "flex" : "none";
@@ -321,18 +358,19 @@
             if (message === "") return;
 
             appendMessage("sent", message);
-
-            // Show typing indicator
             const typingMessage = appendMessage("received", "typing...");
 
-            // Simulate a delay before the bot responds (3 seconds)
             setTimeout(() => {
-                // Remove typing indicator
                 typingMessage.remove();
-
-                const response = getBotResponse(message.toLowerCase());
+                const response = getBotResponse(message);
                 appendMessage("received", response);
-            }, 3000);
+
+                if (response.includes("Sorry, I didn't understand")) {
+                    showSuggestions();
+                } else {
+                    clearSuggestions();
+                }
+            }, 1000);
 
             input.value = "";
         }
@@ -341,95 +379,138 @@
             const messageDiv = document.createElement("div");
             messageDiv.className = `message ${type}`;
             messageDiv.innerText = text;
-            document.querySelector(".chat-body").appendChild(messageDiv);
-            document.querySelector(".chat-body").scrollTop = document.querySelector(".chat-body").scrollHeight;
-            return messageDiv; // Return the message div for later removal
+            const chatBody = document.getElementById("chatBody");
+            chatBody.appendChild(messageDiv);
+            chatBody.scrollTop = chatBody.scrollHeight;
+            return messageDiv;
         }
 
-                function getBotResponse(message) {
-            // Normalize input to lowercase for case-insensitivity
-            const normalizedMessage = message.toLowerCase().trim();
+        function showSuggestions() {
+            const suggestionBox = document.getElementById("suggestion-box");
+            suggestionBox.innerHTML = "<b>Try one of these:</b><br/>";
+            availableQuestions.forEach(q => {
+                const span = document.createElement("span");
+                span.className = "suggestion";
+                span.innerText = q;
+                span.onclick = () => {
+                    document.getElementById("chatInput").value = q;
+                    sendMessage();
+                };
+                suggestionBox.appendChild(span);
+            });
+        }
 
-            if (normalizedMessage.includes("what is alzheimer") || normalizedMessage.includes("about alzheimer")) {
+        function clearSuggestions() {
+            document.getElementById("suggestion-box").innerHTML = "";
+        }
+
+        function getBotResponse(message) {
+            const msg = message.toLowerCase();
+
+            if (msg.includes("what is alzheimer")) {
                 return "Alzheimer's is a progressive brain disorder that slowly destroys memory and thinking skills.";
-            } else if (normalizedMessage.includes("common symptoms") || normalizedMessage.includes("symptoms")) {
+            } else if (msg.includes("common symptoms") || msg.includes("symptoms")) {
                 return "Common symptoms include memory loss, confusion, and changes in behavior.";
-            } else if (normalizedMessage.includes("stages of alzheimer")) {
+            } else if (msg.includes("stages of alzheimer")) {
                 return "There are three main stages of Alzheimer's: early (mild), moderate, and severe.";
-            } else if (normalizedMessage.includes("early signs of alzheimer") || normalizedMessage.includes("early signs")) {
+            } else if (msg.includes("early signs")) {
                 return "Early signs of Alzheimer's include forgetfulness, confusion, and difficulty with familiar tasks.";
-            } else if (normalizedMessage.includes("dementia") || normalizedMessage.includes("difference")) {
-                return "Alzheimer's is a specific type of dementia that primarily affects memory, while dementia is a broader term for a decline in mental ability.";
-            } else if (normalizedMessage.includes("treatment")) {
-                return "There's no cure for Alzheimer's, but treatments can help manage symptoms. Medications like donepezil and memantine are often prescribed.";
-            } else if (normalizedMessage.includes("diet") || normalizedMessage.includes("food")) {
+            } else if (msg.includes("difference") || msg.includes("dementia")) {
+                return "Alzheimer's is a specific type of dementia. Dementia is a broader term for memory and cognitive decline.";
+            } else if (msg.includes("treatment")) {
+                return "There's no cure for Alzheimer's, but medications like donepezil and memantine help manage symptoms.";
+            } else if (msg.includes("diet") || msg.includes("food")) {
                 return "A Mediterranean diet rich in fruits, vegetables, and healthy fats may help brain health.";
-            } else if (normalizedMessage.includes("genetics")) {
-                return "Genetics play a significant role in Alzheimer's. A family history of the disease can increase the risk.";
-            } else if (normalizedMessage.includes("early stage")) {
-                return "In the early stage of Alzheimer's, the goal is to help the patient maintain independence and manage memory loss. Suggested steps include creating structured routines and using memory aids.";
-            } else if (normalizedMessage.includes("moderate stage")) {
-                return "During the moderate stage, Alzheimer's symptoms are more pronounced. The goal is to provide safety and comfort. Suggested steps include monitoring for wandering, helping with daily activities, and providing emotional support.";
-            } else if (normalizedMessage.includes("severe stage")) {
-                return "In the severe stage, the individual may lose the ability to communicate and require 24/7 care. The focus is on comfort and managing physical symptoms. End-of-life care and support for caregivers are essential.";
-            } else if (normalizedMessage.includes("cognitive symptoms")) {
-                return "Cognitive symptoms in Alzheimer's include memory loss, trouble with problem-solving, and difficulty planning and organizing.";
-            } else if (normalizedMessage.includes("behavior changes")) {
-                return "Behavioral changes can include mood swings, aggression, and social withdrawal, which often occur as Alzheimer's progresses.";
-            } else if (normalizedMessage.includes("medication for alzheimer")) {
-                return "Medications such as donepezil, rivastigmine, and galantamine can help manage symptoms but do not cure Alzheimer's.";
-            } else if (normalizedMessage.includes("caregiving strategies")) {
-                return "Caregiving strategies include establishing routines, providing clear instructions, and managing stress effectively. Ensuring a safe environment is also crucial.";
-            } else if (normalizedMessage.includes("memory loss management")) {
-                return "Managing memory loss includes using reminders, maintaining a structured environment, and engaging in memory exercises.";
-            } else if (normalizedMessage.includes("end of life care")) {
-                return "End-of-life care in Alzheimer's focuses on comfort and reducing pain. Hospice care can offer support for both patients and families during this time.";
-            } else if (normalizedMessage.includes("speech and communication")) {
-                return "As Alzheimer's progresses, speech and communication may become difficult. Encouraging simple conversations and using non-verbal cues can help.";
-            } else if (normalizedMessage.includes("support activities")) {
-                return "Engaging activities like music therapy, art, and physical exercise can help maintain cognitive function and improve mood.";
-            } else if (normalizedMessage.includes("treatment goals early stage") || normalizedMessage.includes("goals early stage")) {
-                return "In the early stage, the treatment goal is to slow the progression, maintain independence, and manage symptoms effectively.";
-            } else if (normalizedMessage.includes("treatment goals moderate stage") || normalizedMessage.includes("goals moderate stage")) {
-                return "In the moderate stage, the goal is to assist with daily activities, reduce agitation, and ensure safety.";
-            } else if (normalizedMessage.includes("treatment goals severe stage") || normalizedMessage.includes("goals higher stage")) {
-                return "In the severe stage, the focus is on providing comfort, managing physical needs, and offering emotional support to caregivers.";
+            } else if (msg.includes("genetic")) {
+                return "Genetics play a significant role. A family history can increase the risk.";
+            } else if (msg.includes("caregiving")) {
+                return "Caregiving strategies include creating routines, giving clear instructions, and managing stress.";
+            } else if (msg.includes("memory loss")) {
+                return "Managing memory loss includes using reminders, calendars, and daily structure.";
+            } else if (msg.includes("behavior")) {
+                return "Behavioral changes can include aggression, confusion, anxiety, and social withdrawal.";
+            } else if (msg.includes("goal") && msg.includes("early")) {
+                return "Early-stage goals: maintain independence, slow progression, and manage symptoms.";
+            } else if (msg.includes("goal") && msg.includes("moderate")) {
+                return "Moderate-stage goals: assist with daily tasks, reduce agitation, and ensure safety.";
+            } else if (msg.includes("goal") && msg.includes("severe")) {
+                return "Severe-stage goals: provide 24/7 care, comfort, and manage physical needs.";
+            } else if (msg.includes("speech") || msg.includes("communication")) {
+                return "As Alzheimer's progresses, communication becomes difficult. Use short phrases and visual cues.";
+            } else if (msg.includes("support activities")) {
+                return "Activities like music, light exercise, and puzzles help maintain mood and brain function.";
+            } else if (msg.includes("What is end-of-life care in Alzheimer's") || msg.includes("end of life")) {
+                return "End-of-life care focuses on comfort, pain management, and caregiver support.";
             } else {
-                return "Sorry, I didn’t understand that. Try asking about symptoms, treatment, or stages related to Alzheimer's.";
+                return "Sorry, I didn't understand. Please try clicking on a suggested question below.";
             }
         }
-
     </script>
 
-
     <style>
+        #scrollable-container {
+            overflow-y: auto;
+            flex-grow: 1;
+        }
+
+        #chatBody {
+            flex-grow: 1;
+            overflow-y: auto; /* Allow scrolling in chat body */
+        }
+
         .message {
+            margin: 5px 0;
             padding: 8px 12px;
             border-radius: 10px;
             max-width: 80%;
-            margin-bottom: 10px;
+            word-wrap: break-word;
         }
 
-            .message.received {
-                background: #e9ecef;
-                align-self: flex-start;
-            }
-
             .message.sent {
-                background: #004242;
-                color: white;
                 align-self: flex-end;
-                text-align: right;
+                background-color: #004242;
+                color: #fff;
             }
 
-            /* Typing animation */
-            .message.received:empty::after {
-                content: "typing...";
-                color: #999;
-                font-style: italic;
+            .message.received {
+                align-self: flex-start;
+                background-color: #f1f0f0;
             }
+
+        .suggestion {
+            background-color: #004242;
+            border: 1px solid #00838f;
+            color: #fff;
+            padding: 6px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 4px 4px 0 0;
+            display: inline-block;
+        }
+
+            .suggestion:hover {
+                background-color: #004242;
+                color: #fff;
+            }
+
+        /* Scrollbar Styles for chat body */
+        #chatContainer::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        #chatContainer::-webkit-scrollbar-thumb {
+            background-color: #ccc;
+            border-radius: 3px;
+        }
+
+        #chatContainer::-webkit-scrollbar-track {
+            background-color: transparent;
+        }
 
     </style>
+
+
+
 
     <script>
         function showError(){

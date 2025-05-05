@@ -527,4 +527,37 @@
   <data name="GetVolunteerAssisstance" xml:space="preserve">
     <value>رضاکارانہ مدد حاصل کریں</value>
   </data>
+  <data name="donationtype" xml:space="preserve">
+    <value>عطیہ کی قسم منتخب کریں</value>
+  </data>
+  <data name="CostofEducation" xml:space="preserve">
+    <value>تعلیم کی لاگت</value>
+  </data>
+  <data name="PateintCare" xml:space="preserve">
+    <value>الزائمر مریض کی دیکھ بھال</value>
+  </data>
+  <data name="SupportOurWebsite" xml:space="preserve">
+    <value>ہمارے ویب سائٹ کی حمایت کریں</value>
+  </data>
+  <data name="donationAmount" xml:space="preserve">
+    <value>عطیہ کی رقم منتخب کریں</value>
+  </data>
+  <data name="EnterAmount" xml:space="preserve">
+    <value>رقم درج کریں</value>
+  </data>
+  <data name="DonationFrequency" xml:space="preserve">
+    <value>عطیہ کی فراہمی کی فریکوئنسی منتخب کریں</value>
+  </data>
+  <data name="Monthly" xml:space="preserve">
+    <value>ماہانہ</value>
+  </data>
+  <data name="OneTime" xml:space="preserve">
+    <value>ایک مرتبہ</value>
+  </data>
+  <data name="CancelBtn" xml:space="preserve">
+    <value>منسوخ کریں</value>
+  </data>
+  <data name="CheckoutBtn" xml:space="preserve">
+    <value>چیک آؤٹ پر جائیں</value>
+  </data>
 </root>

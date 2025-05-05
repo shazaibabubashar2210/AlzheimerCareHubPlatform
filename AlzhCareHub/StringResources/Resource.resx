@@ -661,4 +661,48 @@
     <value>GetVolunteerAssisstance</value>
     <comment>GetVolunteerAssisstance</comment>
   </data>
+  <data name="donationtype" xml:space="preserve">
+    <value>donationtype</value>
+    <comment>donationtype</comment>
+  </data>
+  <data name="CostofEducation" xml:space="preserve">
+    <value>CostofEducation</value>
+    <comment>CostofEducation</comment>
+  </data>
+  <data name="PateintCare" xml:space="preserve">
+    <value>PatientCare</value>
+    <comment>PateintCare</comment>
+  </data>
+  <data name="SupportOurWebsite" xml:space="preserve">
+    <value>SupportOurWebsite</value>
+    <comment>SupportOurWebsite</comment>
+  </data>
+  <data name="donationAmount" xml:space="preserve">
+    <value>donationAmount</value>
+    <comment>donationAmount</comment>
+  </data>
+  <data name="EnterAmount" xml:space="preserve">
+    <value>EnterAmount</value>
+    <comment>EnterAmount</comment>
+  </data>
+  <data name="DonationFrequency" xml:space="preserve">
+    <value>DonationFrequency</value>
+    <comment>DonationFrequency</comment>
+  </data>
+  <data name="Monthly" xml:space="preserve">
+    <value>Monthly</value>
+    <comment>Monthly</comment>
+  </data>
+  <data name="OneTime" xml:space="preserve">
+    <value>OneTime</value>
+    <comment>OneTime</comment>
+  </data>
+  <data name="CancelBtn" xml:space="preserve">
+    <value>CancelBtn</value>
+    <comment>CancelBtn</comment>
+  </data>
+  <data name="CheckoutBtn" xml:space="preserve">
+    <value>CheckoutBtn</value>
+    <comment>CheckoutBtn</comment>
+  </data>
 </root>
