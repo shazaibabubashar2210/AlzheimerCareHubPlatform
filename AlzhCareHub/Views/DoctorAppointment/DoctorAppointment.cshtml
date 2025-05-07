@@ -140,6 +140,14 @@
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" asp-controller="AboutUs" asp-action="Index" style="color: #006B69;">@AlzhCareHub.StringResources.Resource.AboutUs_</a></li>
                     <li class="nav-item"><a class="nav-link me-4" href="#Team" style="color: #006B69;">@AlzhCareHub.StringResources.Resource.Team</a></li>
+                    <li class="nav-item" style="background-color: #cfe6dc;">
+                        <form method="post" asp-controller="Language" asp-action="SetLanguage" class="d-flex me-3">
+                            <select name="culture" onchange="this.form.submit()" class="form-select" style="background-color: #cfe6dc; border: 1px solid grey;">
+                                <option value="en" selected="@((Context.Session.GetString("Culture") == "en") ? "selected" : null)" style="color: #004241;">English</option>
+                                <option value="ur" selected="@((Context.Session.GetString("Culture") == "ur") ? "selected" : null)" style="color: #004241;">اردو</option>
+                            </select>
+                        </form>
+                    </li>
                 </ul>
             </div>
         </div>

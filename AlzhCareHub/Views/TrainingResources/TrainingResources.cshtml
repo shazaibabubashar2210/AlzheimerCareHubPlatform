@@ -1,6 +1,14 @@
 ﻿@{
     Layout = "_Donation";
 }
+@using System.Globalization
+@{
+    var culture = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
+    var isRtl = culture == "ur"; // Urdu is RTL
+    var direction = isRtl ? "rtl" : "ltr";
+    var lang = culture;
+}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,83 +17,35 @@
     <title>Alzheimer's Stage Prediction</title>
     <link href="~/css/caregiverdashboardstyling.css" rel="stylesheet" />
     <link href="~/css/caregiverdashboardcards.css" rel="stylesheet" />
+    <link href="~/css/trainingresourcescss.css" rel="stylesheet" />
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #cfe6dc;
-            color: #003d2f;
-            margin: 0;
-            padding: 0;
+        body[dir="rtl"] {
+            text-align: right;
+            direction: rtl;
+            font-family: 'Noto Nastaliq Urdu', 'Arial', sans-serif;
+        }
+
+        body[dir="ltr"] {
+            text-align: left;
+            direction: ltr;
+            font-family: 'Noto Nastaliq Urdu', 'Arial', sans-serif;
         }
 
         h2 {
-            text-align: center;
-            font-size: 2.5em;
-            color: #004643;
-            margin-bottom: 20px;
+            margin-bottom: 2rem;
         }
 
-        .form-container {
-            background-color: #e5f6f1;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.1);
-            width: 80%;
-            margin: auto;
+        body[dir="rtl"] label,
+        body[dir="rtl"] input {
+            line-height: 3.5rem;
         }
 
-        .question-section {
-            margin-bottom: 10px; /* Reduced margin */
+        ul li[dir="rtl"] {
+            margin-bottom: 2rem;
         }
-
-        label {
-            font-weight: 600;
-            font-size: 1.2em;
-            color: #003d2f;
-            margin-bottom: 5px; /* Reduced margin between label and options */
-            display: block;
-        }
-
-        input[type="radio"] {
-            margin-right: 8px; /* Reduced spacing between radio button and label */
-            margin-left: 0;
-        }
-
-        .radio-options {
-            display: flex;
-            flex-wrap: wrap; 
-            gap: 15px; /* Space between options */
-        }
-
-            .radio-options input {
-                margin-right: 5px; /* Adjusted space between radio options */
-            }
-
-        .logo {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: #006B69;
-            color: #fff;
-            font-size: 18px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
-        .result {
-            font-weight: bold;
-            font-size: 1.5em;
-            color: #ff6f61;
-            margin-top: 30px;
-            text-align: center;
-        }
-
     </style>
 </head>
-<body>
+<body dir="@direction">
 
     <h2>@AlzhCareHub.StringResources.Resource.AlzhStageHead</h2>
 
@@ -185,8 +145,7 @@
         </form>
 
         <div id="result" class="result"></div>
-        <div id="result" style="margin-top: 20px; background-color: #f5f5f5; padding: 15px; border-radius: 8px;"></div>
-
+        <div id="result" style="margin-top: 20px; background-color: #e5f6f1; padding: 15px; border-radius: 8px;"></div>
     </div>
 
     <script>
@@ -197,114 +156,138 @@
                 high: 0
             };
 
-            // Check if all questions are answered
             for (let i = 1; i <= 10; i++) {
                 let selected = document.querySelector(`input[name="q${i}"]:checked`);
                 if (!selected) {
                     alert(`Please answer question ${i}.`);
-                    return; // stop execution if any question is unanswered
+                    return;
                 }
                 stageCount[selected.value]++;
             }
 
-            // Determine stage
             let stage = "";
             let resources = "";
 
             if (stageCount.high > stageCount.moderate && stageCount.high > stageCount.early) {
-                stage = "@AlzhCareHub.StringResources.Resource.predictHighStage";
+                stage = "High Stage";
                 resources = `
-                    <div style="color: #004242; text-align: left;">
-                        <strong><h4>@AlzhCareHub.StringResources.Resource.highstagehead</h4></strong>
-                        <ul>
-                            <li><strong>@AlzhCareHub.StringResources.Resource.highGoal</strong></li>
-                            <li><strong>@AlzhCareHub.StringResources.Resource.highsuggestedSteps</strong>
-                                <ol>
-                                    <li>@AlzhCareHub.StringResources.Resource.highs1</li>
-                                    <li>@AlzhCareHub.StringResources.Resource.highs2</li>
-                                    <li>@AlzhCareHub.StringResources.Resource.highs3</li>
-                                </ol>
-                            </li>
-                            <li><strong>@AlzhCareHub.StringResources.Resource.Resouces</strong>
-                                <ul>
-                                    <li>@AlzhCareHub.StringResources.Resource.hrs1"
+                    <h4 class="text-center">@AlzhCareHub.StringResources.Resource.highstagehead</h4>
+                    <ul>
+                        <li style="margin-bottom: 1rem;">@AlzhCareHub.StringResources.Resource.highGoal</li>
+                        <li style="margin-bottom: 1rem;">@AlzhCareHub.StringResources.Resource.highsuggestedSteps
+                            <ol>
+                                <li style="margin-bottom: 1rem;">@AlzhCareHub.StringResources.Resource.highs1</li>
+                                <li style="margin-bottom: 1rem;">@AlzhCareHub.StringResources.Resource.highs2</li>
+                                <li style="margin-bottom: 1rem;">@AlzhCareHub.StringResources.Resource.highs3</li>
+                            </ol>
+                        </li>
+                        <li style="margin-bottom: 1rem;">@AlzhCareHub.StringResources.Resource.Resouces
+                            <ul>
+                                <li style="margin-bottom: 1rem;">@AlzhCareHub.StringResources.Resource.hrs1
                                     <a href='https://www.alz.org/help-support/caregiving/stages-behaviors/late-stage' target='_blank'>@AlzhCareHub.StringResources.Resource.Link</a>
-                                    </li>
-                                    <li>@AlzhCareHub.StringResources.Resource.hrs2"
+                                </li>
+                                <li style="margin-bottom: 1rem;">@AlzhCareHub.StringResources.Resource.hrs2
                                     <a href='https://www.nia.nih.gov/health/end-life' target='_blank'>@AlzhCareHub.StringResources.Resource.Link</a>
-                                    </li>
-                                    <li>@AlzhCareHub.StringResources.Resource.hrs3"
+                                </li>
+                                <li style="margin-bottom: 1rem;">@AlzhCareHub.StringResources.Resource.hrs3
                                     <a href='https://www.alzheimers.org.uk/get-support/help-dementia-care/recognising-when-someone-reaching-end-their-life' target='_blank'>@AlzhCareHub.StringResources.Resource.Link</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>`;
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>`;
             } else if (stageCount.moderate > stageCount.high && stageCount.moderate > stageCount.early) {
-                stage = "@AlzhCareHub.StringResources.Resource.ModerateStageHead";
+                stage = "Moderate Stage";
                 resources = `
-                    <div style="color: #004242; text-align: left;">
-                        <strong><h4>@AlzhCareHub.StringResources.Resource.ModerateHead</h4></strong>
-                        <ul>
-                            <li><strong>@AlzhCareHub.StringResources.Resource.ModerateGoal</strong></li>
-                            <li><strong>@AlzhCareHub.StringResources.Resource.highsuggestedSteps</strong>
-                                <ol>
-                                    <li>@AlzhCareHub.StringResources.Resource.ms1</li>
-                                    <li>@AlzhCareHub.StringResources.Resource.ms2</li>
-                                    <li>@AlzhCareHub.StringResources.Resource.ms3</li>
-                                </ol>
-                            </li>
-                            <li><strong>@AlzhCareHub.StringResources.Resource.Resouces</strong>
-                                <ul>
-                                    <li>@AlzhCareHub.StringResources.Resource.mr1"
-                                    <a href='https://www.alz.org/help-support/caregiving/stages-behaviors/middle-stage#:~:text=Being%20a%20caregiver%20for%20someone,to%20take%20on%20greater%20responsibility.' target='_blank'>@AlzhCareHub.StringResources.Resource.Link</a>
-                                    </li>
-                                    <li>@AlzhCareHub.StringResources.Resource.mr2 
+                    <h4 class="text-center">@AlzhCareHub.StringResources.Resource.ModerateHead</h4>
+                    <ul>
+                        <li style="margin-bottom: 1rem;">@AlzhCareHub.StringResources.Resource.ModerateGoal</li>
+                        <li>@AlzhCareHub.StringResources.Resource.highsuggestedSteps
+                            <ol>
+                                <li style="margin-bottom: 1rem;">@AlzhCareHub.StringResources.Resource.ms1</li>
+                                <li style="margin-bottom: 1rem;">@AlzhCareHub.StringResources.Resource.ms2</li>
+                                <li style="margin-bottom: 1rem;">@AlzhCareHub.StringResources.Resource.ms3</li>
+                            </ol>
+                        </li>
+                        <li style="margin-bottom: 1rem;">@AlzhCareHub.StringResources.Resource.Resouces
+                            <ul>
+                                <li style="margin-bottom: 1rem;">@AlzhCareHub.StringResources.Resource.mr1
+                                    <a href='https://www.alz.org/help-support/caregiving/stages-behaviors/middle-stage' target='_blank'>@AlzhCareHub.StringResources.Resource.Link</a>
+                                </li>
+                                <li style="margin-bottom: 1rem;">@AlzhCareHub.StringResources.Resource.mr2
                                     <a href='https://youtu.be/wRSx4T5aNA8?si=i2WN56HvksbaNvg7' target='_blank'>@AlzhCareHub.StringResources.Resource.Link</a>
-                                    </li>
-                                    <li>@AlzhCareHub.StringResources.Resource.mr3
-                                    <a href='https://alison.com/course/caregiving-skills-dementia-care-revised?utm_source=google&utm_medium=cpc&utm_campaign=PPC_Tier-5_First-Click_Alison-Courses&utm_adgroup=Course-1610_Caregiving-Skills-Dementia-Care-Revised&gclid=Cj0KCQjwlMfABhCWARIsADGXdy90nI8BVI25SaKL_EA-zRe4UdFqiSMP9RgKaO4d8paazkFOimXPghgaAhn-EALw_wcB&gad_source=1&gad_campaignid=20408950771&gbraid=0AAAAADt7cD2r3yPXuhgdl1dKOm3Y2asBd#google_vignette' target='_blank'>@AlzhCareHub.StringResources.Resource.Link</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>`;
+                                </li>
+                                <li style="margin-bottom: 1rem;">@AlzhCareHub.StringResources.Resource.mr3
+                                    <a href='https://alison.com/course/caregiving-skills-dementia-care-revised' target='_blank'>@AlzhCareHub.StringResources.Resource.Link</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>`;
             } else {
-                stage = "@AlzhCareHub.StringResources.Resource.EarlyStageHead";
+                stage = "Early Stage";
                 resources = `
-                    <div style="color: #004242; text-align: left;">
-                        <strong><h4>@AlzhCareHub.StringResources.Resource.EarlyHead</h4></strong>
-                        <ul>
-                            <li><strong>@AlzhCareHub.StringResources.Resource.EarlyStageGoal</strong></li>
-                            <li><strong>@AlzhCareHub.StringResources.Resource.highsuggestedSteps</strong>
-                                <ol>
-                                    <li>@AlzhCareHub.StringResources.Resource.Es1</li>
-                                    <li>@AlzhCareHub.StringResources.Resource.Es2</li>
-                                    <li>@AlzhCareHub.StringResources.Resource.Es3</li>
-                                    <li>@AlzhCareHub.StringResources.Resource.Es4</li>
-                                </ol>
-                            </li>
-                            <li><strong>@AlzhCareHub.StringResources.Resource.Resouces</strong>
-                                <ul>
-                                    <li>@AlzhCareHub.StringResources.Resource.Er1
-                                        <a href='https://www.alz.org/help-support/caregiving/stages-behaviors/early-stage#:~:text=In%20the%20early%20stage%20of,help%20plan%20for%20the%20future.' target='_blank'>@AlzhCareHub.StringResources.Resource.Link</a>
-                                    </li>
-                                    <li>@AlzhCareHub.StringResources.Resource.Er2
-                                    <a href='https://archive.org/details/36hourday00nanc_0/page/n351/mode/2up?utm_source=chatgpt.com&view=theater' target='_blank'>@AlzhCareHub.StringResources.Resource.Link</a>
-                                    </li>
-                                    <li>@AlzhCareHub.StringResources.Resource.Er3
+                    <h4 class="text-center" style="margin-bottom: 1rem;">@AlzhCareHub.StringResources.Resource.EarlyHead</h4>
+                    <ul>
+                        <li style="margin-bottom: 1rem;">@AlzhCareHub.StringResources.Resource.EarlyStageGoal</li>
+                        <li style="margin-bottom: 1rem;">@AlzhCareHub.StringResources.Resource.highsuggestedSteps
+                            <ol>
+                                <li style="margin-bottom: 1rem;">@AlzhCareHub.StringResources.Resource.Es1</li>
+                                <li style="margin-bottom: 1rem;">@AlzhCareHub.StringResources.Resource.Es2</li>
+                                <li style="margin-bottom: 1rem;">@AlzhCareHub.StringResources.Resource.Es3</li>
+                                <li style="margin-bottom: 1rem;">@AlzhCareHub.StringResources.Resource.Es4</li>
+                            </ol>
+                        </li>
+                        <li>@AlzhCareHub.StringResources.Resource.Resouces
+                            <ul>
+                                <li style="margin-bottom: 1rem;">@AlzhCareHub.StringResources.Resource.Er1
+                                    <a href='https://www.alz.org/help-support/caregiving/stages-behaviors/early-stage' target='_blank'>@AlzhCareHub.StringResources.Resource.Link</a>
+                                </li>
+                                <li style="margin-bottom: 1rem;">@AlzhCareHub.StringResources.Resource.Er2
+                                    <a href='https://archive.org/details/36hourday00nanc_0/page/n351/mode/2up' target='_blank'>@AlzhCareHub.StringResources.Resource.Link</a>
+                                </li>
+                                <li style="margin-bottom: 1rem;">@AlzhCareHub.StringResources.Resource.Er3
                                     <a href='https://longtreeeducation.com/course/comprehensive-alzheimers-and-dementia-care-seminar-9-2025/' target='_blank'>@AlzhCareHub.StringResources.Resource.Link</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>`;
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>`;
             }
 
-            // Show result
-            document.getElementById("result").innerHTML = `<span style="color: #004242;"><strong>Predicted Alzheimer's Stage:</strong> ${stage}</span><br><br>${resources}`;
+            // Get the current selected language from the dropdown
+            const language = document.querySelector('select[name="culture"]').value;
+
+            // Set the appropriate section class based on the language
+            const sectionClass = language === 'ur' ? 'urdu-section' : 'english-section';
+
+            document.getElementById("result").innerHTML = `
+                <div class="${sectionClass}">
+                    ${resources}
+                </div>`;
         }
     </script>
+
+    <style>
+        .urdu-section {
+            direction: rtl;
+            text-align: right;
+            font-family: 'Noto Nastaliq Urdu', 'Arial', sans-serif;
+            color: #004242;
+        }
+
+        .english-section {
+            direction: ltr;
+            text-align: left;
+            font-family: 'Arial', sans-serif;
+            color: #004242;
+        }
+
+        ul, ol {
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
 
 </body>
 </html>

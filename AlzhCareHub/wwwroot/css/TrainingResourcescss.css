@@ -1,0 +1,69 @@
+﻿body {
+    font-family: 'Arial', sans-serif;
+    background-color: #cfe6dc;
+    color: #003d2f;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    text-align: center;
+    color: #004643;
+    margin-bottom: 20px;
+}
+
+.form-container {
+    background-color: #e5f6f1;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    margin: auto;
+}
+
+.question-section {
+    margin-bottom: 10px; /* Reduced margin */
+}
+
+label {
+    font-weight: 600;
+    color: #003d2f;
+    margin-bottom: 5px; /* Reduced margin between label and options */
+    display: block;
+}
+
+input[type="radio"] {
+    margin-right: 8px; /* Reduced spacing between radio button and label */
+    margin-left: 0;
+}
+
+.radio-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Space between options */
+}
+
+    .radio-options input {
+        margin-right: 5px; /* Adjusted space between radio options */
+    }
+
+.logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #006B69;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.result {
+    font-weight: bold;
+    color: #ff6f61;
+    margin-top: 30px;
+    text-align: center;
+}
