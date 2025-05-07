@@ -1,6 +1,16 @@
 ﻿@{
     Layout = "_CaregiverLayout";
 }
+@using System.Globalization
+@{
+    var culture = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
+    var isRtl = culture == "ur"; // Urdu is RTL
+    var direction = isRtl ? "rtl" : "ltr";
+    var lang = culture;
+}
+<!Doctype html>
+<html>
+
 
 <!-- Caregiver-specific content -->
 <head>
@@ -91,7 +101,7 @@
                 background-color: rgba(0, 0, 0, 1);
             }
 
-            /* Hero Image styling */
+        /* Hero Image styling */
         .hero-img {
             margin-top: 0; /* remove any unwanted margin */
             padding-top: 0; /* remove padding if there */
@@ -99,277 +109,331 @@
             height: auto;
         }
 
-     </style>
+        .herohead[dir="rtl"]
+        {
+            line-height: 5rem;
+        }
+
+        .cardpara[dir="rtl"]
+        {
+            line-height: 2rem;
+        }
+
+        .JoinUsHead[dir="rtl"]
+        {
+            line-height: 4rem;
+            text-align: left;
+        }
+    </style>
+
 </head>
 
 @{
     var userEmail = Context.Session.GetString("UserEmail");
 }
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-start">
+                <!-- Text Column -->
+                <div class="col-lg-5 order-2 order-lg-1 text-content">
+                    <h1 style="color:#004241;" class="herohead" dir="@direction">@AlzhCareHub.StringResources.Resource.AboutUsHeroHead</h1>
+                    <p style="color: #004241; margin-top: 2rem;">@AlzhCareHub.StringResources.Resource.HeroPara</p>
 
-<!-- Hero Section -->
-<section class="hero-section">
-    <div class="container">
-        <div class="row align-items-start">
-            <!-- Text Column -->
-            <div class="col-lg-5 order-2 order-lg-1 text-content">
-                <h1 style="color:#004241;">@AlzhCareHub.StringResources.Resource.AboutUsHeroHead</h1>
-                <p style="color: #004241; margin-top: 2rem;">@AlzhCareHub.StringResources.Resource.HeroPara</p>
-
-                @if (userEmail == null)
-                {
-                    <a href="javascript:void(0);" class="helpbtnprimary" onclick="showLoginAlert()">@AlzhCareHub.StringResources.Resource.GetVolunteerAssisstance</a>
-                }
-                else
-                {
-                    <a asp-action="CareGiverRequest" asp-controller="CareGiverRequest" class="helpbtnprimary">@AlzhCareHub.StringResources.Resource.GetVolunteerAssisstance</a>
-                }
-            </div>
-
-            <!-- Image Column -->
-            <div class="col-lg-7 order-1 order-lg-2 text-center">
-                <img src="~/images/HeroSectionImage.png" alt="Virtual Healthcare" class="hero-img" style="margin-top: -30px;">
-
-            </div>
-        </div>
-    </div>
-</section>
-
-
-
-<!-- Our Services Section -->
-<div class="container my-5">
-    <div class="text-center mb-4">
-        <h2 class="fw-bold" style="color: #004241;">@AlzhCareHub.StringResources.Resource.Services</h2>
-        <div class="rowborder"></div>
-        <p class="text-muted mb-5" style="color: #004241;">
-            @AlzhCareHub.StringResources.Resource.ServicesPara
-        </p>
-    </div>
-
-    <div class="row g-4">
-        <!-- Reminder and Alerts Card -->
-        <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card shadow border-0 h-100 position-relative Gcards car">
-                <div class="card-body text-center">
-                    <img src="~/images/reminder.png" class="iconimg img-fluid" />
-                    <h5 class="card-title mt-3" style="color: #004241;">@AlzhCareHub.StringResources.Resource.Remainder</h5>
-                    <p class="card-text" style="color: #004241;">@AlzhCareHub.StringResources.Resource.RemainderPara</p>
-                </div>
-                <!-- Hover Overlay -->
-                <div class="overlay">
-                @if(userEmail==null)
-                {
-                        <a href="javascript: void(0);" onclick="showLoginAlert();" class="overlay-link">Explore</a>
-                   
-                }
-                else{    
-                    <a href="/ServiceGallery/Remainder_And_Alerts" class="overlay-link">Explore</a>
-                }
-                    </div>
-            </div>
-        </div>
-
-        <!-- Training Resources Card -->
-        <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card shadow border-0 h-100 position-relative Gcards car">
-                <div class="card-body text-center">
-                    <img src="~/images/trainingresouces.png" class="iconimg img-fluid" />
-                    <h5 class="card-title mt-3" style="color: #004241;">@AlzhCareHub.StringResources.Resource.TrainingResources</h5>
-                    <p class="card-text" style="color: #004241;">@AlzhCareHub.StringResources.Resource.tp</p>
-                </div>
-                <div class="overlay">
-                @if(userEmail==null)
-                {
-                    <a href="javascript: void(0);" onclick="showLoginAlert();" class="overlay-link">Explore</a>
-                }
-                else{
-                        <a href="/TrainingResources/TrainingResources" class="overlay-link">Explore</a>
-                }
-                </div>
-            </div>
-        </div>
-
-        <!-- Apps & Games Card -->
-        <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card shadow border-0 h-100 position-relative Gcards car">
-                <div class="card-body text-center">
-                    <img src="~/images/games.png" class="iconimg img-fluid" />
-                    <h5 class="card-title mt-3" style="color: #004241;">@AlzhCareHub.StringResources.Resource.AppsAndGames</h5>
-                    <p class="card-text" style="color: #004241;">@AlzhCareHub.StringResources.Resource.gp</p>
-                </div>
-                <div class="overlay">
-                @if(userEmail==null)
-                {
-                    <a href="javascript: void(0);" onclick="showLoginAlert();" class="overlay-link">Explore</a>
-                }
-                else{
-                    
-                        <a href="https://poki.com/en/g/brain-test-tricky-puzzles" class="overlay-link" target="_blank">Explore</a>
-                 
-                }
-                </div>
-            </div>
-        </div>
-
-        <!-- Doctor Appointment Card -->
-        <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card shadow border-0 h-100 position-relative Gcards car">
-                <div class="card-body text-center">
-                    <img src="~/images/appointment.png" class="iconimg img-fluid" />
-                    <h5 class="card-title mt-3" style="color: #004241;">@AlzhCareHub.StringResources.Resource.dap</h5>
-                    <p class="card-text" style="color: #004241;">@AlzhCareHub.StringResources.Resource.dappara</p>
-                </div>
-                <div class="overlay">
-                    @if(userEmail==null)
+                    @if (userEmail == null)
                     {
-                        <a href="javascript:void(0);" onclick="showLoginAlert();" class="overlay-link">Explore</a>
-
+                        <a href="javascript:void(0);" class="helpbtnprimary" onclick="showLoginAlert()">@AlzhCareHub.StringResources.Resource.GetVolunteerAssisstance</a>
                     }
-                    else{
-                        <a asp-controller="DoctorAppointment" asp-action="DoctorAppointment" class="overlay-link">Explore</a>
+                    else
+                    {
+                        <a asp-action="CareGiverRequest" asp-controller="CareGiverRequest" class="helpbtnprimary">@AlzhCareHub.StringResources.Resource.GetVolunteerAssisstance</a>
                     }
                 </div>
-            </div>
-        </div>
 
-        <!-- Feedback Card -->
-        <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card shadow border-0 h-100 position-relative Gcards car">
-                <div class="card-body text-center">
-                    <img src="~/images/feedback.png" class="iconimg img-fluid" />
-                    <h5 class="card-title mt-3" style="color: #004241;">@AlzhCareHub.StringResources.Resource.feedback</h5>
-                    <p class="card-text" style="color: #004241;">@AlzhCareHub.StringResources.Resource.feedpara</p>
-                </div>
-                <div class="overlay">
-                @if(userEmail==null)
-                {
-                    <a href="javascript: void(0);" onclick="showLoginAlert();" class="overlay-link">Explore</a>
-                }
-                else{
-                   
-                        <a href="/FeedBack/Submit" class="overlay-link">Explore</a>
-                  
-                }
+                <!-- Image Column -->
+                <div class="col-lg-7 order-1 order-lg-2 text-center">
+                    <img src="~/images/HeroSectionImage.png" alt="Virtual Healthcare" class="hero-img" style="margin-top: -30px;">
+
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- FAQ Card -->
-        <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
-            <div class="card shadow border-0 h-100 position-relative Gcards car">
-                <div class="card-body text-center">
-                    <img src="~/images/faq.jpeg" class="iconimg img-fluid" />
-                    <h5 class="card-title mt-3" style="color: #004241;">@AlzhCareHub.StringResources.Resource.faq</h5>
-                    <p class="card-text" style="color: #004241;">@AlzhCareHub.StringResources.Resource.fp</p>
+
+    <!-- Our Services Section -->
+    <div class="container my-5">
+        <div class="text-center mb-4">
+            <h2 class="fw-bold" style="color: #004241;">@AlzhCareHub.StringResources.Resource.Services</h2>
+            <div class="rowborder"></div>
+            <p class="text-muted mb-5 cardpara" style="color: #004241;">
+                @AlzhCareHub.StringResources.Resource.ServicesPara
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Reminder and Alerts Card -->
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="card shadow border-0 h-100 position-relative Gcards car">
+                    <div class="card-body text-center">
+                        <img src="~/images/reminder.png" class="iconimg img-fluid" />
+                        <h5 class="card-title mt-3" style="color: #004241;">@AlzhCareHub.StringResources.Resource.Remainder</h5>
+                        <p class="card-text cardpara" style="color: #004241;" dir="@direction">@AlzhCareHub.StringResources.Resource.RemainderPara</p>
+                    </div>
+                    <!-- Hover Overlay -->
+                    <div class="overlay">
+                        @if (userEmail == null)
+                        {
+                            <a href="javascript: void(0);" onclick="showLoginAlert();" class="overlay-link">Explore</a>
+
+                        }
+                        else
+                        {
+                            <a href="/ServiceGallery/Remainder_And_Alerts" class="overlay-link">Explore</a>
+                        }
+                    </div>
                 </div>
-                <div class="overlay">
-                @if(userEmail==null)
-                {
-                    <a href="javascript: void(0);" onclick="showLoginAlert();" class="overlay-link">Explore</a>
-                }
-                else{
-                  
-                   <a href="/FAQ/FAQ" class="overlay-link">Explore</a>
-                }
+            </div>
+
+            <!-- Training Resources Card -->
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="card shadow border-0 h-100 position-relative Gcards car">
+                    <div class="card-body text-center">
+                        <img src="~/images/trainingresouces.png" class="iconimg img-fluid" />
+                        <h5 class="card-title mt-3" style="color: #004241;">@AlzhCareHub.StringResources.Resource.TrainingResources</h5>
+                        <p class="card-text cardpara" style="color: #004241; line-height: 2rem;" dir="@direction">@AlzhCareHub.StringResources.Resource.tp</p>
+                    </div>
+                    <div class="overlay">
+                        @if (userEmail == null)
+                        {
+                            <a href="javascript: void(0);" onclick="showLoginAlert();" class="overlay-link">Explore</a>
+                        }
+                        else
+                        {
+                            <a href="/TrainingResources/TrainingResources" class="overlay-link">Explore</a>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <!-- Apps & Games Card -->
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="card shadow border-0 h-100 position-relative Gcards car">
+                    <div class="card-body text-center">
+                        <img src="~/images/games.png" class="iconimg img-fluid" />
+                        <h5 class="card-title mt-3" style="color: #004241;">@AlzhCareHub.StringResources.Resource.AppsAndGames</h5>
+                        <p class="card-text cardpara" style="color: #004241;" dir="@direction">@AlzhCareHub.StringResources.Resource.gp</p>
+                    </div>
+                    <div class="overlay">
+                        @if (userEmail == null)
+                        {
+                            <a href="javascript: void(0);" onclick="showLoginAlert();" class="overlay-link">Explore</a>
+                        }
+                        else
+                        {
+
+                            <a href="https://poki.com/en/g/brain-test-tricky-puzzles" class="overlay-link" target="_blank">Explore</a>
+
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <!-- Doctor Appointment Card -->
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="card shadow border-0 h-100 position-relative Gcards car">
+                    <div class="card-body text-center">
+                        <img src="~/images/appointment.png" class="iconimg img-fluid" />
+                        <h5 class="card-title mt-3" style="color: #004241;">@AlzhCareHub.StringResources.Resource.dap</h5>
+                        <p class="card-text cardpara" style="color: #004241;" dir="@direction">@AlzhCareHub.StringResources.Resource.dappara</p>
+                    </div>
+                    <div class="overlay">
+                        @if (userEmail == null)
+                        {
+                            <a href="javascript:void(0);" onclick="showLoginAlert();" class="overlay-link">Explore</a>
+
+                        }
+                        else
+                        {
+                            <a asp-controller="DoctorAppointment" asp-action="DoctorAppointment" class="overlay-link">Explore</a>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feedback Card -->
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="card shadow border-0 h-100 position-relative Gcards car">
+                    <div class="card-body text-center">
+                        <img src="~/images/feedback.png" class="iconimg img-fluid" />
+                        <h5 class="card-title mt-3" style="color: #004241;">@AlzhCareHub.StringResources.Resource.feedback</h5>
+                        <p class="card-text cardpara" style="color: #004241;" dir="@direction">@AlzhCareHub.StringResources.Resource.feedpara</p>
+                    </div>
+                    <div class="overlay">
+                        @if (userEmail == null)
+                        {
+                            <a href="javascript: void(0);" onclick="showLoginAlert();" class="overlay-link">Explore</a>
+                        }
+                        else
+                        {
+
+                            <a href="/FeedBack/Submit" class="overlay-link">Explore</a>
+
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Card -->
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+                <div class="card shadow border-0 h-100 position-relative Gcards car">
+                    <div class="card-body text-center">
+                        <img src="~/images/faq.jpeg" class="iconimg img-fluid" />
+                        <h5 class="card-title mt-3" style="color: #004241;">@AlzhCareHub.StringResources.Resource.faq</h5>
+                        <p class="card-text cardpara" style="color: #004241;" dir="@direction">@AlzhCareHub.StringResources.Resource.fp</p>
+                    </div>
+                    <div class="overlay">
+                        @if (userEmail == null)
+                        {
+                            <a href="javascript: void(0);" onclick="showLoginAlert();" class="overlay-link">Explore</a>
+                        }
+                        else
+                        {
+
+                            <a href="/FAQ/FAQ" class="overlay-link">Explore</a>
+                        }
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- Join Us Section -->
-<div class="container support-section d-flex align-items-center" style="margin-top: 12rem; gap: 0;">
-    <!-- Increased Image Width -->
-    <img src="~/images/JoinUsSec.jpg" alt="Supporting Alzheimer's Patients" class="join" data-aos="zoom-in" data-aos-delay="400"
-         style="height: 400px; width: 390px; object-fit: cover; border-radius: 10px;">
+    <!-- Join Us Section -->
+    <div class="container support-section d-flex align-items-center" style="margin-top: 12rem; gap: 0;">
+        <!-- Increased Image Width -->
+        <img src="~/images/JoinUsSec.jpg" alt="Supporting Alzheimer's Patients" class="join" data-aos="zoom-in" data-aos-delay="400"
+             style="height: 400px; width: 390px; object-fit: cover; border-radius: 10px;">
 
-    <div class="support-content ms-3" data-aos="fade-left" data-aos-delay="400">
-        <h2 style ="color: #004241;">@AlzhCareHub.StringResources.Resource.JoinHead</h2>
-        <p style="color: #004241;">@AlzhCareHub.StringResources.Resource.JoinPara</p>
+        <div class="support-content ms-3" data-aos="fade-left" data-aos-delay="400">
+            <h2 class="JoinUsHead" style="color: #004241;" dir="@direction">@AlzhCareHub.StringResources.Resource.JoinHead</h2>
+            <p style="color: #004241; line-height: 2.5rem;">@AlzhCareHub.StringResources.Resource.JoinPara</p>
 
-        @if (userEmail == null)
-        {
-            <a href="javascript:void(0);" onclick="showLoginAlert();" class="helpbtnprimary">
-                @AlzhCareHub.StringResources.Resource.JoinUs
-            </a>
-        }
-        else
-        {
-            <a asp-controller="Volunteer" asp-action="Volunteer" class="helpbtnprimary">
-                @AlzhCareHub.StringResources.Resource.JoinUs
-            </a>
-        }
+            @if (userEmail == null)
+            {
+                <a href="javascript:void(0);" onclick="showLoginAlert();" class="helpbtnprimary">
+                    @AlzhCareHub.StringResources.Resource.JoinUs
+                </a>
+            }
+            else
+            {
+                <a asp-controller="Volunteer" asp-action="Volunteer" class="helpbtnprimary">
+                    @AlzhCareHub.StringResources.Resource.JoinUs
+                </a>
+            }
 
-    </div>
-</div>
-
-
-<!-- Donate Section -->
-<div class="container support-section" style="margin-top: 20rem; margin-bottom: 10rem;">
-    <div class="support-content" data-aos="zoom-in" data-aos-delay="400">
-        <h2 style="margin-right: 1.5rem;">@AlzhCareHub.StringResources.Resource.DonateHead</h2>
-        <p style="margin-right: 1.5rem;">@AlzhCareHub.StringResources.Resource.DonatePara </p>
-        @if(userEmail==null)
-        {
-            <a href="javascript:void(0);" onclick="showLoginAlert();" class="helpbtnprimary" style="padding: 10px 34px; transition: ease-in-out 0.3s">@AlzhCareHub.StringResources.Resource.Donate</a>
-           
-        }
-        else{
-            <a asp-controller="Donation" asp-action="Donate" class="helpbtnprimary" style="padding: 10px 34px; transition: ease-in-out 0.3s">@AlzhCareHub.StringResources.Resource.Donate</a>
-        }
-
-    </div>
-    <div data-aos="zoom-in" data-aos-delay="400">
-        <img src="~/images/donationimg.jpg" alt="Supporting Alzheimer's Patients" >
-    </div>
-</div>
-
-<!-- Latest Articles Section -->
-<div class="container my-5">
-    <div class="text-center" data-aos="fade-down" data-aos-delay="400">
-        <h2 class="fw-bold">@AlzhCareHub.StringResources.Resource.AHead</h2>
-        <hr class="mx-auto" style="width: 50px; background-color: #000; height: 2px;">
-    </div>
-
-    <div class="row mt-4 d-flex">
-        <!-- Article Card 1 -->
-
-        <div class="col-md-4 d-flex" style="cursor: pointer" data-aos="fade-up" data-aos-delay="400">
-            <div class="card shadow border-0 w-100">
-                <img src="~/images/article1.jpeg" class="card-img-top" alt="Alzheimer's Article">
-                <div class="card-body d-flex flex-column cards">
-                    <h5 class="card-title fw-bold">@AlzhCareHub.StringResources.Resource.arhead1</h5>
-                    <p class="card-text">@AlzhCareHub.StringResources.Resource.a1para</p>
-                    <a href="~/what_is_alzheimers_disease.pdf" download class="fw-bold mt-auto" style="color: #004243;">@AlzhCareHub.StringResources.Resource.adownload</a>
-
-                </div>
-            </div>
-        
-        </div>
-        <!-- Article Card 2 -->
-        <div class="col-md-4 d-flex" style="cursor: pointer;" data-aos="fade-up" data-aos-delay="400">
-            <div class="card shadow border-0 w-100">
-                <img src="~/images/article2.jpeg" class="card-img-top" alt="Alzheimer's Article">
-                <div class="card-body d-flex flex-column cards">
-                    <h5 class="card-title fw-bold">@AlzhCareHub.StringResources.Resource.a2head</h5>
-                    <p class="card-text">@AlzhCareHub.StringResources.Resource.a2para</p>
-                    <a href="~/6 Things Never to Do When Caring an Alzheimer patient.pdf" download class="fw-bold mt-auto" style="color: #004243;">@AlzhCareHub.StringResources.Resource.adownload</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Article Card 3 -->
-        <div class="col-md-4 d-flex" style="cursor: pointer;" data-aos="fade-up" data-aos-delay="400">
-            <div class="card shadow border-0 w-100">
-                <img src="~/images/article3.jpeg" class="card-img-top" alt="Alzheimer's Article">
-                <div class="card-body d-flex flex-column cards">
-                    <h5 class="card-title fw-bold">@AlzhCareHub.StringResources.Resource.a3head</h5>
-                    <p class="card-text">@AlzhCareHub.StringResources.Resource.a3para</p>
-                    <a href="https://www.rcpsych.ac.uk/mental-health/translations/urdu/memory-problems-and-dementia" class="fw-bold mt-auto" style="color: #004243;" target="_blank">@AlzhCareHub.StringResources.Resource.a3btn</a>
-                </div>
-            </div>
         </div>
     </div>
-</div>
+
+
+    <!-- Donate Section -->
+    <div class="container support-section" style="margin-top: 20rem; margin-bottom: 10rem;">
+        <div class="support-content" data-aos="zoom-in" data-aos-delay="400">
+            <h2 style="margin-right: 1.5rem;">@AlzhCareHub.StringResources.Resource.DonateHead</h2>
+            <p style="margin-right: 1.5rem;">@AlzhCareHub.StringResources.Resource.DonatePara </p>
+            @if (userEmail == null)
+            {
+                <a href="javascript:void(0);" onclick="showLoginAlert();" class="helpbtnprimary" style="padding: 10px 34px; transition: ease-in-out 0.3s">@AlzhCareHub.StringResources.Resource.Donate</a>
+
+            }
+            else
+            {
+                <a asp-controller="Donation" asp-action="Donate" class="helpbtnprimary" style="padding: 10px 34px; transition: ease-in-out 0.3s">@AlzhCareHub.StringResources.Resource.Donate</a>
+            }
+
+        </div>
+        <div data-aos="zoom-in" data-aos-delay="400">
+            <img src="~/images/donationimg.jpg" alt="Supporting Alzheimer's Patients">
+        </div>
+    </div>
+
+    <!-- Latest Articles Section -->
+    <div class="container my-5" dir="@direction">
+        <div class="text-center" data-aos="fade-down" data-aos-delay="400">
+            <h2 class="fw-bold">@AlzhCareHub.StringResources.Resource.AHead</h2>
+            <hr class="mx-auto" style="width: 50px; background-color: #000; height: 2px;">
+        </div>
+
+        <div class="row mt-4 d-flex">
+            <!-- Article Card 1 -->
+
+            <div class="col-md-4 d-flex" style="cursor: pointer" data-aos="fade-up" data-aos-delay="400">
+                <div class="card shadow border-0 w-100">
+                    <img src="~/images/article1.jpeg" class="card-img-top" alt="Alzheimer's Article">
+                    <div class="card-body d-flex flex-column cards">
+                        <h5 class="card-title fw-bold">@AlzhCareHub.StringResources.Resource.arhead1</h5>
+                        <p class="card-text">@AlzhCareHub.StringResources.Resource.a1para</p>
+
+                        @if(Context.Session.GetString("Culture")=="ur")
+                        {
+                            <a href="~/AlzheimerDiseaseInformationInUrdu.docx" download class="fw-bold mt-auto" style="color: #004243;">
+                                @AlzhCareHub.StringResources.Resource.adownload
+                            </a>
+                        }
+                        else{
+                            <a href="~/AlzheimerDieaseInformation.docx" download class="fw-bold mt-auto" style="color: #004243;">
+                                @AlzhCareHub.StringResources.Resource.adownload
+                            </a>
+                        }
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- Article Card 2 -->
+            <div class="col-md-4 d-flex" style="cursor: pointer;" data-aos="fade-up" data-aos-delay="400">
+                <div class="card shadow border-0 w-100">
+                    <img src="~/images/article2.jpeg" class="card-img-top" alt="Alzheimer's Article">
+                    <div class="card-body d-flex flex-column cards">
+                        <h5 class="card-title fw-bold">@AlzhCareHub.StringResources.Resource.a2head</h5>
+                        <p class="card-text">@AlzhCareHub.StringResources.Resource.a2para</p>
+                        @if (Context.Session.GetString("Culture") == "ur")
+                        {
+                            <a href="~/Alzheimer_Care_Tips_Urdu.docx" download class="fw-bold mt-auto" style="color: #004243;">@AlzhCareHub.StringResources.Resource.adownload</a>
+                        }
+                        else
+                        {
+                            <a href="~/Alzheimer_Care_Tips_English.pdf" download class="fw-bold mt-auto" style="color: #004243;">
+                                @AlzhCareHub.StringResources.Resource.adownload
+                            </a>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <!-- Article Card 3 -->
+            <div class="col-md-4 d-flex" style="cursor: pointer;" data-aos="fade-up" data-aos-delay="400">
+                <div class="card shadow border-0 w-100">
+                    <img src="~/images/article3.jpeg" class="card-img-top" alt="Alzheimer's Article">
+                    <div class="card-body d-flex flex-column cards">
+                        <h5 class="card-title fw-bold">@AlzhCareHub.StringResources.Resource.a3head</h5>
+                        <p class="card-text">@AlzhCareHub.StringResources.Resource.a3para</p>
+                        @if(Context.Session.GetString("Culture")=="ur")
+                        {
+
+                            <a href="https://www.rcpsych.ac.uk/mental-health/translations/urdu/memory-problems-and-dementia" class="fw-bold mt-auto" style="color: #004243;" target="_blank">@AlzhCareHub.StringResources.Resource.a3btn</a>
+                        }
+                        else
+                        {
+                            <a href="https://www.alz.org/alzheimers-dementia/what-is-dementia" class="fw-bold mt-auto" style="color: #004243;" target="_blank">@AlzhCareHub.StringResources.Resource.a3btn</a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
 <script>
     function checkAuth(event, url) {
         var userEmail = "@userEmail";  // Getting the userEmail from Razor

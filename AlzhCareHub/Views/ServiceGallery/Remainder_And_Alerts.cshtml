@@ -2,7 +2,13 @@
     Layout = "_Donation";
 }
 @model AlzhCareHub.Models.TaskModel;
-
+@using System.Globalization
+@{
+    var culture = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
+    var isRtl = culture == "ur"; // Urdu is RTL
+    var direction = isRtl ? "rtl" : "ltr";
+    var lang = culture;
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,11 +41,14 @@
         .priority-options label {
             margin-right: 15px;
         }
+        input[type="date"][dir="rtl"]{
+            text-align: right;
+        }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <div class="container" dir="@direction">
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h2 style="color: #004241;">@AlzhCareHub.StringResources.Resource.TaskHead</h2>
             <a style="color: #004241;" asp-controller="Auth" asp-action="Caregiverdashboard">@AlzhCareHub.StringResources.Resource.TaskLink</a>

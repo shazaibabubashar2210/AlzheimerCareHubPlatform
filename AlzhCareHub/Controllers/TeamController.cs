@@ -11,7 +11,6 @@ namespace AlzhCareHub.Controllers
     {
         private readonly TeamService _teamService;
         private readonly IWebHostEnvironment _webHostEnvironment;
-        private object _context;
 
         public TeamController(IWebHostEnvironment webHostEnvironment)
         {
