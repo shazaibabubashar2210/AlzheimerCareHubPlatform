@@ -607,7 +607,7 @@
   </data>
   <data name="TaskLink" xml:space="preserve">
     <value>TaskLink</value>
-    <comment>TaskLink</comment>
+    <comment>Go Back</comment>
   </data>
   <data name="TitleLabel" xml:space="preserve">
     <value>TitleLabel</value>
@@ -704,5 +704,77 @@
   <data name="CheckoutBtn" xml:space="preserve">
     <value>CheckoutBtn</value>
     <comment>CheckoutBtn</comment>
+  </data>
+  <data name="ContactUs" xml:space="preserve">
+    <value>ContactUs</value>
+    <comment>ContactUs</comment>
+  </data>
+  <data name="ContactPara" xml:space="preserve">
+    <value>ContactPara</value>
+    <comment>ContactPara</comment>
+  </data>
+  <data name="ContactInfo" xml:space="preserve">
+    <value>ContactInfo</value>
+    <comment>ContactInfo</comment>
+  </data>
+  <data name="ContactAdddress" xml:space="preserve">
+    <value>ContactAddress</value>
+    <comment>ContactAddress</comment>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>FirstName</value>
+    <comment>FirstName</comment>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>LastName</value>
+    <comment>LastName</comment>
+  </data>
+  <data name="Emails" xml:space="preserve">
+    <value>Emails</value>
+    <comment>Emails</comment>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>PhoneNumber</value>
+    <comment>PhoneNumber</comment>
+  </data>
+  <data name="TypeMsg" xml:space="preserve">
+    <value>TypeMsg</value>
+    <comment>TypeMsg</comment>
+  </data>
+  <data name="SndMsg" xml:space="preserve">
+    <value>SndMsg</value>
+    <comment>SndMsg</comment>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+    <comment>Cancel</comment>
+  </data>
+  <data name="SaySomething" xml:space="preserve">
+    <value>SaySomething</value>
+    <comment>SaySomething</comment>
+  </data>
+  <data name="SubmitFeedBack" xml:space="preserve">
+    <value>SubmitFeedBack</value>
+    <comment>SubmitFeedBack</comment>
+  </data>
+  <data name="EAD" xml:space="preserve">
+    <value>EAD</value>
+    <comment>EAD</comment>
+  </data>
+  <data name="checkresponse" xml:space="preserve">
+    <value>checkresponse</value>
+    <comment>checkresponse</comment>
+  </data>
+  <data name="msg" xml:space="preserve">
+    <value>msg</value>
+    <comment>msg</comment>
+  </data>
+  <data name="fb" xml:space="preserve">
+    <value>fb</value>
+    <comment>fb</comment>
+  </data>
+  <data name="sfb" xml:space="preserve">
+    <value>sfb</value>
+    <comment>sfb</comment>
   </data>
 </root>

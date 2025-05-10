@@ -562,4 +562,59 @@ platform offers a variety of services to make caregiving easier, more effective,
   <data name="CheckoutBtn" xml:space="preserve">
     <value>Go to Checkout</value>
   </data>
+  <data name="ContactUs" xml:space="preserve">
+    <value>Contact Us</value>
+  </data>
+  <data name="ContactPara" xml:space="preserve">
+    <value>Any question or remarks? Just write us a message!
+</value>
+  </data>
+  <data name="ContactInfo" xml:space="preserve">
+    <value>Contact Information</value>
+  </data>
+  <data name="ContactAdddress" xml:space="preserve">
+    <value>143-B, Block B Phase 2 PCSIR Phase II, Lahore</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="Emails" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>Phone Number</value>
+  </data>
+  <data name="TypeMsg" xml:space="preserve">
+    <value>Write Your Message here...</value>
+  </data>
+  <data name="SndMsg" xml:space="preserve">
+    <value>Send Message</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="SaySomething" xml:space="preserve">
+    <value>Say Something!</value>
+  </data>
+  <data name="SubmitFeedBack" xml:space="preserve">
+    <value>Submit Your Feedback</value>
+  </data>
+  <data name="EAD" xml:space="preserve">
+    <value>Email Address</value>
+  </data>
+  <data name="checkresponse" xml:space="preserve">
+    <value>Go To view our response</value>
+  </data>
+  <data name="msg" xml:space="preserve">
+    <value>Your Message</value>
+  </data>
+  <data name="fb" xml:space="preserve">
+    <value>Write Your Feedback...</value>
+  </data>
+  <data name="sfb" xml:space="preserve">
+    <value>Submit Feedback</value>
+  </data>
 </root>

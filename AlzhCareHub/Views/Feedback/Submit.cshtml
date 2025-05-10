@@ -19,33 +19,37 @@
             background-color: #cfe6dc;
         }
     </style>
-
+    <link href="~/css/caregiverdashboardstyling.css" rel="stylesheet" />
+    <link href="~/css/caregiverdashboardcards.css" rel="stylesheet" />
     @* SweetAlert2 CDN *@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
-    <h2 class="mb-4 text-center" style="color: #004241;">Submit Your Feedback</h2>
+    <h2 class="mb-4 text-center" style="color: #004241;">@AlzhCareHub.StringResources.Resource.SubmitFeedBack</h2>
 
     @if (ViewBag.Message != null)
     {
         <div class="alert alert-success">@ViewBag.Message</div>
-        <a class="btn btn-primary" asp-controller="FeedBack" asp-action="Responses">Go To view our response</a>
+        <a class="helpbtn helpbtnprimary" asp-controller="FeedBack" asp-action="Responses" asp-route-email="@Model.UserEmail">
+            @AlzhCareHub.StringResources.Resource.checkresponse
+        </a>
+
     }
 
     <div class="card shadow-lg p-4" style="width: 60%; display: block; margin: auto;">
         <form id="feedbackForm" asp-action="Submit" method="post">
             <div class="mb-3">
-                <label for="UserEmail" class="form-label fw-bold">Email Address</label>
-                <input type="email" id="UserEmail" name="UserEmail" class="form-control" placeholder="Enter your email" required style="background: transparent; border: 1px solid grey;" />
+                <label for="UserEmail" class="form-label fw-bold">@AlzhCareHub.StringResources.Resource.EAD</label>
+                <input type="email" id="UserEmail" name="UserEmail" class="form-control" placeholder="@AlzhCareHub.StringResources.Resource.Email" required style="background: transparent; border: 1px solid grey;" />
             </div>
 
             <div class="mb-3">
-                <label for="Message" class="form-label fw-bold">Your Message</label>
-                <textarea id="Message" name="Message" class="form-control" rows="4" placeholder="Write your feedback..." required style="background: transparent; border: 1px solid grey;"></textarea>
+                <label for="Message" class="form-label fw-bold">@AlzhCareHub.StringResources.Resource.msg</label>
+                <textarea id="Message" name="Message" class="form-control" rows="4" placeholder="@AlzhCareHub.StringResources.Resource.fb" required style="background: transparent; border: 1px solid grey;"></textarea>
             </div>
 
-            <button type="submit" class="px-4 py-2 shadow" style="background-color: #004241; color: white;">Submit Feedback</button>
+            <button type="submit" class="px-4 py-2 shadow" style="background-color: #004241; color: white;">@AlzhCareHub.StringResources.Resource.sfb</button>
         </form>
     </div>
 

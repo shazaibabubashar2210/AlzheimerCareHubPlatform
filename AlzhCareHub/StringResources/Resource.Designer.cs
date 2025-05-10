@@ -214,6 +214,15 @@ namespace AlzhCareHub.StringResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to CancelBtn.
         /// </summary>
         public static string CancelBtn {
@@ -232,6 +241,15 @@ namespace AlzhCareHub.StringResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to checkresponse.
+        /// </summary>
+        public static string checkresponse {
+            get {
+                return ResourceManager.GetString("checkresponse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ConnectionWatsapp.
         /// </summary>
         public static string ConnectionWatsapp {
@@ -241,11 +259,47 @@ namespace AlzhCareHub.StringResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ContactAddress.
+        /// </summary>
+        public static string ContactAdddress {
+            get {
+                return ResourceManager.GetString("ContactAdddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ContactInfo.
+        /// </summary>
+        public static string ContactInfo {
+            get {
+                return ResourceManager.GetString("ContactInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ContactPara.
+        /// </summary>
+        public static string ContactPara {
+            get {
+                return ResourceManager.GetString("ContactPara", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ContactSupport.
         /// </summary>
         public static string ContactSupport {
             get {
                 return ResourceManager.GetString("ContactSupport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ContactUs.
+        /// </summary>
+        public static string ContactUs {
+            get {
+                return ResourceManager.GetString("ContactUs", resourceCulture);
             }
         }
         
@@ -394,6 +448,15 @@ namespace AlzhCareHub.StringResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to EAD.
+        /// </summary>
+        public static string EAD {
+            get {
+                return ResourceManager.GetString("EAD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to EarlyHead.
         /// </summary>
         public static string EarlyHead {
@@ -453,6 +516,15 @@ namespace AlzhCareHub.StringResources {
         public static string EmailLabel {
             get {
                 return ResourceManager.GetString("EmailLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Emails.
+        /// </summary>
+        public static string Emails {
+            get {
+                return ResourceManager.GetString("Emails", resourceCulture);
             }
         }
         
@@ -538,6 +610,15 @@ namespace AlzhCareHub.StringResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to fb.
+        /// </summary>
+        public static string fb {
+            get {
+                return ResourceManager.GetString("fb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to feedback.
         /// </summary>
         public static string feedback {
@@ -561,6 +642,15 @@ namespace AlzhCareHub.StringResources {
         public static string FindDoctor {
             get {
                 return ResourceManager.GetString("FindDoctor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FirstName.
+        /// </summary>
+        public static string FirstName {
+            get {
+                return ResourceManager.GetString("FirstName", resourceCulture);
             }
         }
         
@@ -790,6 +880,15 @@ namespace AlzhCareHub.StringResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to LastName.
+        /// </summary>
+        public static string LastName {
+            get {
+                return ResourceManager.GetString("LastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Link.
         /// </summary>
         public static string Link {
@@ -943,6 +1042,15 @@ namespace AlzhCareHub.StringResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to msg.
+        /// </summary>
+        public static string msg {
+            get {
+                return ResourceManager.GetString("msg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mulla Wala.
         /// </summary>
         public static string Mulla_Wala {
@@ -1038,6 +1146,15 @@ namespace AlzhCareHub.StringResources {
         public static string PateintCare {
             get {
                 return ResourceManager.GetString("PateintCare", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PhoneNumber.
+        /// </summary>
+        public static string PhoneNumber {
+            get {
+                return ResourceManager.GetString("PhoneNumber", resourceCulture);
             }
         }
         
@@ -1231,6 +1348,15 @@ namespace AlzhCareHub.StringResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SaySomething.
+        /// </summary>
+        public static string SaySomething {
+            get {
+                return ResourceManager.GetString("SaySomething", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Services.
         /// </summary>
         public static string Services {
@@ -1254,6 +1380,33 @@ namespace AlzhCareHub.StringResources {
         public static string SetBtn {
             get {
                 return ResourceManager.GetString("SetBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to sfb.
+        /// </summary>
+        public static string sfb {
+            get {
+                return ResourceManager.GetString("sfb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SndMsg.
+        /// </summary>
+        public static string SndMsg {
+            get {
+                return ResourceManager.GetString("SndMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SubmitFeedBack.
+        /// </summary>
+        public static string SubmitFeedBack {
+            get {
+                return ResourceManager.GetString("SubmitFeedBack", resourceCulture);
             }
         }
         
@@ -1353,6 +1506,15 @@ namespace AlzhCareHub.StringResources {
         public static string TrainingResources {
             get {
                 return ResourceManager.GetString("TrainingResources", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TypeMsg.
+        /// </summary>
+        public static string TypeMsg {
+            get {
+                return ResourceManager.GetString("TypeMsg", resourceCulture);
             }
         }
         

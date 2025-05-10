@@ -10,123 +10,135 @@ using AlzhCareHub.Models;
 
 namespace AlzhCareHub.Controllers
 {
-    public class FeedbackController : Controller
-    {
-        private readonly FirebaseClient firebaseClient;
+	public class FeedbackController : Controller
+	{
+		private readonly FirebaseClient firebaseClient;
 
-        public FeedbackController()
-        {
-            firebaseClient = new FirebaseClient("https://alzheimercarehubsystem-a42e6-default-rtdb.firebaseio.com/");
-        }
+		public FeedbackController()
+		{
+			firebaseClient = new FirebaseClient("https://alzheimercarehubsystem-a42e6-default-rtdb.firebaseio.com/");
+		}
 
-        // GET: Feedback Form
-        public ActionResult Submit()
-        {
-            return View();
-        }
+		// GET: Feedback Form
+		public ActionResult Submit()
+		{
+			return View();
+		}
 
-        // POST: Submit Feedback
-        [HttpPost]
-        public async Task<ActionResult> Submit(FeedbackModel feedback)
-        {
-            if (ModelState.IsValid)
-            {
-                feedback.Id = Guid.NewGuid().ToString(); // Generate Unique ID
+		// POST: Submit Feedback
+		[HttpPost]
+		public async Task<ActionResult> Submit(FeedbackModel feedback)
+		{
+			if (ModelState.IsValid)
+			{
+				feedback.Id = Guid.NewGuid().ToString();
 
-                await firebaseClient
-                    .Child("Feedbacks")
-                    .Child(feedback.Id)
-                    .PutAsync(feedback);
+				await firebaseClient
+					.Child("Feedbacks")
+					.Child(feedback.Id)
+					.PutAsync(feedback);
 
-                ViewBag.Message = "Thank You For your FeedBack!";
-            }
-            else
-            {
-                ViewBag.Message = "Error submitting feedback!";
-            }
+				TempData["Message"] = "Thank You for your feedback!";
+				return RedirectToAction("Responses", new { email = feedback.UserEmail });
+			}
 
-            return View();
-        }
+			ViewBag.Message = "Error submitting feedback!";
+			return View();
+		}
 
-        // GET: Admin Review Feedback
-        public async Task<ActionResult> Review()
-        {
-            var feedbackList = await firebaseClient
-                .Child("Feedbacks")
-                .OnceAsync<FeedbackModel>();
+		// GET: Admin Review Feedback
+		public async Task<ActionResult> Review()
+		{
+			var feedbackList = await firebaseClient
+				.Child("Feedbacks")
+				.OnceAsync<FeedbackModel>();
 
-            if (feedbackList == null || !feedbackList.Any())
-            {
-                TempData["ErrorMessage"] = "No feedback found.";
-                return View(new List<FeedbackModel>()); // Return an empty list instead of null
-            }
+			if (feedbackList == null || !feedbackList.Any())
+			{
+				TempData["ErrorMessage"] = "No feedback found.";
+				return View(new List<FeedbackModel>());
+			}
 
-            return View(feedbackList.Select(f => f.Object).ToList());
-        }
+			return View(feedbackList.Select(f => f.Object).ToList());
+		}
 
-        // GET: View All Responses for Users
-        public async Task<ActionResult> Responses()
-        {
-            var feedbackList = await firebaseClient
-                .Child("Feedbacks")
-                .OnceAsync<FeedbackModel>();
+		// GET: View Only match email Responses for Users
+		public async Task<ActionResult> Responses(string email)
+		{
+			if (string.IsNullOrEmpty(email))
+			{
+				TempData["ErrorMessage"] = "No email provided.";
+				return RedirectToAction("Submit");
+			}
 
-            if (feedbackList == null || !feedbackList.Any())
-            {
-                TempData["ErrorMessage"] = "No feedback found.";
-                return View(new List<FeedbackModel>()); // Return an empty list instead of null
-            }
+			var feedbackList = await firebaseClient
+				.Child("Feedbacks")
+				.OnceAsync<FeedbackModel>();
 
-            return View(feedbackList.Select(f => f.Object).ToList());
-        }
+			var filteredFeedback = feedbackList
+				.Where(f => f.Object.UserEmail.Equals(email, StringComparison.OrdinalIgnoreCase))
+				.Select(f => f.Object)
+				.ToList();
 
-        // DELETE: Remove Response from Feedback
-        [HttpPost]
-        public async Task<ActionResult> DeleteResponse(string id)
-        {
-            if (!string.IsNullOrEmpty(id))
-            {
-                var feedback = await firebaseClient
-                    .Child("Feedbacks")
-                    .Child(id)
-                    .OnceSingleAsync<FeedbackModel>();
+			if (!filteredFeedback.Any())
+			{
+				TempData["ErrorMessage"] = "No feedback found for this email.";
+			}
 
-                if (feedback != null)
-                {
-                    feedback.Response = null; // Remove response
+			return View(filteredFeedback);
+		}
 
-                    await firebaseClient
-                        .Child("Feedbacks")
-                        .Child(id)
-                        .PutAsync(feedback);
-                }
-            }
+		// DELETE: Remove Response from Feedback
+		[HttpPost]
+		public async Task<ActionResult> DeleteResponse(string id)
+		{
+			if (!string.IsNullOrEmpty(id))
+			{
+				var feedback = await firebaseClient
+					.Child("Feedbacks")
+					.Child(id)
+					.OnceSingleAsync<FeedbackModel>();
 
-            return RedirectToAction("Review"); // Redirect back to Review page
-        }
-        [HttpPost]
-        public async Task<ActionResult> Respond(string id, string responseMessage)
-        {
-            if (!string.IsNullOrEmpty(id) && !string.IsNullOrEmpty(responseMessage))
-            {
-                var feedback = await firebaseClient
-                    .Child("Feedbacks")
-                    .Child(id)
-                    .OnceSingleAsync<FeedbackModel>();
+				if (feedback != null)
+				{
+					feedback.Response = null;
 
-                if (feedback != null)
-                {
-                    feedback.Response = responseMessage; // Store Admin Response
+					await firebaseClient
+						.Child("Feedbacks")
+						.Child(id)
+						.PutAsync(feedback);
+				}
+			}
 
-                    await firebaseClient
-                        .Child("Feedbacks")
-                        .Child(id)
-                        .PutAsync(feedback);
-                }
-            }
+			return RedirectToAction("Review");
+		}
 
-            return RedirectToAction("Responses"); // Redirect back to Review page
-        }
+		// POST: Respond to feedback
+		[HttpPost]
+		public async Task<ActionResult> Respond(string id, string responseMessage)
+		{
+			if (!string.IsNullOrEmpty(id) && !string.IsNullOrEmpty(responseMessage))
+			{
+				var feedback = await firebaseClient
+					.Child("Feedbacks")
+					.Child(id)
+					.OnceSingleAsync<FeedbackModel>();
 
-    }
+				if (feedback != null)
+				{
+					feedback.Response = responseMessage;
+
+					await firebaseClient
+						.Child("Feedbacks")
+						.Child(id)
+						.PutAsync(feedback);
+
+					// ✅ FIX: Redirect with email to avoid ambiguous routing
+					return RedirectToAction("Responses", new { email = feedback.UserEmail });
+				}
+			}
+
+			return RedirectToAction("Review");
+		}
+	}
 }

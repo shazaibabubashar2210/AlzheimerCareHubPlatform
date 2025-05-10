@@ -211,13 +211,14 @@
                     {
                         @foreach (var member in Model)
                         {
-                            <div class="col-lg-3 col-md-6 col-sm-12 fade-in" style="width: 25vw">
+                            <div class="col-lg-3 col-md-6 col-sm-12 fade-in" style="width: 26vw">
                                 <div class="card shadow-sm h-100">
                                     <img src="@Url.Content("~/" + member.ImageUrl)" class="img-fluid" style="width: 100%; height: 280px; font-size: 18px;">
                                     <div class="card-body" style="background-color:#cfe6dc;">
                                         <p class="card-title">Name: @member.Name</p>
                                         <p>Location: @member.Location</p>
                                         <p>Phone: @member.PhoneNumber</p>
+                                        <p>Available Slot: @member.AvailableSlot</p>
                                         <a href="#" class="d-block fw-bold text-center whatsapp-link" data-phone="@member.PhoneNumber" style="text-decoration: none; color: #006B69;">
                                             @AlzhCareHub.StringResources.Resource.ConnectionWatsapp
                                         </a>

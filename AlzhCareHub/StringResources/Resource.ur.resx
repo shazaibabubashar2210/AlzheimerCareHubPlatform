@@ -560,4 +560,58 @@
   <data name="CheckoutBtn" xml:space="preserve">
     <value>چیک آؤٹ پر جائیں</value>
   </data>
+  <data name="ContactUs" xml:space="preserve">
+    <value>ہم سے رابطہ کریں</value>
+  </data>
+  <data name="ContactPara" xml:space="preserve">
+    <value>کوئی سوال یا رائے ہے؟ بس ہمیں ایک پیغام لکھیں</value>
+  </data>
+  <data name="ContactInfo" xml:space="preserve">
+    <value>رابطے کی معلومات</value>
+  </data>
+  <data name="ContactAdddress" xml:space="preserve">
+    <value>143-بی، بلاک بی، فیز ۲، پی سی ایس آئی آر فیز دوم، لاہور</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>پہلا نام</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>آخری نام</value>
+  </data>
+  <data name="Emails" xml:space="preserve">
+    <value>ای میل</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>فون نمبر</value>
+  </data>
+  <data name="TypeMsg" xml:space="preserve">
+    <value>اپنا پیغام لکھیں</value>
+  </data>
+  <data name="SndMsg" xml:space="preserve">
+    <value>پیغام بھیجیں</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>منسوخ کریں</value>
+  </data>
+  <data name="SaySomething" xml:space="preserve">
+    <value>کچھ کہو!</value>
+  </data>
+  <data name="SubmitFeedBack" xml:space="preserve">
+    <value>اپنی رائے جمع کروائیں</value>
+  </data>
+  <data name="EAD" xml:space="preserve">
+    <value>ای میل ایڈریس</value>
+  </data>
+  <data name="checkresponse" xml:space="preserve">
+    <value>ہمارا جواب دیکھنے کے لیے جائیں</value>
+  </data>
+  <data name="msg" xml:space="preserve">
+    <value>آپ کا پیغام</value>
+  </data>
+  <data name="fb" xml:space="preserve">
+    <value>اپنی رائے لکھیں</value>
+  </data>
+  <data name="sfb" xml:space="preserve">
+    <value>رائے جمع کرائیں</value>
+  </data>
 </root>

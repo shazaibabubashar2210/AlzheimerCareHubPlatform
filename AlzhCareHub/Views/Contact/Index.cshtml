@@ -5,6 +5,13 @@
 @{
     ViewData["Title"] = "Contact Us";
 }
+@using System.Globalization
+@{
+    var culture = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
+    var isRtl = culture == "ur"; // Urdu is RTL
+    var direction = isRtl ? "rtl" : "ltr";
+    var lang = culture;
+}
 <!DOCTYPE html>
 
 <html lang="en">
@@ -43,15 +50,25 @@
             .btn-primary:hover {
                 background-color: #2563eb;
             }
+
+        .contactinfo[dir="rtl"]
+        {
+            margin-bottom:2rem;
+        }
+
+        .infor[dir="rtl"] {
+            margin-bottom: 2rem;
+        }
     </style>
 </head>
-<body style="background: linear-gradient(135deg, #cfe6dc, #9dcab6);">
+
+<body style="background: linear-gradient(135deg, #cfe6dc, #9dcab6);" >
 
    
 
     <div class="container mt-3">
-        <h2 class="text-center fw-bold">Contact Us</h2>
-        <p class="text-center text-muted">Any question or remarks? Just write us a message!</p>
+        <h2 class="text-center fw-bold infor" dir="@direction">@AlzhCareHub.StringResources.Resource.ContactUs</h2>
+        <p class="text-center text-muted">@AlzhCareHub.StringResources.Resource.ContactPara</p>
 
         @if (TempData["Success"] != null)
         {
@@ -66,11 +83,11 @@
         <div class="row g-0 d-flex">
             <div class="col-lg-4 d-flex">
                 <div class="contact-card w-100" style="height: 95vh;">
-                    <h4>Contact Information</h4>
-                    <p>Say something!</p>
-                    <p><i class="bi bi-telephone"></i> +923035165423</p>
-                    <p><i class="bi bi-envelope"></i> alzhcare@gmail.com</p>
-                    <p><i class="bi bi-geo-alt"></i> 143-B, Block B Phase 2 PCSIR Phase II, Lahore</p>
+                    <h4 dir="@direction" class="contactinfo">@AlzhCareHub.StringResources.Resource.ContactInfo</h4>
+                    <p dir="@direction">@AlzhCareHub.StringResources.Resource.SaySomething</p>
+                    <p dir="@direction"><i class="bi bi-telephone"></i> +923035165423</p>
+                    <p dir="@direction"><i class="bi bi-envelope"></i> alzhcare@gmail.com</p>
+                    <p dir="@direction"><i class="bi bi-geo-alt"></i> @AlzhCareHub.StringResources.Resource.ContactAdddress</p>
                     <div class="d-flex">
                         <i class="bi bi-instagram me-3"></i>
                         <i class="bi bi-twitter me-3"></i>
@@ -84,38 +101,38 @@
                     <form id="contactForm" asp-controller="Contact" asp-action="Submit" method="post">
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label for="firstName" class="form-label">First Name</label>
-                                <input type="text" class="form-control" asp-for="FirstName" placeholder="First-Name">
+                                <label for="firstName" class="form-label">@AlzhCareHub.StringResources.Resource.FirstName</label>
+                                <input type="text" class="form-control" asp-for="FirstName" placeholder="@AlzhCareHub.StringResources.Resource.FirstName" />
                                 <span class="text-danger" asp-validation-for="FirstName"></span>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="lastName" class="form-label">Last Name</label>
-                                <input type="text" class="form-control" asp-for="LastName" placeholder="Last-Name">
+                                <label for="lastName" class="form-label">@AlzhCareHub.StringResources.Resource.LastName</label>
+                                <input type="text" class="form-control" asp-for="LastName" placeholder="@AlzhCareHub.StringResources.Resource.LastName" >
                                 <span class="text-danger" asp-validation-for="LastName"></span>
                             </div>
                         </div>
 
                         <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
+                            <label for="email" class="form-label" >@AlzhCareHub.StringResources.Resource.Emails</label>
                             <input type="email" class="form-control" asp-for="Email" placeholder="example@gmail.com">
                             <span class="text-danger" asp-validation-for="Email"></span>
                         </div>
 
                         <div class="mb-3">
-                            <label for="phoneNumber" class="form-label">Phone Number</label>
+                            <label for="phoneNumber" class="form-label">@AlzhCareHub.StringResources.Resource.PhoneNumber</label>
                             <input type="text" class="form-control" asp-for="PhoneNumber" placeholder="+92035165423">
                             <span class="text-danger" asp-validation-for="PhoneNumber"></span>
                         </div>
 
                         <div class="mb-3">
                             <label for="message" class="form-label">Message</label>
-                            <textarea class="form-control" asp-for="Message" rows="4" placeholder="Write your message..."></textarea>
+                            <textarea class="form-control" asp-for="Message" rows="4" placeholder="@AlzhCareHub.StringResources.Resource.TypeMsg"></textarea>
                             <span class="text-danger" asp-validation-for="Message"></span>
                         </div>
 
                         <div class="d-flex align-items-center mt-4">
-                            <button type="submit" class="helpbtn helpbtnprimary me-3">Send Message</button>
-                            <a asp-controller="AboutUs" asp-action="Index" class="helpbtn helpbtnprimary text-center" style="width: 20%;">Cancel</a>
+                            <button type="submit" class="helpbtn helpbtnprimary me-3">@AlzhCareHub.StringResources.Resource.SndMsg</button>
+                            <a asp-controller="AboutUs" asp-action="Index" class="helpbtn helpbtnprimary text-center" style="width: 20%;">@AlzhCareHub.StringResources.Resource.Cancel</a>
                         </div>
 
                     </form>
