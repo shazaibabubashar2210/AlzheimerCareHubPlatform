@@ -1,6 +1,13 @@
 ﻿@{
     Layout = "_Donation";
 }
+@using System.Globalization
+@{
+    var culture = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
+    var isRtl = culture == "ur"; // Urdu is RTL
+    var direction = isRtl ? "rtl" : "ltr";
+    var lang = culture;
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,69 +78,74 @@
                 max-height: 200px; /* Adjust based on your content */
                 padding: 10px;
             }
+
+        .commonalign[dir="rtl"]
+        {
+            text-align: right;
+            margin-bottom: 1.5rem;
+        }
     </style>
 </head>
 <body>
 
-    <div class="container faq-container">
-        <h2 class="faq-header">Frequently Asked Questions</h2>
+    <div class="container faq-container" dir="@direction">
+        <h2 class="faq-header">@AlzhCareHub.StringResources.Resource.faqhead</h2>
 
         <div class="faq-item">
             <div class="faq-question" onclick="toggleFAQ(this)">
-                What is Alzheimer's disease?
+                @AlzhCareHub.StringResources.Resource.ques1
                 <span class="icon">+</span>
             </div>
-            <div class="faq-answer">
-                Alzheimer's disease is a progressive neurological disorder that causes the brain to shrink (atrophy) and brain cells to die. It is the most common cause of dementia, leading to a continuous decline in thinking, behavioral, and social skills, which affects a person's ability to function independently.
+            <div class="faq-answer commonalign" dir="@direction">
+                @AlzhCareHub.StringResources.Resource.faqans1
             </div>
         </div>
 
         <div class="faq-item">
             <div class="faq-question" onclick="toggleFAQ(this)">
-                What are the early signs and symptoms of Alzheimer's disease?
+               @AlzhCareHub.StringResources.Resource.ques2
                 <span class="icon">+</span>
             </div>
-            <div class="faq-answer">
-                Early signs of Alzheimer's disease include:<br/>
-                <br/>1) Memory loss that disrupts daily life (e.g., forgetting recently learned information).
-                <br/>2) Difficulty planning or solving problems.
-                <br/>3) Confusion with time or place.
-                <br/>4) Trouble completing familiar tasks.
-                <br/>5) Changes in mood or personality, such as increased anxiety or withdrawal.
+            <div class="faq-answer commonalign" dir="@direction">
+                @AlzhCareHub.StringResources.Resource.queshead2<br/>
+                <br/>@AlzhCareHub.StringResources.Resource.faqans2point1
+                <br/>@AlzhCareHub.StringResources.Resource.faqans2point2
+                <br/>@AlzhCareHub.StringResources.Resource.faqans2point3
+                <br/>@AlzhCareHub.StringResources.Resource.faqans2point4
             </div>
         </div>
 
         <div class="faq-item">
             <div class="faq-question" onclick="toggleFAQ(this)">
-                What causes Alzheimer's disease?
+                 @AlzhCareHub.StringResources.Resource.ques3
                 <span class="icon">+</span>
             </div>
-            <div class="faq-answer">
-                The exact cause of Alzheimer's disease is not fully understood, but it is believed to result from a combination of genetic, lifestyle, and environmental factors.
+            <div class="faq-answer commonalign" dir="@direction">
+                @AlzhCareHub.StringResources.Resource.faqans4
             </div>
         </div>
         <div class="faq-item">
             <div class="faq-question" onclick="toggleFAQ(this)">
-                Is there a cure for Alzheimer's disease?
+                @AlzhCareHub.StringResources.Resource.faqques5
                 <span class="icon">+</span>
             </div>
-            <div class="faq-answer">
-                Currently, there is no cure for Alzheimer's disease. However, treatments are available to help manage symptoms and slow the progression of the disease. These include medications, lifestyle changes, and supportive therapies to improve quality of life for patients and their caregivers.
+            <div class="faq-answer commonalign" dir="@direction">
+               @AlzhCareHub.StringResources.Resource.faqans5
             </div>
         </div>
         <div class="faq-item">
             <div class="faq-question" onclick="toggleFAQ(this)">
-                How can I reduce my risk of developing Alzheimer's disease?
+                @AlzhCareHub.StringResources.Resource.faqques6
                 <span class="icon">+</span>
             </div>
-            <div class="faq-answer">
-                While there is no guaranteed way to prevent Alzheimer's, certain lifestyle changes may help reduce the risk:
+            <div class="faq-answer commonalign" dir="@direction">
+                @AlzhCareHub.StringResources.Resource.ques6head
 
-               <br/> 1) Engage in regular physical exercise.
+               <br/> @AlzhCareHub.StringResources.Resource.ans6point1
 
-               <br/> 2) Maintain a healthy diet, such as the Mediterranean or DASH diet.
+               <br/> @AlzhCareHub.StringResources.Resource.faqans6point2
 
-               <br/> 3) Stay mentally active through learning, puzzles, or social activities.
+               <br/> @AlzhCareHub.StringResources.Resource.faqans6point3
             </div>
         </div>
     </div>

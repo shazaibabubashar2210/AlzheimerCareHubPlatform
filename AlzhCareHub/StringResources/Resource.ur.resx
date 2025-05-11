@@ -614,4 +614,97 @@
   <data name="sfb" xml:space="preserve">
     <value>رائے جمع کرائیں</value>
   </data>
+  <data name="faqhead" xml:space="preserve">
+    <value>اکثر پوچھے جانے والے سوالات</value>
+  </data>
+  <data name="ques1" xml:space="preserve">
+    <value>الزائمر کی بیماری کیا ہے؟</value>
+  </data>
+  <data name="faqans1" xml:space="preserve">
+    <value>الزائمر کی بیماری ایک ترقی پذیر نیورولوجیکل (عصبی) مرض ہے جو دماغ کے سکڑنے (atrophy) اور دماغی خلیوں کی موت کا سبب بنتی ہے۔ یہ ڈیمینشیا (یادداشت کی کمزوری) کی سب سے عام وجہ ہے، جو سوچنے، رویے اور سماجی صلاحیتوں میں مسلسل کمی کا باعث بنتی ہے، اور اس کے نتیجے میں مریض کی خود مختار زندگی گزارنے کی صلاحیت متاثر ہو جاتی ہے۔</value>
+  </data>
+  <data name="ques2" xml:space="preserve">
+    <value>الزائمر کی بیماری کی ابتدائی علامات اور نشانیاں کیا ہیں؟</value>
+  </data>
+  <data name="queshead2" xml:space="preserve">
+    <value>الزائمر کی ابتدائی علامات درج ذیل ہو سکتی ہیں</value>
+  </data>
+  <data name="faqans2point1" xml:space="preserve">
+    <value>یادداشت میں کمی – حالیہ باتیں یا واقعات بھول جانا، بار بار وہی سوالات پوچھنا۔</value>
+  </data>
+  <data name="faqans2point2" xml:space="preserve">
+    <value>مسائل کی منصوبہ بندی یا حل کرنے میں دشواری۔</value>
+  </data>
+  <data name="faqans2point3" xml:space="preserve">
+    <value>وقت یا جگہ کے بارے میں الجھن۔) </value>
+  </data>
+  <data name="faqans2point4" xml:space="preserve">
+    <value>مانوس کاموں کو مکمل کرنے میں مشکل۔</value>
+  </data>
+  <data name="ques3" xml:space="preserve">
+    <value>الزائمر کی بیماری کی کیا وجوہات ہیں؟</value>
+  </data>
+  <data name="faqans4" xml:space="preserve">
+    <value>الزائمر کی بیماری کی صحیح وجہ مکمل طور پر معلوم نہیں ہے، لیکن خیال کیا جاتا ہے کہ یہ جینیاتی، طرزِ زندگی، اور ماحولیاتی عوامل کے امتزاج کا نتیجہ ہوتی ہے۔</value>
+  </data>
+  <data name="faqques5" xml:space="preserve">
+    <value>کیا الزائمر کی بیماری کا علاج موجود ہے؟</value>
+  </data>
+  <data name="faqans5" xml:space="preserve">
+    <value>فی الحال الزائمر کی بیماری کا کوئی علاج موجود نہیں ہے۔ تاہم، علامات کو قابو میں رکھنے اور بیماری کی رفتار کو سست کرنے کے لیے علاج دستیاب ہیں۔ ان میں ادویات، طرزِ زندگی میں تبدیلیاں، اور معاون تھراپیاں شامل ہیں جو مریضوں اور ان کے تیمارداروں کی زندگی کے معیار کو بہتر بنانے میں مدد دیتی ہیں۔</value>
+  </data>
+  <data name="faqques6" xml:space="preserve">
+    <value>میں الزائمر کی بیماری کا خطرہ کیسے کم کر سکتا ہوں؟</value>
+  </data>
+  <data name="ques6head" xml:space="preserve">
+    <value>اگرچہ الزائمر کی بیماری کو روکنے کا کوئی یقینی طریقہ نہیں ہے، کچھ طرزِ زندگی میں تبدیلیاں خطرے کو کم کرنے میں مددگار ثابت ہو سکتی ہیں:</value>
+  </data>
+  <data name="ans6point1" xml:space="preserve">
+    <value>باقاعدگی سے جسمانی ورزش کریں۔</value>
+  </data>
+  <data name="faqans6point2" xml:space="preserve">
+    <value>صحت مند خوراک کا استعمال کریں، جیسے کہ میڈیٹرینین یا DASH ڈائٹ۔</value>
+  </data>
+  <data name="faqans6point3" xml:space="preserve">
+    <value>سیکھنے، پزلز حل کرنے یا سماجی سرگرمیوں کے ذریعے ذہنی طور پر فعال رہیں۔</value>
+  </data>
+  <data name="volunteerformhead" xml:space="preserve">
+    <value>نیچے فارم بھرئیے۔</value>
+  </data>
+  <data name="Volunteerlink" xml:space="preserve">
+    <value>ہوم پیج پر واپس جائیں۔</value>
+  </data>
+  <data name="VolunteerName" xml:space="preserve">
+    <value>نام</value>
+  </data>
+  <data name="VolunteerNameInput" xml:space="preserve">
+    <value>اپنا نام درج کریں۔</value>
+  </data>
+  <data name="VolunteerEmailInput" xml:space="preserve">
+    <value>اپنا ای میل درج کریں۔</value>
+  </data>
+  <data name="VolunteerLabel1" xml:space="preserve">
+    <value>آپ ہفتے میں کتنے دن دستیاب ہوتے ہیں؟</value>
+  </data>
+  <data name="VDays" xml:space="preserve">
+    <value>دنوں کی تعداد درج کریں۔</value>
+  </data>
+  <data name="PExp" xml:space="preserve">
+    <value>کیا آپ کو پہلے سے تجربہ ہے؟</value>
+  </data>
+  <data name="VYes" xml:space="preserve">
+    <value>جی ہاں۔</value>
+  </data>
+  <data name="VNO" xml:space="preserve">
+    <value>نہیں۔</value>
+  </data>
+  <data name="Vlabel2" xml:space="preserve">
+    <value>کیا آپ جسمانی مدد فراہم کرنے میں آرام دہ ہیں؟</value>
+  </data>
+  <data name="Vlaebl3" xml:space="preserve">
+    <value>کیا آپ ہنگامی کالز کے لیے دستیاب ہیں؟</value>
+  </data>
+  <data name="Submitbtn" xml:space="preserve">
+    <value>جمع کریں۔</value>
+  </data>
 </root>

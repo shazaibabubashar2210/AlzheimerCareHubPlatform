@@ -617,4 +617,99 @@ platform offers a variety of services to make caregiving easier, more effective,
   <data name="sfb" xml:space="preserve">
     <value>Submit Feedback</value>
   </data>
+  <data name="faqhead" xml:space="preserve">
+    <value>Frequently Asked Questions</value>
+  </data>
+  <data name="ques1" xml:space="preserve">
+    <value>What is Alzheimer's disease?</value>
+  </data>
+  <data name="faqans1" xml:space="preserve">
+    <value>Alzheimer's disease is a progressive neurological disorder that causes the brain to shrink (atrophy) and brain cells to die. It is the most common cause of dementia, leading to a continuous decline in thinking, behavioral, and social skills, which affects a person's ability to function independently.
+</value>
+  </data>
+  <data name="ques2" xml:space="preserve">
+    <value>What are the early signs and symptoms of Alzheimer's disease?
+</value>
+  </data>
+  <data name="queshead2" xml:space="preserve">
+    <value>Early signs of Alzheimer's disease include:</value>
+  </data>
+  <data name="faqans2point1" xml:space="preserve">
+    <value>1) Memory loss that disrupts daily life (e.g., forgetting recently learned information).</value>
+  </data>
+  <data name="faqans2point2" xml:space="preserve">
+    <value>Difficulty planning or solving problems.</value>
+  </data>
+  <data name="faqans2point3" xml:space="preserve">
+    <value>Confusion with time or place.</value>
+  </data>
+  <data name="faqans2point4" xml:space="preserve">
+    <value>Trouble completing familiar tasks.</value>
+  </data>
+  <data name="ques3" xml:space="preserve">
+    <value>What causes Alzheimer's disease?</value>
+  </data>
+  <data name="faqans4" xml:space="preserve">
+    <value>The exact cause of Alzheimer's disease is not fully understood, but it is believed to result from a combination of genetic, lifestyle, and environmental factors. </value>
+  </data>
+  <data name="faqques5" xml:space="preserve">
+    <value>Only convert this dont provide extra thing   Is there a cure for Alzheimer's disease?</value>
+  </data>
+  <data name="faqans5" xml:space="preserve">
+    <value> Currently, there is no cure for Alzheimer's disease. However, treatments are available to help manage symptoms and slow the progression of the disease. These include medications, lifestyle changes, and supportive therapies to improve quality of life for patients and their caregivers.</value>
+  </data>
+  <data name="faqques6" xml:space="preserve">
+    <value> How can I reduce my risk of developing Alzheimer's disease?</value>
+  </data>
+  <data name="ques6head" xml:space="preserve">
+    <value>While there is no guaranteed way to prevent Alzheimer's, certain lifestyle changes may help reduce the risk:</value>
+  </data>
+  <data name="ans6point1" xml:space="preserve">
+    <value>1. Engage in regular physical exercise.</value>
+  </data>
+  <data name="faqans6point2" xml:space="preserve">
+    <value>2. Maintain a healthy diet, such as the Mediterranean or DASH diet.</value>
+  </data>
+  <data name="faqans6point3" xml:space="preserve">
+    <value>3. Stay mentally active through learning, puzzles, or social activities.</value>
+  </data>
+  <data name="volunteerformhead" xml:space="preserve">
+    <value>Fill the form below</value>
+  </data>
+  <data name="Volunteerlink" xml:space="preserve">
+    <value>Go Back to Home Page</value>
+  </data>
+  <data name="VolunteerName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="VolunteerNameInput" xml:space="preserve">
+    <value>Enter your name</value>
+  </data>
+  <data name="VolunteerEmailInput" xml:space="preserve">
+    <value>Enter your Email</value>
+  </data>
+  <data name="VolunteerLabel1" xml:space="preserve">
+    <value>How many days in a week are you available?</value>
+  </data>
+  <data name="VDays" xml:space="preserve">
+    <value>Enter number of days</value>
+  </data>
+  <data name="PExp" xml:space="preserve">
+    <value>Do you have prior experience?</value>
+  </data>
+  <data name="VYes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="VNO" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Vlabel2" xml:space="preserve">
+    <value>Comfortable with physical assistance?</value>
+  </data>
+  <data name="Vlaebl3" xml:space="preserve">
+    <value>Available for emergency calls?</value>
+  </data>
+  <data name="Submitbtn" xml:space="preserve">
+    <value>Submit</value>
+  </data>
 </root>

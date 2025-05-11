@@ -43,25 +43,30 @@
         ul li[dir="rtl"] {
             margin-bottom: 2rem;
         }
-    </style>
+
+        .spacebottom[dir="rtl"]
+        {
+            margin-bottom: 1.5rem;
+        }
+     </style>
 </head>
-<body dir="@direction">
+<body>
 
     <h2>@AlzhCareHub.StringResources.Resource.AlzhStageHead</h2>
 
-    <div class="form-container">
+    <div class="form-container" dir="@direction">
         <form id="alzheimers-form">
             <div class="question-section">
-                <label>@AlzhCareHub.StringResources.Resource.q1</label>
+                <label class="spacebottom" dir="@direction">@AlzhCareHub.StringResources.Resource.q1</label>
                 <div class="radio-options">
-                    <input type="radio" name="q1" value="early"> @AlzhCareHub.StringResources.Resource.o1
-                    <input type="radio" name="q1" value="moderate"> @AlzhCareHub.StringResources.Resource.o2
-                    <input type="radio" name="q1" value="high"> @AlzhCareHub.StringResources.Resource.o3
+                    <input class="spacebottom" type="radio" name="q1" value="early" dir="@direction"> @AlzhCareHub.StringResources.Resource.o1
+                    <input type="radio" class="spacebottom" name="q1" value="moderate" dir="@direction" />@AlzhCareHub.StringResources.Resource.o2
+                    <input type="radio" class="spacebottom" name="q1" value="high" dir="@direction" /> @AlzhCareHub.StringResources.Resource.o3
                 </div>
             </div>
 
             <div class="question-section">
-                <label>@AlzhCareHub.StringResources.Resource.q2</label>
+                <label class="spacebottom" dir="@direction">@AlzhCareHub.StringResources.Resource.q2</label>
                 <div class="radio-options">
                     <input type="radio" name="q2" value="early"> @AlzhCareHub.StringResources.Resource.o1
                     <input type="radio" name="q2" value="moderate"> @AlzhCareHub.StringResources.Resource.o2
@@ -70,7 +75,7 @@
             </div>
 
             <div class="question-section">
-                <label>@AlzhCareHub.StringResources.Resource.q3</label>
+                <label class="spacebottom" dir="@direction">@AlzhCareHub.StringResources.Resource.q3</label>
                 <div class="radio-options">
                     <input type="radio" name="q3" value="early"> @AlzhCareHub.StringResources.Resource.o1
                     <input type="radio" name="q3" value="moderate"> @AlzhCareHub.StringResources.Resource.o2
@@ -79,7 +84,7 @@
             </div>
 
             <div class="question-section">
-                <label>@AlzhCareHub.StringResources.Resource.q4</label>
+                <label class="spacebottom" dir="@direction">@AlzhCareHub.StringResources.Resource.q4</label>
                 <div class="radio-options">
                     <input type="radio" name="q4" value="early"> @AlzhCareHub.StringResources.Resource.o1
                     <input type="radio" name="q4" value="moderate"> @AlzhCareHub.StringResources.Resource.o2
@@ -88,7 +93,7 @@
             </div>
 
             <div class="question-section">
-                <label>@AlzhCareHub.StringResources.Resource.q5</label>
+                <label class="spacebottom" dir="@direction">@AlzhCareHub.StringResources.Resource.q5</label>
                 <div class="radio-options">
                     <input type="radio" name="q5" value="early"> @AlzhCareHub.StringResources.Resource.o1
                     <input type="radio" name="q5" value="moderate"> @AlzhCareHub.StringResources.Resource.o2
@@ -97,7 +102,7 @@
             </div>
 
             <div class="question-section">
-                <label>@AlzhCareHub.StringResources.Resource.q6</label>
+                <label class="spacebottom" dir="@direction">@AlzhCareHub.StringResources.Resource.q6</label>
                 <div class="radio-options">
                     <input type="radio" name="q6" value="early"> @AlzhCareHub.StringResources.Resource.o1
                     <input type="radio" name="q6" value="moderate"> @AlzhCareHub.StringResources.Resource.o2
@@ -106,7 +111,7 @@
             </div>
 
             <div class="question-section">
-                <label>@AlzhCareHub.StringResources.Resource.q7</label>
+                <label class="spacebottom" dir="@direction">@AlzhCareHub.StringResources.Resource.q7</label>
                 <div class="radio-options">
                     <input type="radio" name="q7" value="early"> @AlzhCareHub.StringResources.Resource.o1
                     <input type="radio" name="q7" value="moderate"> @AlzhCareHub.StringResources.Resource.o2
@@ -115,7 +120,7 @@
             </div>
 
             <div class="question-section">
-                <label>@AlzhCareHub.StringResources.Resource.q8</label>
+                <label class="spacebottom" dir="@direction">@AlzhCareHub.StringResources.Resource.q8</label>
                 <div class="radio-options">
                     <input type="radio" name="q8" value="early"> @AlzhCareHub.StringResources.Resource.o1
                     <input type="radio" name="q8" value="moderate"> @AlzhCareHub.StringResources.Resource.o2
@@ -124,7 +129,7 @@
             </div>
 
             <div class="question-section">
-                <label>@AlzhCareHub.StringResources.Resource.q9</label>
+                <label class="spacebottom" dir="@direction">@AlzhCareHub.StringResources.Resource.q9</label>
                 <div class="radio-options">
                     <input type="radio" name="q9" value="early"> @AlzhCareHub.StringResources.Resource.o1
                     <input type="radio" name="q9" value="moderate"> @AlzhCareHub.StringResources.Resource.o2
@@ -133,7 +138,7 @@
             </div>
 
             <div class="question-section">
-                <label>@AlzhCareHub.StringResources.Resource.q10</label>
+                <label class="spacebottom" dir="@direction">@AlzhCareHub.StringResources.Resource.q10</label>
                 <div class="radio-options">
                     <input type="radio" name="q10" value="early"> @AlzhCareHub.StringResources.Resource.o1
                     <input type="radio" name="q10" value="moderate"> @AlzhCareHub.StringResources.Resource.o2
