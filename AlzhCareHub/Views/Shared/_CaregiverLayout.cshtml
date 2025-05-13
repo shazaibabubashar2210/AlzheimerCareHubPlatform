@@ -355,20 +355,48 @@
             return messageDiv;
         }
 
-        function showSuggestions() {
+             function showSuggestions() {
             const suggestionBox = document.getElementById("suggestion-box");
             suggestionBox.innerHTML = "<b>Try one of these:</b><br/>";
             availableQuestions.forEach(q => {
+                const questionWrapper = document.createElement("div");
+                questionWrapper.style.marginBottom = "8px";
+
                 const span = document.createElement("span");
                 span.className = "suggestion";
                 span.innerText = q;
-                       span.onclick = () => {
-                        handleUserMessage(q);
-                     };
+                span.style.cursor = "pointer";
+                span.style.display = "block";
+                span.onclick = () => {
+                    // Toggle answer visibility
+                    const response = getBotResponse(q);
+                            span.onclick = () => {
+                if (answerDiv.innerText === "") {
+                    answerDiv.innerText = "⏳ Please wait...";
+                setTimeout(() => {
+                    answerDiv.innerText = getBotResponse(q);
+                }, 3000); // Delay answer by 3 seconds
+            } else {
+                answerDiv.innerText = ""; // Toggle off if already shown
+            }
+        };
 
-                suggestionBox.appendChild(span);
+    };
+
+                const answerDiv = document.createElement("div");
+                answerDiv.className = "answer";
+                answerDiv.style.marginTop = "4px";
+                answerDiv.style.paddingLeft = "10px";
+                answerDiv.style.color = "#000";
+                answerDiv.stylemarginBottom="1rem";
+                answerDiv.style.fontSize = "14px";
+
+                questionWrapper.appendChild(span);
+                questionWrapper.appendChild(answerDiv);
+                suggestionBox.appendChild(questionWrapper);
             });
         }
+
 
         function getBotResponse(message) {
             const msg = message.toLowerCase();
@@ -486,19 +514,18 @@
             }
 
         .suggestion {
-            background-color: #004242;
-            border: 1px solid #00838f;
-            color: #fff;
             padding: 6px 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            margin: 4px 4px 0 0;
-            display: inline-block;
+            background-color: #004242;
+            color: #ffffff;
+            border-radius: 4px;
+            margin: 4px 0;
+            transition: background-color 0.3s;
         }
 
             .suggestion:hover {
                 background-color: #003232;
             }
+
 
         #chatContainer {
             flex-grow: 1;

@@ -123,7 +123,7 @@
                     }
                     <li class="nav-item">
                         <form method="post" asp-controller="Language" asp-action="SetLanguage" class="d-flex me-3">
-                            <select name="culture" onchange="this.form.submit()" class="form-select" style="border: 1px solid grey;">
+                            <select name="culture" onchange="this.form.submit()" class="form-select" style="border: 1px solid grey; background-color: #cfe6dc">
                                 <option value="en" selected="@((Context.Session.GetString("Culture") == "en") ? "selected" : null)" style="color: #004241;">English</option>
                                 <option value="ur" selected="@((Context.Session.GetString("Culture") == "ur") ? "selected" : null)" style="color: #004241;">اردو</option>
                             </select>

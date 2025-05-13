@@ -707,4 +707,16 @@
   <data name="Submitbtn" xml:space="preserve">
     <value>جمع کریں۔</value>
   </data>
+  <data name="ERSE1" xml:space="preserve">
+    <value>اردو میں ڈاؤن لوڈ کریں</value>
+  </data>
+  <data name="ERSEng1" xml:space="preserve">
+    <value>انگریزی میں ڈاؤن لوڈ کریں</value>
+  </data>
+  <data name="urdulink" xml:space="preserve">
+    <value>اردو میں جانیے</value>
+  </data>
+  <data name="EnglishLink" xml:space="preserve">
+    <value>انگریزی میں جانیں</value>
+  </data>
 </root>

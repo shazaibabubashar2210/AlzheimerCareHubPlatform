@@ -52,7 +52,15 @@
             <button type="submit" class="px-4 py-2 shadow" style="background-color: #004241; color: white;">@AlzhCareHub.StringResources.Resource.sfb</button>
         </form>
     </div>
-
+    <div class="card shadow-lg p-4 mt-4" style="width: 60%; display: block; margin: auto;">
+        <form asp-controller="FeedBack" asp-action="Responses" method="get">
+            <div class="mb-3">
+                <label for="CheckEmail" class="form-label fw-bold">Check your feedback responses</label>
+                <input type="email" id="CheckEmail" name="email" class="form-control" placeholder="Enter your email" required style="background: transparent; border: 1px solid grey;" />
+            </div>
+            <button type="submit" class="px-4 py-2 shadow" style="background-color: #004241; color: white;">Check Responses</button>
+        </form>
+    </div>
     <script src="~/js/feedbackvalidation.js"></script>
 </body>
 </html>

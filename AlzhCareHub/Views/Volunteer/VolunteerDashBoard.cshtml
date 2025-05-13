@@ -4,10 +4,20 @@
 }
 <!Doctype html>
 <html lang="en">
-    <head>
-        <title>Volunteer DashBoard</title>
-    </head>
-    <body>
+<head>
+    <title>Volunteer DashBoard</title>
+    <style>
+        input{
+            background: none;
+            background: transparent;
+            outline: none;
+            border: none;
+            border-bottom: 1px solid #004242;
+        }
+    </style>
+   
+</head>
+<body>
     <h2 class="mb-4 mt-5 text-center">Matched Caregiver Requests</h2>
 
     @if (Model != null && Model.Count > 0)
@@ -28,6 +38,25 @@
                             <p><strong>Type of Help:</strong> @match.Caregiver?.TypeOfHelp</p>
                             <p><strong>Emergency Required:</strong> @(match.Caregiver?.EmergencyRequired == true ? "Yes" : "No")</p>
                             <p><strong>Notes:</strong> @match.Caregiver?.AdditionalNotes</p>
+                            <p><strong>Match Status:</strong> @match.MatchStatus</p>
+
+                            <!-- Agreement Form -->
+                            <h4 class="mt-4">Agreement Form</h4>
+                            <form method="post" asp-controller="Volunteer" asp-action="UpdateStatus">
+                                <label for="caregiverName">Caregiver Name:</label>
+                                <input type="text" name="caregiverName" id="caregiverName" value="@match.Caregiver?.Name" readonly required />
+                                <br /><br/>
+                                <label clas="me-5" for="volunteerName">Your Name:</label>
+                                <input type="text" name="volunteerName" id="volunteerName" required />
+                                <br/><br/>
+                                <label for="status">Match Status:</label>
+                                <select name="status" id="status">
+                                    <option value="Agreed">Agree to Match</option>
+                                    <option value="Not Agreed">Do Not Agree</option>
+                                </select>
+                                <br/>
+                                <button type="submit" class="btn btn-success mt-3">Submit</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -40,6 +69,6 @@
             No caregiver-volunteer matches found yet.
         </div>
     }
-    </body>
+</body>
 </html>
 

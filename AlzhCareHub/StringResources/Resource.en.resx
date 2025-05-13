@@ -712,4 +712,16 @@ platform offers a variety of services to make caregiving easier, more effective,
   <data name="Submitbtn" xml:space="preserve">
     <value>Submit</value>
   </data>
+  <data name="ERSE1" xml:space="preserve">
+    <value>Download Into Urdu</value>
+  </data>
+  <data name="ERSEng1" xml:space="preserve">
+    <value>Download into english</value>
+  </data>
+  <data name="urdulink" xml:space="preserve">
+    <value>Know in Urdu</value>
+  </data>
+  <data name="EnglishLink" xml:space="preserve">
+    <value>Know In English</value>
+  </data>
 </root>

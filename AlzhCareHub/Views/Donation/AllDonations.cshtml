@@ -1,0 +1,32 @@
+﻿@model List<AlzhCareHub.Models.DonationViewModel>
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "All Donations";
+}
+
+<h2 class="text-center mb-4" style="color: #004241;">Donor Contributions</h2>
+
+@if (!Model.Any())
+{
+    <p class="text-center">No donations found.</p>
+}
+else
+{
+    <div class="container">
+        <div class="row">
+            @foreach (var donation in Model)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow" style="border-radius: 15px; background-color: #eaf5f0;">
+                        <div class="card-body">
+
+                            <p class="car-text"><strong>Donation Type: </strong>@donation.DonationType</p>
+                            <p class="card-text"><strong>Amount:</strong> PKR @donation.Amount</p>
+                            <p class="card-text"><strong>Donation Frequency:</strong> @donation.Frequency</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}

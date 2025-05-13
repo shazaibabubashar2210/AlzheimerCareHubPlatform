@@ -64,7 +64,6 @@ namespace AlzhCareHub.Controllers
             return View(task);
         }
 
-        // Edit Task
         [HttpPost]
         public async Task<IActionResult> EditTask(TaskModel task)
         {
@@ -88,6 +87,8 @@ namespace AlzhCareHub.Controllers
             ModelState.AddModelError("", "Failed to update the task. Please try again.");
             return View(task);
         }
+
+
 
 
         private bool IsValidEmail(string email)

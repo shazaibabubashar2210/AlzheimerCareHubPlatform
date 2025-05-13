@@ -901,4 +901,20 @@
     <value>Submitbtn</value>
     <comment>Submitbtn</comment>
   </data>
+  <data name="ERSE1" xml:space="preserve">
+    <value>ERSE1</value>
+    <comment>ERSE1</comment>
+  </data>
+  <data name="ERSEng1" xml:space="preserve">
+    <value>ERSEng1</value>
+    <comment>ERSEng1</comment>
+  </data>
+  <data name="urdulink" xml:space="preserve">
+    <value>urdulink</value>
+    <comment>urdulink</comment>
+  </data>
+  <data name="EnglishLink" xml:space="preserve">
+    <value>EnglishLink</value>
+    <comment>EnglishLink</comment>
+  </data>
 </root>

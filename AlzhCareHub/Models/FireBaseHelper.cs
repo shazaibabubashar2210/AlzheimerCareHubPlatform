@@ -105,6 +105,29 @@ namespace AlzhCareHub.Models
                 return false;
             }
         }
+        // Get All Donations
+        public static async Task<List<DonationViewModel>> GetAllDonations()
+        {
+            try
+            {
+                var donations = await firebaseClient
+                    .Child("Donations")
+                    .OnceAsync<DonationViewModel>();
+
+                List<DonationViewModel> donationList = new List<DonationViewModel>();
+                foreach (var donation in donations)
+                {
+                    donationList.Add(donation.Object);
+                }
+
+                return donationList;
+            }
+            catch (Exception)
+            {
+                return new List<DonationViewModel>();
+            }
+        }
+
 
     }
 }

@@ -538,6 +538,15 @@ namespace AlzhCareHub.StringResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to EnglishLink.
+        /// </summary>
+        public static string EnglishLink {
+            get {
+                return ResourceManager.GetString("EnglishLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to EnterAmount.
         /// </summary>
         public static string EnterAmount {
@@ -570,6 +579,24 @@ namespace AlzhCareHub.StringResources {
         public static string Er3 {
             get {
                 return ResourceManager.GetString("Er3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ERSE1.
+        /// </summary>
+        public static string ERSE1 {
+            get {
+                return ResourceManager.GetString("ERSE1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ERSEng1.
+        /// </summary>
+        public static string ERSEng1 {
+            get {
+                return ResourceManager.GetString("ERSEng1", resourceCulture);
             }
         }
         
@@ -1695,6 +1722,15 @@ namespace AlzhCareHub.StringResources {
         public static string TypeMsg {
             get {
                 return ResourceManager.GetString("TypeMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to urdulink.
+        /// </summary>
+        public static string urdulink {
+            get {
+                return ResourceManager.GetString("urdulink", resourceCulture);
             }
         }
         

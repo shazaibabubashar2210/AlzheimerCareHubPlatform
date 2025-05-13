@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400..800&family=Noto+Nastaliq+Urdu:wght@400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #cfe6dc;
+            color: #004241;
+        }
+
+        * {
+            scroll-behavior: smooth;
+            font-family: "Noto Nastaliq Urdu", serif;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #004242;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+    </style>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg" style="color: #ffffff">
+        <div class="container-fluid">
+
+            <span class="logo ms-5 me-3">A</span> <a class="navbar-brand brand-logo" asp-controller="Auth" asp-action="CaregiverDashBoard">
+                @AlzhCareHub.StringResources.Resource.AlzhCare
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    <!-- Pushes items to the right -->
+                    <li class="nav-item">
+                        <a class="nav-link active" asp-controller="Auth" asp-action="AdminDashBoard">Admin</a>
+                    </li>
+
+                    @{
+                        var userEmail = Context.Session.GetString("UserEmail");
+                    }
+
+                    @if (!string.IsNullOrEmpty(userEmail))
+                    {
+                        <a class="nav-link me-5 active" asp-controller="Auth" asp-action="Logout">@AlzhCareHub.StringResources.Resource.Logout</a>
+                    }
+                    else
+                    {
+                        <a class="nav-link me-5 active" asp-controller="Auth" asp-action="Login">@AlzhCareHub.StringResources.Resource.Login_</a>
+                    }
+                    <li class="nav-item">
+                        <form method="post" asp-controller="Language" asp-action="SetLanguage" class="d-flex me-3">
+                            <select name="culture" onchange="this.form.submit()" class="form-select" style="background-color:#b7d8ca; border: 1px solid grey;">
+                                <option value="en" selected="@((Context.Session.GetString("Culture") == "en") ? "selected" : null)" style="color: #004241;">English</option>
+                                <option value="ur" selected="@((Context.Session.GetString("Culture") == "ur") ? "selected" : null)" style="color: #004241;">اردو</option>
+                            </select>
+                        </form>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid mt-4">
+        @RenderBody()  @* This is required *@
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    @RenderSection("Scripts", required: false)
+
+</body>
+</html>

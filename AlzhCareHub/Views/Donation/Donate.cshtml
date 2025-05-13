@@ -1,5 +1,6 @@
 ﻿@{
     Layout = "_Donation";
+    var userEmail = Context.Session.GetString("UserEmail");
 }
 <!DOCTYPE html>
 <html>
@@ -7,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Donation Page</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/css/caregiverdashboardstyling.css" rel="stylesheet" />
     <style>
         body {
@@ -41,10 +42,6 @@
     </style>
 </head>
 <body>
-    @{
-        var userEmail = Context.Session.GetString("UserEmail");
-    }
-
     @if (string.IsNullOrEmpty(userEmail))
     {
         <script type="text/javascript">
@@ -60,21 +57,32 @@
                 <strong>@AlzhCareHub.StringResources.Resource.AlzhCare</strong>
             </h5>
 
-            <form asp-controller="Donation" asp-action="CreateCheckoutSession" method="post">
+            <form asp-controller="Donation" asp-action="CreateCheckoutSession" method="post" id="donationForm">
                 <!-- Donation Type -->
                 <div class="mb-3">
                     <label for="donationType" class="form-label">@AlzhCareHub.StringResources.Resource.donationtype</label>
-                    <select class="form-select" id="donationType" style="background-color: transparent; border: 1px solid #004241; color: #004241" required>
-                        <option selected>@AlzhCareHub.StringResources.Resource.CostofEducation</option>
-                        <option>@AlzhCareHub.StringResources.Resource.PateintCare</option>
-                        <option>@AlzhCareHub.StringResources.Resource.SupportOurWebsite</option>
+                    <select class="form-select" id="donationType" name="DonationType" required
+                            style="background-color: transparent; border: 1px solid #004241; color: #004241;">
+                        <option value="@AlzhCareHub.StringResources.Resource.CostofEducation">
+                            @AlzhCareHub.StringResources.Resource.CostofEducation
+                        </option>
+                        <option value="@AlzhCareHub.StringResources.Resource.PateintCare">
+                            @AlzhCareHub.StringResources.Resource.PateintCare
+                        </option>
+                        <option value="@AlzhCareHub.StringResources.Resource.SupportOurWebsite">
+                            @AlzhCareHub.StringResources.Resource.SupportOurWebsite
+                        </option>
                     </select>
                 </div>
 
                 <!-- Donation Amount -->
                 <div class="mb-3">
-                    <label for="donationAmount" class="form-label">@AlzhCareHub.StringResources.Resource.donationAmount <span class="text-danger">*</span></label>
-                    <input type="number" class="form-control" id="donationAmount" placeholder="@AlzhCareHub.StringResources.Resource.EnterAmount" required style="background:transparent; border: 1px solid #004241;">
+                    <label for="donationAmount" class="form-label">
+                        @AlzhCareHub.StringResources.Resource.donationAmount <span class="text-danger">*</span>
+                    </label>
+                    <input type="number" class="form-control" id="donationAmount" name="Amount"
+                           placeholder="@AlzhCareHub.StringResources.Resource.EnterAmount" required
+                           style="background: transparent; border: 1px solid #004241;">
                 </div>
 
                 <!-- Donation Frequency -->
@@ -82,46 +90,43 @@
                     <label class="form-label">@AlzhCareHub.StringResources.Resource.DonationFrequency</label>
                     <div class="d-flex align-items-center">
                         <div class="form-check me-3">
-                            <input class="form-check-input" type="radio" name="donationFrequency" id="monthly" checked>
+                            <input class="form-check-input" type="radio" name="Frequency" id="monthly" value="Monthly" checked>
                             <label class="form-check-label" for="monthly">@AlzhCareHub.StringResources.Resource.Monthly</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="donationFrequency" id="oneTime">
+                            <input class="form-check-input" type="radio" name="Frequency" id="oneTime" value="OneTime">
                             <label class="form-check-label" for="oneTime">@AlzhCareHub.StringResources.Resource.OneTime</label>
                         </div>
                     </div>
                 </div>
 
-                <!-- Hidden Inputs -->
-                <input type="hidden" name="DonationType" id="donationTypeInput" />
-                <input type="hidden" name="Amount" id="donationAmountInput" />
-                <input type="hidden" name="Frequency" id="donationFrequencyInput" />
-
                 <!-- Buttons -->
                 <div class="d-flex justify-content-between">
-                    <a asp-action="CaregiverDashBoard" asp-controller="Auth" class="helpbtnprimary text-center" style="width:48%;">@AlzhCareHub.StringResources.Resource.CancelBtn</a>
-                    <button type="submit" class="helpbtnprimary" style="width:48%;">@AlzhCareHub.StringResources.Resource.CheckoutBtn</button>
+                    <a asp-action="CaregiverDashBoard" asp-controller="Auth" class="helpbtnprimary text-center" style="width:48%;">
+                        @AlzhCareHub.StringResources.Resource.CancelBtn
+                    </a>
+                    <button type="submit" class="helpbtnprimary" id="donateButton" style="width:48%;">
+                        @AlzhCareHub.StringResources.Resource.CheckoutBtn
+                    </button>
                 </div>
             </form>
         </div>
     }
 
     <script>
-        document.querySelector("form").addEventListener("submit", function (e) {
+        document.getElementById("donationForm").addEventListener("submit", function (e) {
             var amount = parseFloat(document.getElementById("donationAmount").value);
+            var button = document.getElementById("donateButton");
 
             if (amount <= 0 || isNaN(amount)) {
-                e.preventDefault(); // stop form from submitting
+                e.preventDefault();
                 alert("Please enter a positive amount.");
                 return;
             }
 
-            document.getElementById("donationTypeInput").value = document.getElementById("donationType").value;
-            document.getElementById("donationAmountInput").value = amount;
-            var freq = document.getElementById("monthly").checked ? "Monthly" : "One time";
-            document.getElementById("donationFrequencyInput").value = freq;
+            button.disabled = true;
+            button.innerText = "Processing...";
         });
     </script>
-
 </body>
 </html>

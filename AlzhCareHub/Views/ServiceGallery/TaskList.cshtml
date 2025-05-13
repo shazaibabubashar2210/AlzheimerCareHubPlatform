@@ -42,12 +42,12 @@
                             <p class="card-text" style="color: #004242;"><strong>Description:</strong> @task.Description</p>
 
                             <div class="d-flex justify-content-between">
-                                <a href="@Url.Action("EditTask", "ServiceGallery", new { id = task.Id })" class="btn btn-warning btn-sm px-5 py-2">Edit</a>
+                                @* <a href="@Url.Action("EditTask", "ServiceGallery", new { id = task.Id })" class="btn btn-warning btn-sm px-5 py-2">Edit</a> *@
 
-                                <form asp-action="DeleteTask" method="post" style="display:inline;">
-                                    <input type="hidden" name="id" value="@task.Id" />
-                                    <button type="submit" class="btn btn-danger btn-sm px-5 py-2" onclick="return confirm('Are you sure you want to delete this task?');">Delete</button>
-                                </form>
+                                @* <form asp-action="DeleteTask" method="post" style="display:inline;"> *@
+                                @*     <input type="hidden" name="id" value="@task.Id" /> *@
+                                @*     <button type="submit" class="btn btn-danger btn-sm px-5 py-2" onclick="return confirm('Are you sure you want to delete this task?');">Delete</button> *@
+                                @* </form> *@
                             </div>
                         </div>
                     </div>

@@ -23,7 +23,14 @@ namespace AlzhCareHub.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateCheckoutSession(DonationViewModel donation)
         {
-            var domain = "https://localhost:44349"; // your domain
+            if (string.IsNullOrWhiteSpace(donation.DonationType))
+            {
+                ModelState.AddModelError("DonationType", "Donation type is required.");
+                ViewBag.PublishableKey = _stripeSettings.PublishableKey;
+                return View("Donate", donation);
+            }
+
+            var domain = "https://localhost:44349"; 
 
             SessionCreateOptions options;
 
@@ -87,12 +94,16 @@ namespace AlzhCareHub.Controllers
             var service = new SessionService();
             Session session = service.Create(options);
 
-            // Save the donation data to Firebase here
             await FirebaseHelper.SubmitDonation(donation);
 
             return Redirect(session.Url);
         }
-
+        // Get Donations
+        public async Task<IActionResult> AllDonations()
+        {
+            var allDonations = await FirebaseHelper.GetAllDonations();
+            return View(allDonations);
+        }
         public IActionResult Success()
         {
             return View();
@@ -104,4 +115,3 @@ namespace AlzhCareHub.Controllers
         }
     }
 }
-
