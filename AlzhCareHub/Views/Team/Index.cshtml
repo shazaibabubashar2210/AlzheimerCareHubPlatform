@@ -1,1 +1,72 @@
-﻿<h1>I am admin index page</h1> ti
+﻿@model List<AlzhCareHub.Models.TeamMember>
+
+@{
+    Layout = "_AdminLayout";  
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Doctors List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/CaregiverDashBoardStyling.css"/>
+    <link rel="stylesheet" href="~/css/CaregiverDashBoardCards.css"/>
+</head>
+<body style="background-color: #cfe6dc;">
+    <div class="container mt-4">
+        <h2>Doctors List</h2>
+        <a class="mb-3 helpbtn helpbtnprimary" asp-controller="Team" asp-action="AddDoctor">Add New Doctor</a>
+
+        <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Phone Number</th>
+                    <th>Location</th>
+                    <th>Available Slot</th>
+                    <th>Profile Picture</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody style="width: 80vw">
+                @if (Model != null && Model.Count > 0)
+                {
+                    foreach (var doctor in Model)
+                    {
+                        <tr>
+                            <td>@doctor.Name</td>
+                            <td>@doctor.PhoneNumber</td>
+                            <td>@doctor.Location</td>
+                            <td>@doctor.AvailableSlot</td>
+                            <td>
+                                @if (!string.IsNullOrEmpty(doctor.ImageUrl))
+                                {
+                                    <img src="~/@doctor.ImageUrl" alt="Profile" width="60" height="60" style="object-fit: cover; border-radius: 50%;" />
+                                }
+                                else
+                                {
+                                    <span>No Image</span>
+                                }
+                            </td>
+                            <td>
+                                <div class="d-flex gap-1 mt-2">
+                                    <a class="btn btn-primary btn-sm" asp-controller="Team" asp-action="EditDoctor" asp-route-id="@doctor.Id">Update</a>
+                                    <form method="post" asp-controller="Team" asp-action="DeleteDoctor" asp-route-id="@doctor.Id" onsubmit="return confirm('Are you sure you want to delete this doctor?');">
+                                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="6" class="text-center">No doctors found.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

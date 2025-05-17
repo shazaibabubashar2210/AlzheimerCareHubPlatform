@@ -44,6 +44,13 @@ namespace AlzhCareHub.Controllers
 
             return View("Index", model);
         }
+        [HttpGet]
+        public async Task<IActionResult> AllContacts()
+        {
+            var contactList = await FireBaseContactHelper.GetAllContacts();
+            return View(contactList); 
+        }
+
     }
 }
    

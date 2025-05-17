@@ -1,0 +1,48 @@
+﻿@{
+    Layout = "_AdminLayout";
+}
+@model List<AlzhCareHub.Models.ContactModel>
+
+<!Doctype html>
+<html>
+    <head>
+        <title>Contact Details</title>
+    </head>
+    <body>
+    <h2 class="mb-4 text-center">All Contact Submissions</h2>
+
+    @if (Model.Count == 0)
+    {
+        <div style="color: red; text-align: center;">No contact submissions found.</div>
+    }
+    else
+    {
+        <table class="table table-bordered table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>#</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Message</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <tr>
+                        <td>@(i + 1)</td>
+                        <td>@Model[i].FirstName</td>
+                        <td>@Model[i].LastName</td>
+                        <td>@Model[i].Email</td>
+                        <td>@Model[i].PhoneNumber</td>
+                        <td>@Model[i].Message</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    </body>
+</html>
+

@@ -31,5 +31,24 @@ namespace AlzhCareHub.Models
                 return false;
             }
         }
+
+        // Fetch All Contact from the DataBase
+        public static async Task<List<ContactModel>> GetAllContacts()
+        {
+            try
+            {
+                var contacts = await firebaseClient
+                    .Child("Contacts")
+                    .OnceAsync<ContactModel>();
+
+                return contacts.Select(item => item.Object).ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error fetching contacts: {ex.Message}");
+                return new List<ContactModel>();
+            }
+        }
+
     }
 }

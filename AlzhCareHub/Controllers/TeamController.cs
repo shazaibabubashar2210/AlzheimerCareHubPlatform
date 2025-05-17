@@ -53,10 +53,56 @@ namespace AlzhCareHub.Controllers
                 // Save the relative image path
                 member.ImageUrl = Path.Combine("teamImages", fileName).Replace("\\", "/");
             }
-            _teamService.AddTeamMember(member); 
+            _teamService.AddTeamMember(member);
 
-            return RedirectToAction("DoctorAppointment", "DoctorAppointment"); // or return Ok if using API
+            return RedirectToAction("Index");
         }
+        // Edit Doctor
+        [HttpGet]
+        public async Task<IActionResult> EditDoctor(string id)
+        {
+            var doctor = await _teamService.GetTeamMemberById(id);
+            if (doctor == null)
+                return NotFound();
+
+            return View("AddDoctor", doctor); // Reuse the same view
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditDoctor(string id, TeamMember member)
+        {
+            if (member.ImageFile != null && member.ImageFile.Length > 0)
+            {
+                string wwwRootPath = _webHostEnvironment.WebRootPath;
+                string folderPath = Path.Combine(wwwRootPath, "teamImages");
+
+                if (!Directory.Exists(folderPath))
+                {
+                    Directory.CreateDirectory(folderPath);
+                }
+
+                string fileName = Path.GetFileName(member.ImageFile.FileName);
+                string filePath = Path.Combine(folderPath, fileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    member.ImageFile.CopyTo(stream);
+                }
+
+                member.ImageUrl = Path.Combine("teamImages", fileName).Replace("\\", "/");
+            }
+
+            await _teamService.UpdateTeamMember(id, member);
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteDoctor(string id)
+        {
+            await _teamService.DeleteTeamMember(id);
+            return RedirectToAction("Index");
+        }
+
 
         public async Task<IActionResult> Index()
         {

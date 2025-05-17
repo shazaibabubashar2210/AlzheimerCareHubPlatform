@@ -3,8 +3,10 @@
     using Firebase.Auth;
     using Firebase.Database;
     using Firebase.Database.Query;
-    using System.Threading.Tasks;
     using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
 
     public class FirebaseAuthHelper
     {
@@ -13,17 +15,23 @@
         private static FirebaseAuthProvider authProvider = new FirebaseAuthProvider(new FirebaseConfig(ApiKey));
         private static FirebaseClient firebaseClient = new FirebaseClient(DatabaseUrl);
 
-        // Register User with Email Verification
         public static async Task<FirebaseAuthLink> RegisterUser(string email, string password, string role)
         {
             try
             {
                 var authLink = await authProvider.CreateUserWithEmailAndPasswordAsync(email, password);
+                string userId = authLink.User.LocalId;
 
-                // Store user role in Firebase Database
+                // ✅ Store user data using UID as key
                 await firebaseClient
                     .Child("Users")
-                    .PutAsync(new { Email = email, Role = role, EmailVerified = true });
+                    .Child(userId)
+                    .PutAsync(new
+                    {
+                        Email = email,
+                        Role = role,
+                        EmailVerified = true
+                    });
 
                 return authLink;
             }
@@ -37,8 +45,7 @@
             }
         }
 
-
-        // Login User with Email Verification Check
+        // ✅ Login User with Email Verification Check
         public static async Task<FirebaseAuthLink> LoginUser(string email, string password)
         {
             try
@@ -56,6 +63,7 @@
             }
         }
 
+        // ✅ Check if User is Admin (by UID)
         public static async Task<bool> IsAdmin(string userId)
         {
             var user = await firebaseClient
@@ -65,7 +73,8 @@
 
             return user?.Role == "Admin";
         }
-        // Get User Role from Firebase Database
+
+        // ✅ Get User Role by UID
         public static async Task<string> GetUserRole(string userId)
         {
             var user = await firebaseClient
@@ -73,11 +82,10 @@
                 .Child(userId)
                 .OnceSingleAsync<dynamic>();
 
-            return user?.Role?.ToString() ?? "Unknown"; // Ensure proper role retrieval
+            return user?.Role?.ToString() ?? "Unknown";
         }
 
-
-        // Reset Password
+        // ✅ Send Password Reset Email
         public static async Task<string> ResetPassword(string email)
         {
             try
@@ -90,5 +98,7 @@
                 throw new Exception("Error sending password reset email: " + ex.Message);
             }
         }
+
+       
     }
 }
