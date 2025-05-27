@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlzhCareHub", "AlzhCareHub.csproj", "{E8AEA10F-B813-7F44-1211-B9676CAC051F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E8AEA10F-B813-7F44-1211-B9676CAC051F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8AEA10F-B813-7F44-1211-B9676CAC051F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8AEA10F-B813-7F44-1211-B9676CAC051F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8AEA10F-B813-7F44-1211-B9676CAC051F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {349E38E2-D55C-48F8-A973-A314E1AAB1DA}
+	EndGlobalSection
+EndGlobal

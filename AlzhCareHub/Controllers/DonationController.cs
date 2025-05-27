@@ -30,6 +30,15 @@ namespace AlzhCareHub.Controllers
                 return View("Donate", donation);
             }
 
+            // Stripe maximum amount in cents = 999999999999
+            if ((long)(donation.Amount * 100) > 999999999999)
+            {
+                ModelState.AddModelError("Amount", "Donation amount exceeds the maximum allowed by Stripe.");
+                ViewBag.PublishableKey = _stripeSettings.PublishableKey;
+                return View("Donate", donation);
+            }
+
+
             var domain = "https://localhost:44349"; 
 
             SessionCreateOptions options;

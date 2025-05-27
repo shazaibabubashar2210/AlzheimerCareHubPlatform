@@ -99,6 +99,17 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     @RenderSection("Scripts", required: false)
+    @section Scripts {
+        <script>
+            $(document).ready(function () {
+                var amountError = '@Html.Raw(Json.Serialize(ViewData.ModelState["Amount"]?.Errors.FirstOrDefault()?.ErrorMessage))';
+                if (amountError) {
+                    alert(amountError);
+                }
+            });
+        </script>
+    }
+
 
 </body>
 </html>

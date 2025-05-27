@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Configuration;
 using Stripe;
 using System.Globalization;
+
 System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,10 +17,23 @@ builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnC
 
 // Add services to the container
 builder.Services.AddControllersWithViews();
+builder.WebHost.UseUrls("http://*:8080");
+
 
 // Stripe functionality
-builder.Services.Configure<StripeSettings>(builder.Configuration.GetSection("Stripe"));
-var stripeSettings = builder.Configuration.GetSection("Stripe").Get<StripeSettings>();
+var stripeSection = builder.Configuration.GetSection("Stripe");
+if (!stripeSection.Exists())
+{
+    throw new Exception("Stripe config section is missing.");
+}
+
+var stripeSettings = stripeSection.Get<StripeSettings>();
+if (stripeSettings == null || string.IsNullOrEmpty(stripeSettings.SecretKey))
+{
+    throw new Exception("Stripe keys are missing or incomplete.");
+}
+
+builder.Services.Configure<StripeSettings>(stripeSection);
 StripeConfiguration.ApiKey = stripeSettings.SecretKey;
 
 // Add localization services
@@ -48,9 +62,7 @@ builder.Services.AddSignalR();
 
 // Configure HttpContextAccessor for accessing HTTP context
 builder.Services.AddHttpContextAccessor();
-
-// Set up the web host to run on port 80
-builder.WebHost.UseUrls("http://0.0.0.0:80");
+builder.Configuration.AddEnvironmentVariables();
 
 var app = builder.Build();
 

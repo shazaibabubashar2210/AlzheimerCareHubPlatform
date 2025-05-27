@@ -31,4 +31,3 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "AlzhCareHub.dll"]
-ENV ASPNETCORE_URLS=http://+:8080
